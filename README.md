@@ -4,9 +4,9 @@ explaining how to connect QGIS to an LMS (or other external) database and how to
 
 Nie mam już dziś siły na szczegółowy opis, ale że czas goni to chcę wrzucić cokolwiek - może jeszcze ktoś zdąży skorzystać: poniżej metoda wyciągnięcia do QGISa danych bezpośrednio z LMSa i przetworzenia ich do warstw węzły/punkty elastyczności/linie proste pomiędzy urządzeniami do edycji (nie skończone w 100%)
 
-1. Dodajemy swoją bazę lmsa (bądź inną) przez "Layer" -> "Data source manager" -> <b>postgresql</b>. Powinniśmy mieć połączenie i móc przeglądać bazę. Szczegóły znajdziecie w sieci, teraz nie mam czasu tego opisywać.
+1. Dodajemy swoją bazę lmsa (bądź inną) przez "Layer" -> "Data source manager" -> <b>postgresql</b>. Powinniśmy mieć połączenie i móc przeglądać bazę. Szczegóły znajdziecie w sieci, teraz nie mam siły tego opisywać.
 
-2. QGIS <b>bardzo słabo</b> radzi sobie z bardziej skomplikowanymi zapytaniami do baz zewnętrznych. ALE - jest rozwiązanie i na to. Zamiast w QGISIE używać np. (poniżej zapytanie do skopiowania do bazy LMS wyciągające aktywne (z linkami) urządzenia sieciowe):
+2. QGIS <b>bardzo słabo</b> radzi sobie z bardziej skomplikowanymi zapytaniami do baz zewnętrznych. ALE - jest rozwiązanie i na to. Zamiast w QGISIE używać np. (poniżej zapytanie do bazy LMS wyciągające aktywne (z linkami) urządzenia sieciowe):
 
 ```
 SELECT DISTINCT n.id /*:int*/ AS lms_dev_id, CONCAT(n.id, '_', REPLACE(n.name, ' ', '')) /*:text*/ AS uke_report_namepart, n.longitude AS dlugosc /*:real*/, n.latitude AS szerokosc /*:real*/,
@@ -30,7 +30,7 @@ INNER JOIN lms_location_states ls    ON ls.id = ld.stateid
 INNER JOIN lms_netlinks nl ON (n.id = nl.src OR n.id = nl.dst)
 ORDER BY n.id;
 ```
-wystarczy utworzyć widok (VIEW):
+wystarczy utworzyć widok (VIEW) - oczywiście bezpośrednio w bazie LMSa:
 ```
 CREATE VIEW vtable_for_qgis AS
 SELECT DISTINCT n.id /*:int*/ AS lms_dev_id, CONCAT(n.id, '_', REPLACE(n.name, ' ', '')) /*:text*/ AS uke_report_namepart, n.longitude AS dlugosc /*:real*/, n.latitude AS szerokosc /*:real*/,
