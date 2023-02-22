@@ -62,7 +62,7 @@ Po pomyślnym podłączeniu do LMSa w QGISie można albo z palca utworzyć "New 
 
 screeny w katalogu [img](./img) z przedrostkiem "lms_devices_1" mogą być tu pomocne. Po edycji pliku dodajemy warstwę przez "Layer" -> "add from layer definition file"
 
-3. Jeśli pracujemy na QGISie podłączonym do własnej bazy postgisowej - w tym momencie robimy import warstwy wirtualnej na serwer postgisa, po czym <b>OTWIERAMY ZAIMPORTOWANĄ WARSTWĘ Z BAZY za pomocą dwukliku w DB managerze!</b>
+3. Jeśli pracujemy na QGISie podłączonym do własnej bazy postgisowej [ZDECYDOWANIE ZALECANA METODA!] - w tym momencie robimy import warstwy wirtualnej na serwer postgisa, po czym <b>OTWIERAMY ZAIMPORTOWANĄ WARSTWĘ Z BAZY za pomocą dwukliku w DB managerze!</b>. Patrz [lms_devices_1_raw_distinct-import_to_qgis_db.png](./img/lms_devices_1_raw_distinct-import_to_qgis_db.png) i [lms_devices_1_raw_distinct-qgis_db_manager.png](./img/lms_devices_1_raw_distinct-qgis_db_manager.png).
 
 4. Warstwa zawiera tak na prawdę punkty adresowe w których mamy jedno lub więcej urządzeń. Na dany moment przetworzyłęm ją na węzły i punkty elastyczności, oraz na podstawie punktów elastyczności - linki pomiędzy nimi (tutaj SQL jest mocno do poprawy, ale jakiś pogląd na to co da się dosyć łatwo zrobić będziecie mieli). Nadmieniam że zarówno węzły jak i punkty elastyczności przeszły walidację w UKE. Linki pewnie jutro poprawię i wtedy zobaczymy.
 
@@ -117,7 +117,17 @@ dlugosc AS pe10_dlugosc,
 FROM lms_devices_1_raw_distinct;
 ```
 
-i znowu - obrazki z [img](./img) mogą być pomocne.
+i znowu - obrazki z [img](./img) mogą być pomocne. Z warstw wirtualnych kopiujemy dane przez prawy klik na warstwie, "Open attributes table" -> "copy all", prawy klik na warstwie docelowej, attributes table, <b>enable edit mode (ołówek)</b> i zwykły CTRL+V. W tym momencie wszystkie pobrane węzły/PE powinny się pojawić na mapie.  
+
+UWAGA! Jeśli wywala nam błąd że "uid/fid must be not null" - to znaczy że nasza warstwa docelowa nie ma odpowiedniego indexu (zakłądam że jest zapisana w DB). Poniżej instrukcja dodania dla warstwy/tabeli "węzły":
+```
+CREATE SEQUENCE public.wezly_id_seq INCREMENT 1 START 1;
+ALTER SEQUENCE public.wezly_id_seq OWNER TO mójdbuser;
+ALTER SEQUENCE public.wezly_id_seq OWNED BY wezly.fid;
+GRANT ALL ON SEQUENCE public.wezly_id_seq TO mójdbuser WITH GRANT OPTION;
+ALTER TABLE IF EXISTS public.wezly ALTER COLUMN fid SET DEFAULT nextval('wezly_id_seq'::regclass);
+```
+
 
 6. Linie są nieco bardziej skomplikowane - trzeba wyciągnąć z netlinks połączenia zaczynające się i kończące na <b>zestawie (terc, simc, ulic, nr_porzadkowy) </b> - bo po tych kolumnach robiliśmy selecta do QGISa, i takie punkty elastyczności mamy. Jak już wspominałem - tego jeszcze nie skończyłem, dorzucę jutro może koło południa.  
 
