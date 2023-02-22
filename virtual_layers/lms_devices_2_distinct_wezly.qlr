@@ -1,0 +1,568 @@
+<!DOCTYPE qgis-layer-definition>
+<qlr>
+  <layer-tree-group checked="Qt::Checked" groupLayer="" name="" expanded="1">
+    <customproperties>
+      <Option/>
+    </customproperties>
+    <layer-tree-layer checked="Qt::Checked" source="?layer=postgres:dbname%3D%27CHANGE_HERE_QGIS_DB_NAME_CHANGE_HERE%27%20host%3DCHANGE_HERE_QGIS_HOST_IP_CHANGE_HERE%20port%3D5432%20authcfg%3Dba0gol2%20key%3D%27fid%27%20estimatedmetadata%3Dtrue%20checkPrimaryKeyUnicity%3D%271%27%20table%3D%22public%22.%22lms_devices_1_raw_distinct%22:lms_devices_1_raw_distinct:UTF-8&amp;query=SELECT%0D%0Afid,%0D%0AMakePoint(dlugosc,%20szerokosc,%204326)%20AS%20geom,%0D%0ACONCAT('WW_',%20'',%20uke_report_namepart)%20AS%20we01_id_wezla,%0D%0A'W%C4%99ze%C5%82%20w%C5%82asny'%20AS%20we02_tytul_do_wezla,%0D%0A''%20AS%20we03_id_podmiotu_obcego,%0D%0Aterc%20AS%20we04_terc,%0D%0Asimc%20AS%20we05_simc,%0D%0Aulic%20AS%20we06_ulic,%0D%0Anr_porzadkowy%20AS%20we07_nr_porzadkowy,%0D%0Aszerokosc%20AS%20we08_szerokosc,%0D%0Adlugosc%20AS%20we09_dlugosc,%0D%0A'%C5%9Bwiat%C5%82owodowe'%20AS%20we10_medium_transmisyjne,%0D%0A'Nie'%20AS%20we11_bsa,%0D%0A'10%20Gigabit%20Ethernet'%20AS%20we12_technologia_dostepowa,%0D%0A'Ethernet%20VLAN'%20AS%20we13_uslugi_transmisji_danych,%0D%0A'Tak'%20AS%20we14_mozliwosc_zwiekszenia_liczby_interfejsow,%0D%0A'Nie'%20AS%20we15_finansowanie_publ,%0D%0A''%20AS%20we16_numery_projektow_publ,%0D%0A'Nie'%20AS%20we17_infrastruktura_o_duzym_znaczeniu,%0D%0A'03'%20AS%20we18_typ_interfejsu,%0D%0A'Nie'%20AS%20we19_udostepnianie_ethernet%0D%0AFROM%20lms_devices_1_raw_distinct;&amp;uid=fid&amp;geometry=geom:1:4326" id="lms_devices_2_distinct_wezly_dd222822_b06d_4304_9e13_44a102921529" name="lms_devices_2_distinct_wezly" legend_split_behavior="0" patch_size="-1,-1" legend_exp="" providerKey="virtual" expanded="1">
+      <customproperties>
+        <Option/>
+      </customproperties>
+    </layer-tree-layer>
+  </layer-tree-group>
+  <maplayers>
+    <maplayer maxScale="0" geometry="Point" hasScaleBasedVisibilityFlag="0" minScale="100000000" autoRefreshEnabled="0" readOnly="0" labelsEnabled="0" simplifyDrawingTol="1" refreshOnNotifyEnabled="0" simplifyLocal="0" simplifyDrawingHints="1" autoRefreshTime="0" simplifyAlgorithm="0" type="vector" styleCategories="AllStyleCategories" legendPlaceholderImage="" simplifyMaxScale="1" wkbType="Point" symbologyReferenceScale="-1" refreshOnNotifyMessage="">
+      <extent>
+        <xmin>22.86788800000000066</xmin>
+        <ymin>52.98841500000000337</ymin>
+        <xmax>23.22599500000000106</xmax>
+        <ymax>53.19248900000000191</ymax>
+      </extent>
+      <wgs84extent>
+        <xmin>22.86788800000000066</xmin>
+        <ymin>52.98841500000000337</ymin>
+        <xmax>23.22599500000000106</xmax>
+        <ymax>53.19248900000000191</ymax>
+      </wgs84extent>
+      <id>lms_devices_2_distinct_wezly_dd222822_b06d_4304_9e13_44a102921529</id>
+      <datasource>?layer=postgres:dbname%3D%27CHANGE_HERE_QGIS_DB_NAME_CHANGE_HERE%27%20host%3DCHANGE_HERE_QGIS_HOST_IP_CHANGE_HERE%20port%3D5432%20authcfg%3Dba0gol2%20key%3D%27fid%27%20estimatedmetadata%3Dtrue%20checkPrimaryKeyUnicity%3D%271%27%20table%3D%22public%22.%22lms_devices_1_raw_distinct%22:lms_devices_1_raw_distinct:UTF-8&amp;query=SELECT%0D%0Afid,%0D%0AMakePoint(dlugosc,%20szerokosc,%204326)%20AS%20geom,%0D%0ACONCAT('WW_',%20'',%20uke_report_namepart)%20AS%20we01_id_wezla,%0D%0A'W%C4%99ze%C5%82%20w%C5%82asny'%20AS%20we02_tytul_do_wezla,%0D%0A''%20AS%20we03_id_podmiotu_obcego,%0D%0Aterc%20AS%20we04_terc,%0D%0Asimc%20AS%20we05_simc,%0D%0Aulic%20AS%20we06_ulic,%0D%0Anr_porzadkowy%20AS%20we07_nr_porzadkowy,%0D%0Aszerokosc%20AS%20we08_szerokosc,%0D%0Adlugosc%20AS%20we09_dlugosc,%0D%0A'%C5%9Bwiat%C5%82owodowe'%20AS%20we10_medium_transmisyjne,%0D%0A'Nie'%20AS%20we11_bsa,%0D%0A'10%20Gigabit%20Ethernet'%20AS%20we12_technologia_dostepowa,%0D%0A'Ethernet%20VLAN'%20AS%20we13_uslugi_transmisji_danych,%0D%0A'Tak'%20AS%20we14_mozliwosc_zwiekszenia_liczby_interfejsow,%0D%0A'Nie'%20AS%20we15_finansowanie_publ,%0D%0A''%20AS%20we16_numery_projektow_publ,%0D%0A'Nie'%20AS%20we17_infrastruktura_o_duzym_znaczeniu,%0D%0A'03'%20AS%20we18_typ_interfejsu,%0D%0A'Nie'%20AS%20we19_udostepnianie_ethernet%0D%0AFROM%20lms_devices_1_raw_distinct;&amp;uid=fid&amp;geometry=geom:1:4326</datasource>
+      <keywordList>
+        <value></value>
+      </keywordList>
+      <layername>lms_devices_2_distinct_wezly</layername>
+      <srs>
+        <spatialrefsys nativeFormat="Wkt">
+          <wkt>GEOGCRS["WGS 84",ENSEMBLE["World Geodetic System 1984 ensemble",MEMBER["World Geodetic System 1984 (Transit)"],MEMBER["World Geodetic System 1984 (G730)"],MEMBER["World Geodetic System 1984 (G873)"],MEMBER["World Geodetic System 1984 (G1150)"],MEMBER["World Geodetic System 1984 (G1674)"],MEMBER["World Geodetic System 1984 (G1762)"],MEMBER["World Geodetic System 1984 (G2139)"],ELLIPSOID["WGS 84",6378137,298.257223563,LENGTHUNIT["metre",1]],ENSEMBLEACCURACY[2.0]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],CS[ellipsoidal,2],AXIS["geodetic latitude (Lat)",north,ORDER[1],ANGLEUNIT["degree",0.0174532925199433]],AXIS["geodetic longitude (Lon)",east,ORDER[2],ANGLEUNIT["degree",0.0174532925199433]],USAGE[SCOPE["Horizontal component of 3D system."],AREA["World."],BBOX[-90,-180,90,180]],ID["EPSG",4326]]</wkt>
+          <proj4>+proj=longlat +datum=WGS84 +no_defs</proj4>
+          <srsid>3452</srsid>
+          <srid>4326</srid>
+          <authid>EPSG:4326</authid>
+          <description>WGS 84</description>
+          <projectionacronym>longlat</projectionacronym>
+          <ellipsoidacronym>EPSG:7030</ellipsoidacronym>
+          <geographicflag>true</geographicflag>
+        </spatialrefsys>
+      </srs>
+      <resourceMetadata>
+        <identifier></identifier>
+        <parentidentifier></parentidentifier>
+        <language></language>
+        <type></type>
+        <title></title>
+        <abstract></abstract>
+        <links/>
+        <fees></fees>
+        <encoding></encoding>
+        <crs>
+          <spatialrefsys nativeFormat="Wkt">
+            <wkt></wkt>
+            <proj4></proj4>
+            <srsid>0</srsid>
+            <srid>0</srid>
+            <authid></authid>
+            <description></description>
+            <projectionacronym></projectionacronym>
+            <ellipsoidacronym></ellipsoidacronym>
+            <geographicflag>false</geographicflag>
+          </spatialrefsys>
+        </crs>
+        <extent/>
+      </resourceMetadata>
+      <provider encoding="">virtual</provider>
+      <vectorjoins/>
+      <layerDependencies/>
+      <dataDependencies/>
+      <expressionfields/>
+      <map-layer-style-manager current="default">
+        <map-layer-style name="default"/>
+      </map-layer-style-manager>
+      <auxiliaryLayer/>
+      <metadataUrls/>
+      <flags>
+        <Identifiable>1</Identifiable>
+        <Removable>1</Removable>
+        <Searchable>1</Searchable>
+        <Private>0</Private>
+      </flags>
+      <temporal mode="0" startField="" endExpression="" limitMode="0" endField="" durationUnit="min" fixedDuration="0" startExpression="" enabled="0" durationField="" accumulate="0">
+        <fixedRange>
+          <start></start>
+          <end></end>
+        </fixedRange>
+      </temporal>
+      <elevation type="IndividualFeatures" extrusion="0" extrusionEnabled="0" zoffset="0" zscale="1" clamping="Terrain" respectLayerSymbol="1" symbology="Line" binding="Centroid" showMarkerSymbolInSurfacePlots="0">
+        <data-defined-properties>
+          <Option type="Map">
+            <Option type="QString" name="name" value=""/>
+            <Option name="properties"/>
+            <Option type="QString" name="type" value="collection"/>
+          </Option>
+        </data-defined-properties>
+        <profileLineSymbol>
+          <symbol type="line" force_rhr="0" alpha="1" clip_to_extent="1" name="" is_animated="0" frame_rate="10">
+            <data_defined_properties>
+              <Option type="Map">
+                <Option type="QString" name="name" value=""/>
+                <Option name="properties"/>
+                <Option type="QString" name="type" value="collection"/>
+              </Option>
+            </data_defined_properties>
+            <layer locked="0" class="SimpleLine" pass="0" enabled="1">
+              <Option type="Map">
+                <Option type="QString" name="align_dash_pattern" value="0"/>
+                <Option type="QString" name="capstyle" value="square"/>
+                <Option type="QString" name="customdash" value="5;2"/>
+                <Option type="QString" name="customdash_map_unit_scale" value="3x:0,0,0,0,0,0"/>
+                <Option type="QString" name="customdash_unit" value="MM"/>
+                <Option type="QString" name="dash_pattern_offset" value="0"/>
+                <Option type="QString" name="dash_pattern_offset_map_unit_scale" value="3x:0,0,0,0,0,0"/>
+                <Option type="QString" name="dash_pattern_offset_unit" value="MM"/>
+                <Option type="QString" name="draw_inside_polygon" value="0"/>
+                <Option type="QString" name="joinstyle" value="bevel"/>
+                <Option type="QString" name="line_color" value="133,182,111,255"/>
+                <Option type="QString" name="line_style" value="solid"/>
+                <Option type="QString" name="line_width" value="0.6"/>
+                <Option type="QString" name="line_width_unit" value="MM"/>
+                <Option type="QString" name="offset" value="0"/>
+                <Option type="QString" name="offset_map_unit_scale" value="3x:0,0,0,0,0,0"/>
+                <Option type="QString" name="offset_unit" value="MM"/>
+                <Option type="QString" name="ring_filter" value="0"/>
+                <Option type="QString" name="trim_distance_end" value="0"/>
+                <Option type="QString" name="trim_distance_end_map_unit_scale" value="3x:0,0,0,0,0,0"/>
+                <Option type="QString" name="trim_distance_end_unit" value="MM"/>
+                <Option type="QString" name="trim_distance_start" value="0"/>
+                <Option type="QString" name="trim_distance_start_map_unit_scale" value="3x:0,0,0,0,0,0"/>
+                <Option type="QString" name="trim_distance_start_unit" value="MM"/>
+                <Option type="QString" name="tweak_dash_pattern_on_corners" value="0"/>
+                <Option type="QString" name="use_custom_dash" value="0"/>
+                <Option type="QString" name="width_map_unit_scale" value="3x:0,0,0,0,0,0"/>
+              </Option>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option type="QString" name="name" value=""/>
+                  <Option name="properties"/>
+                  <Option type="QString" name="type" value="collection"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </profileLineSymbol>
+        <profileFillSymbol>
+          <symbol type="fill" force_rhr="0" alpha="1" clip_to_extent="1" name="" is_animated="0" frame_rate="10">
+            <data_defined_properties>
+              <Option type="Map">
+                <Option type="QString" name="name" value=""/>
+                <Option name="properties"/>
+                <Option type="QString" name="type" value="collection"/>
+              </Option>
+            </data_defined_properties>
+            <layer locked="0" class="SimpleFill" pass="0" enabled="1">
+              <Option type="Map">
+                <Option type="QString" name="border_width_map_unit_scale" value="3x:0,0,0,0,0,0"/>
+                <Option type="QString" name="color" value="133,182,111,255"/>
+                <Option type="QString" name="joinstyle" value="bevel"/>
+                <Option type="QString" name="offset" value="0,0"/>
+                <Option type="QString" name="offset_map_unit_scale" value="3x:0,0,0,0,0,0"/>
+                <Option type="QString" name="offset_unit" value="MM"/>
+                <Option type="QString" name="outline_color" value="95,130,79,255"/>
+                <Option type="QString" name="outline_style" value="solid"/>
+                <Option type="QString" name="outline_width" value="0.2"/>
+                <Option type="QString" name="outline_width_unit" value="MM"/>
+                <Option type="QString" name="style" value="solid"/>
+              </Option>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option type="QString" name="name" value=""/>
+                  <Option name="properties"/>
+                  <Option type="QString" name="type" value="collection"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </profileFillSymbol>
+        <profileMarkerSymbol>
+          <symbol type="marker" force_rhr="0" alpha="1" clip_to_extent="1" name="" is_animated="0" frame_rate="10">
+            <data_defined_properties>
+              <Option type="Map">
+                <Option type="QString" name="name" value=""/>
+                <Option name="properties"/>
+                <Option type="QString" name="type" value="collection"/>
+              </Option>
+            </data_defined_properties>
+            <layer locked="0" class="SimpleMarker" pass="0" enabled="1">
+              <Option type="Map">
+                <Option type="QString" name="angle" value="0"/>
+                <Option type="QString" name="cap_style" value="square"/>
+                <Option type="QString" name="color" value="133,182,111,255"/>
+                <Option type="QString" name="horizontal_anchor_point" value="1"/>
+                <Option type="QString" name="joinstyle" value="bevel"/>
+                <Option type="QString" name="name" value="diamond"/>
+                <Option type="QString" name="offset" value="0,0"/>
+                <Option type="QString" name="offset_map_unit_scale" value="3x:0,0,0,0,0,0"/>
+                <Option type="QString" name="offset_unit" value="MM"/>
+                <Option type="QString" name="outline_color" value="95,130,79,255"/>
+                <Option type="QString" name="outline_style" value="solid"/>
+                <Option type="QString" name="outline_width" value="0.2"/>
+                <Option type="QString" name="outline_width_map_unit_scale" value="3x:0,0,0,0,0,0"/>
+                <Option type="QString" name="outline_width_unit" value="MM"/>
+                <Option type="QString" name="scale_method" value="diameter"/>
+                <Option type="QString" name="size" value="3"/>
+                <Option type="QString" name="size_map_unit_scale" value="3x:0,0,0,0,0,0"/>
+                <Option type="QString" name="size_unit" value="MM"/>
+                <Option type="QString" name="vertical_anchor_point" value="1"/>
+              </Option>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option type="QString" name="name" value=""/>
+                  <Option name="properties"/>
+                  <Option type="QString" name="type" value="collection"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </profileMarkerSymbol>
+      </elevation>
+      <renderer-v2 enableorderby="0" type="singleSymbol" forceraster="0" referencescale="-1" symbollevels="0">
+        <symbols>
+          <symbol type="marker" force_rhr="0" alpha="1" clip_to_extent="1" name="0" is_animated="0" frame_rate="10">
+            <data_defined_properties>
+              <Option type="Map">
+                <Option type="QString" name="name" value=""/>
+                <Option name="properties"/>
+                <Option type="QString" name="type" value="collection"/>
+              </Option>
+            </data_defined_properties>
+            <layer locked="0" class="SimpleMarker" pass="0" enabled="1">
+              <Option type="Map">
+                <Option type="QString" name="angle" value="0"/>
+                <Option type="QString" name="cap_style" value="square"/>
+                <Option type="QString" name="color" value="164,113,88,255"/>
+                <Option type="QString" name="horizontal_anchor_point" value="1"/>
+                <Option type="QString" name="joinstyle" value="bevel"/>
+                <Option type="QString" name="name" value="circle"/>
+                <Option type="QString" name="offset" value="0,0"/>
+                <Option type="QString" name="offset_map_unit_scale" value="3x:0,0,0,0,0,0"/>
+                <Option type="QString" name="offset_unit" value="MM"/>
+                <Option type="QString" name="outline_color" value="35,35,35,255"/>
+                <Option type="QString" name="outline_style" value="solid"/>
+                <Option type="QString" name="outline_width" value="0"/>
+                <Option type="QString" name="outline_width_map_unit_scale" value="3x:0,0,0,0,0,0"/>
+                <Option type="QString" name="outline_width_unit" value="MM"/>
+                <Option type="QString" name="scale_method" value="diameter"/>
+                <Option type="QString" name="size" value="2"/>
+                <Option type="QString" name="size_map_unit_scale" value="3x:0,0,0,0,0,0"/>
+                <Option type="QString" name="size_unit" value="MM"/>
+                <Option type="QString" name="vertical_anchor_point" value="1"/>
+              </Option>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option type="QString" name="name" value=""/>
+                  <Option name="properties"/>
+                  <Option type="QString" name="type" value="collection"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </symbols>
+        <rotation/>
+        <sizescale/>
+      </renderer-v2>
+      <customproperties>
+        <Option type="Map">
+          <Option type="List" name="dualview/previewExpressions">
+            <Option type="QString" value="&quot;we01_id_wezla&quot;"/>
+          </Option>
+        </Option>
+      </customproperties>
+      <blendMode>0</blendMode>
+      <featureBlendMode>0</featureBlendMode>
+      <layerOpacity>1</layerOpacity>
+      <geometryOptions removeDuplicateNodes="0" geometryPrecision="0">
+        <activeChecks type="StringList">
+          <Option type="QString" value=""/>
+        </activeChecks>
+        <checkConfiguration/>
+      </geometryOptions>
+      <legend type="default-vector" showLabelLegend="0"/>
+      <referencedLayers/>
+      <fieldConfiguration>
+        <field configurationFlags="None" name="fid">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="we01_id_wezla">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="we02_tytul_do_wezla">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="we03_id_podmiotu_obcego">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="we04_terc">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="we05_simc">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="we06_ulic">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="we07_nr_porzadkowy">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="we08_szerokosc">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="we09_dlugosc">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="we10_medium_transmisyjne">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="we11_bsa">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="we12_technologia_dostepowa">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="we13_uslugi_transmisji_danych">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="we14_mozliwosc_zwiekszenia_liczby_interfejsow">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="we15_finansowanie_publ">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="we16_numery_projektow_publ">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="we17_infrastruktura_o_duzym_znaczeniu">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="we18_typ_interfejsu">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="we19_udostepnianie_ethernet">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+      </fieldConfiguration>
+      <aliases>
+        <alias name="" index="0" field="fid"/>
+        <alias name="" index="1" field="we01_id_wezla"/>
+        <alias name="" index="2" field="we02_tytul_do_wezla"/>
+        <alias name="" index="3" field="we03_id_podmiotu_obcego"/>
+        <alias name="" index="4" field="we04_terc"/>
+        <alias name="" index="5" field="we05_simc"/>
+        <alias name="" index="6" field="we06_ulic"/>
+        <alias name="" index="7" field="we07_nr_porzadkowy"/>
+        <alias name="" index="8" field="we08_szerokosc"/>
+        <alias name="" index="9" field="we09_dlugosc"/>
+        <alias name="" index="10" field="we10_medium_transmisyjne"/>
+        <alias name="" index="11" field="we11_bsa"/>
+        <alias name="" index="12" field="we12_technologia_dostepowa"/>
+        <alias name="" index="13" field="we13_uslugi_transmisji_danych"/>
+        <alias name="" index="14" field="we14_mozliwosc_zwiekszenia_liczby_interfejsow"/>
+        <alias name="" index="15" field="we15_finansowanie_publ"/>
+        <alias name="" index="16" field="we16_numery_projektow_publ"/>
+        <alias name="" index="17" field="we17_infrastruktura_o_duzym_znaczeniu"/>
+        <alias name="" index="18" field="we18_typ_interfejsu"/>
+        <alias name="" index="19" field="we19_udostepnianie_ethernet"/>
+      </aliases>
+      <defaults>
+        <default applyOnUpdate="0" expression="" field="fid"/>
+        <default applyOnUpdate="0" expression="" field="we01_id_wezla"/>
+        <default applyOnUpdate="0" expression="" field="we02_tytul_do_wezla"/>
+        <default applyOnUpdate="0" expression="" field="we03_id_podmiotu_obcego"/>
+        <default applyOnUpdate="0" expression="" field="we04_terc"/>
+        <default applyOnUpdate="0" expression="" field="we05_simc"/>
+        <default applyOnUpdate="0" expression="" field="we06_ulic"/>
+        <default applyOnUpdate="0" expression="" field="we07_nr_porzadkowy"/>
+        <default applyOnUpdate="0" expression="" field="we08_szerokosc"/>
+        <default applyOnUpdate="0" expression="" field="we09_dlugosc"/>
+        <default applyOnUpdate="0" expression="" field="we10_medium_transmisyjne"/>
+        <default applyOnUpdate="0" expression="" field="we11_bsa"/>
+        <default applyOnUpdate="0" expression="" field="we12_technologia_dostepowa"/>
+        <default applyOnUpdate="0" expression="" field="we13_uslugi_transmisji_danych"/>
+        <default applyOnUpdate="0" expression="" field="we14_mozliwosc_zwiekszenia_liczby_interfejsow"/>
+        <default applyOnUpdate="0" expression="" field="we15_finansowanie_publ"/>
+        <default applyOnUpdate="0" expression="" field="we16_numery_projektow_publ"/>
+        <default applyOnUpdate="0" expression="" field="we17_infrastruktura_o_duzym_znaczeniu"/>
+        <default applyOnUpdate="0" expression="" field="we18_typ_interfejsu"/>
+        <default applyOnUpdate="0" expression="" field="we19_udostepnianie_ethernet"/>
+      </defaults>
+      <constraints>
+        <constraint unique_strength="0" constraints="0" field="fid" notnull_strength="0" exp_strength="0"/>
+        <constraint unique_strength="0" constraints="0" field="we01_id_wezla" notnull_strength="0" exp_strength="0"/>
+        <constraint unique_strength="0" constraints="0" field="we02_tytul_do_wezla" notnull_strength="0" exp_strength="0"/>
+        <constraint unique_strength="0" constraints="0" field="we03_id_podmiotu_obcego" notnull_strength="0" exp_strength="0"/>
+        <constraint unique_strength="0" constraints="0" field="we04_terc" notnull_strength="0" exp_strength="0"/>
+        <constraint unique_strength="0" constraints="0" field="we05_simc" notnull_strength="0" exp_strength="0"/>
+        <constraint unique_strength="0" constraints="0" field="we06_ulic" notnull_strength="0" exp_strength="0"/>
+        <constraint unique_strength="0" constraints="0" field="we07_nr_porzadkowy" notnull_strength="0" exp_strength="0"/>
+        <constraint unique_strength="0" constraints="0" field="we08_szerokosc" notnull_strength="0" exp_strength="0"/>
+        <constraint unique_strength="0" constraints="0" field="we09_dlugosc" notnull_strength="0" exp_strength="0"/>
+        <constraint unique_strength="0" constraints="0" field="we10_medium_transmisyjne" notnull_strength="0" exp_strength="0"/>
+        <constraint unique_strength="0" constraints="0" field="we11_bsa" notnull_strength="0" exp_strength="0"/>
+        <constraint unique_strength="0" constraints="0" field="we12_technologia_dostepowa" notnull_strength="0" exp_strength="0"/>
+        <constraint unique_strength="0" constraints="0" field="we13_uslugi_transmisji_danych" notnull_strength="0" exp_strength="0"/>
+        <constraint unique_strength="0" constraints="0" field="we14_mozliwosc_zwiekszenia_liczby_interfejsow" notnull_strength="0" exp_strength="0"/>
+        <constraint unique_strength="0" constraints="0" field="we15_finansowanie_publ" notnull_strength="0" exp_strength="0"/>
+        <constraint unique_strength="0" constraints="0" field="we16_numery_projektow_publ" notnull_strength="0" exp_strength="0"/>
+        <constraint unique_strength="0" constraints="0" field="we17_infrastruktura_o_duzym_znaczeniu" notnull_strength="0" exp_strength="0"/>
+        <constraint unique_strength="0" constraints="0" field="we18_typ_interfejsu" notnull_strength="0" exp_strength="0"/>
+        <constraint unique_strength="0" constraints="0" field="we19_udostepnianie_ethernet" notnull_strength="0" exp_strength="0"/>
+      </constraints>
+      <constraintExpressions>
+        <constraint exp="" desc="" field="fid"/>
+        <constraint exp="" desc="" field="we01_id_wezla"/>
+        <constraint exp="" desc="" field="we02_tytul_do_wezla"/>
+        <constraint exp="" desc="" field="we03_id_podmiotu_obcego"/>
+        <constraint exp="" desc="" field="we04_terc"/>
+        <constraint exp="" desc="" field="we05_simc"/>
+        <constraint exp="" desc="" field="we06_ulic"/>
+        <constraint exp="" desc="" field="we07_nr_porzadkowy"/>
+        <constraint exp="" desc="" field="we08_szerokosc"/>
+        <constraint exp="" desc="" field="we09_dlugosc"/>
+        <constraint exp="" desc="" field="we10_medium_transmisyjne"/>
+        <constraint exp="" desc="" field="we11_bsa"/>
+        <constraint exp="" desc="" field="we12_technologia_dostepowa"/>
+        <constraint exp="" desc="" field="we13_uslugi_transmisji_danych"/>
+        <constraint exp="" desc="" field="we14_mozliwosc_zwiekszenia_liczby_interfejsow"/>
+        <constraint exp="" desc="" field="we15_finansowanie_publ"/>
+        <constraint exp="" desc="" field="we16_numery_projektow_publ"/>
+        <constraint exp="" desc="" field="we17_infrastruktura_o_duzym_znaczeniu"/>
+        <constraint exp="" desc="" field="we18_typ_interfejsu"/>
+        <constraint exp="" desc="" field="we19_udostepnianie_ethernet"/>
+      </constraintExpressions>
+      <expressionfields/>
+      <attributeactions>
+        <defaultAction value="{00000000-0000-0000-0000-000000000000}" key="Canvas"/>
+      </attributeactions>
+      <attributetableconfig sortOrder="0" sortExpression="" actionWidgetStyle="dropDown">
+        <columns>
+          <column type="field" name="fid" width="-1" hidden="0"/>
+          <column type="field" name="we01_id_wezla" width="-1" hidden="0"/>
+          <column type="field" name="we02_tytul_do_wezla" width="-1" hidden="0"/>
+          <column type="field" name="we03_id_podmiotu_obcego" width="-1" hidden="0"/>
+          <column type="field" name="we04_terc" width="-1" hidden="0"/>
+          <column type="field" name="we05_simc" width="-1" hidden="0"/>
+          <column type="field" name="we06_ulic" width="-1" hidden="0"/>
+          <column type="field" name="we07_nr_porzadkowy" width="-1" hidden="0"/>
+          <column type="field" name="we08_szerokosc" width="-1" hidden="0"/>
+          <column type="field" name="we09_dlugosc" width="-1" hidden="0"/>
+          <column type="field" name="we10_medium_transmisyjne" width="-1" hidden="0"/>
+          <column type="field" name="we11_bsa" width="-1" hidden="0"/>
+          <column type="field" name="we12_technologia_dostepowa" width="-1" hidden="0"/>
+          <column type="field" name="we13_uslugi_transmisji_danych" width="-1" hidden="0"/>
+          <column type="field" name="we14_mozliwosc_zwiekszenia_liczby_interfejsow" width="-1" hidden="0"/>
+          <column type="field" name="we15_finansowanie_publ" width="-1" hidden="0"/>
+          <column type="field" name="we16_numery_projektow_publ" width="-1" hidden="0"/>
+          <column type="field" name="we17_infrastruktura_o_duzym_znaczeniu" width="-1" hidden="0"/>
+          <column type="field" name="we18_typ_interfejsu" width="-1" hidden="0"/>
+          <column type="field" name="we19_udostepnianie_ethernet" width="-1" hidden="0"/>
+          <column type="actions" width="-1" hidden="1"/>
+        </columns>
+      </attributetableconfig>
+      <conditionalstyles>
+        <rowstyles/>
+        <fieldstyles/>
+      </conditionalstyles>
+      <storedexpressions/>
+      <editform tolerant="1"></editform>
+      <editforminit/>
+      <editforminitcodesource>0</editforminitcodesource>
+      <editforminitfilepath></editforminitfilepath>
+      <editforminitcode><![CDATA[]]></editforminitcode>
+      <featformsuppress>0</featformsuppress>
+      <editorlayout>generatedlayout</editorlayout>
+      <editable/>
+      <labelOnTop/>
+      <reuseLastValue/>
+      <dataDefinedFieldProperties/>
+      <widgets/>
+      <previewExpression>"we01_id_wezla"</previewExpression>
+      <mapTip></mapTip>
+    </maplayer>
+  </maplayers>
+</qlr>
