@@ -55,7 +55,7 @@ INNER JOIN netlinks nl ON (n.id = nl.src OR n.id = nl.dst)
 ORDER BY n.id;
 ```
   
-i teraz zapytanie ```SELECT * FROM vtable_for_qgis;``` w QGISie zwróci nam wynik w pół sekundy.  
+i teraz zapytanie ```SELECT DISTINCT ON (terc, simc, ulic, nr_porzadkowy) * FROM vtable_for_qgis;``` w QGISie zwróci nam wynik w pół sekundy. Wynikiem jest lista unikalnych punktów adresowych w których mamy 1+ urządzeń.   
 Po pomyślnym podłączeniu do LMSa w QGISie można albo z palca utworzyć "New virtual layer", albo wyedytować w załączonym pliku [lms_devices_1_raw_distinct.qlr](./virtual_layers/lms_devices_1_raw_distinct.qlr) dokładnie 4 elementy:
 * CHANGE_HERE_LMS_DB_NAME_CHANGE_HERE -> x2 -> zamieniamy na nazwę naszej bazy LMS  
 * CHANGE_HERE_LMS_HOST_IP_CHANGE_HERE -> x2 -> zamieniamy na hostname lub IP naszego hosta LMS   
@@ -118,5 +118,9 @@ FROM lms_devices_1_raw_distinct;
 ```
 
 i znowu - obrazki z [img](./img) mogą być pomocne.
+
+6. Linie są nieco bardziej skomplikowane - trzeba wyciągnąć z netlinks połączenia zaczynające się i kończące na <b>zestawie (terc, simc, ulic, nr_porzadkowy) </b> - bo po tych kolumnach robiliśmy selecta do QGISa, i takie punkty elastyczności mamy. Jak już wspominałem - tego jeszcze nie skończyłem, dorzucę jutro może koło południa.  
+
+Na dziś to tyle, wybaczcie ale po dwutygodniowym maratonie nie mam dziśjużsił na więcej. Mam nadzieję że komuś się te informacje przydadzą. Na pytania też postaram się odpowiedzieć.
 
 
