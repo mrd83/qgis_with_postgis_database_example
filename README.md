@@ -151,4 +151,6 @@ FROM temp;
 
 Na dziś to tyle, wybaczcie ale po dwutygodniowym maratonie nie mam dziśjużsił na więcej. Mam nadzieję że komuś się te informacje przydadzą. Na pytania też postaram się odpowiedzieć.
 
+Jeszcze notka na koniec: st_makeline/st_makepoint -> DB manager, makeline/makepoint -> działania na warstwie wirtualnej.  
 
+Pozdrawiam i powodzenia! :]  
