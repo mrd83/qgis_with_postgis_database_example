@@ -1,0 +1,1 @@
+Konfiguracja środowiska pracy
