@@ -119,7 +119,7 @@ FROM lms_devices_1_raw_distinct;
 
 i znowu - obrazki z [img](./img) mogą być pomocne. Z warstw wirtualnych kopiujemy dane przez prawy klik na warstwie, "Open attributes table" -> "copy all", prawy klik na warstwie docelowej, attributes table, <b>enable edit mode (ołówek)</b> i zwykły CTRL+V. W tym momencie wszystkie pobrane węzły/PE powinny się pojawić na mapie.  
 
-UWAGA! Jeśli wywala nam błąd że "uid/fid must be not null" - to znaczy że nasza warstwa docelowa nie ma odpowiedniego indexu (zakłądam że jest zapisana w DB). Poniżej instrukcja dodania dla warstwy/tabeli "węzły":
+UWAGA! Jeśli wywala nam błąd że "uid/fid must be not null" - to znaczy że nasza warstwa docelowa nie ma odpowiedniego defaulta (zakładam że jest zapisana w DB). Poniżej instrukcja dodania dla warstwy/tabeli "węzły":
 ```
 CREATE SEQUENCE public.wezly_id_seq INCREMENT 1 START 1;
 ALTER SEQUENCE public.wezly_id_seq OWNER TO mójdbuser;
@@ -129,7 +129,25 @@ ALTER TABLE IF EXISTS public.wezly ALTER COLUMN fid SET DEFAULT nextval('wezly_i
 ```
 
 
-6. Linie są nieco bardziej skomplikowane - trzeba wyciągnąć z netlinks połączenia zaczynające się i kończące na <b>zestawie (terc, simc, ulic, nr_porzadkowy) </b> - bo po tych kolumnach robiliśmy selecta do QGISa, i takie punkty elastyczności mamy. Jak już wspominałem - tego jeszcze nie skończyłem, dorzucę jutro może koło południa.  
+6. Linie są nieco bardziej skomplikowane - trzeba wyciągnąć z netlinks połączenia zaczynające się i kończące na <b>zestawie (terc, simc, ulic, nr_porzadkowy) </b> - bo po tych kolumnach robiliśmy selecta do QGISa, i takie punkty elastyczności mamy. Jak już wspominałem - tego jeszcze nie skończyłem, szczegóły dorzucę jutro może koło południa, na teraz zapytanie tworzące linki z odpowiednio przygotowanych danych wejściowych:  
+
+```
+SELECT
+fid,
+st_makeline(st_makepoint(start_x, start_y), st_makepoint (end_x, end_y)) as geom,
+CONCAT('LK_', uke_report_namepart, destination_dev_name) AS lk01_id_lk,
+CONCAT('PE_', '', uke_report_namepart) AS lk02_id_punktu_poczatkowego,
+CONCAT('PE_', '', destination_dev_name) AS lk04_id_punktu_koncowego,
+'światłowodowe' AS lk05_medium_transmisyjne,
+'Linia kablowa umieszczona w kanale technologicznym' AS lk06_rodzaj_linii_kablowej,
+'24' AS lk07_liczba_wlokien, 
+'24' AS  lk08_liczba_wlokien_wykorzystywanych,
+'0' AS lk09_liczba_wlokien_udostepnienia,
+'Nie' AS lk10_finansowanie_publ,
+'' AS lk11_numery_projektow_publ,
+'Nie' AS lk12_infrastruktura_o_duzym_znaczeniu
+FROM temp;
+```
 
 Na dziś to tyle, wybaczcie ale po dwutygodniowym maratonie nie mam dziśjużsił na więcej. Mam nadzieję że komuś się te informacje przydadzą. Na pytania też postaram się odpowiedzieć.
 
