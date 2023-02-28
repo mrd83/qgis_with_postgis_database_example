@@ -4,7 +4,27 @@ explaining how to connect QGIS to an LMS (or other external) database and how to
 
 Poniżej metoda wyciągnięcia do QGISa danych bezpośrednio z bazy danych LMSa (lub innej bazy) i przetworzenia ich do warstw węzły/punkty elastyczności/linie proste pomiędzy urządzeniami do edycji (nie skończone w 100% - ale większość linii rysuje prawidłowo)
 
+### !!! Wybaczcie brzydotę i chaos panujący w tym repo, wolę skupić się na razie na faktycznej pracy, a nie edytowaniu githuba :]
+
 ## Aktualnie pracuję nad triggerami, które pozwolą połączyć warstwy (na poziomie bazy danych) w taki sposób, żeby działanie na jednej automatycznie było przenoszone na pozostałe, np. przeciągnięcie PE w inne miejsce na mapie będzie powodowało automatyczne przeciągnięcie węzłów podłączonych do niego i przeliczenie geometrii linii (czyli "przerysowanie" ich na mapie zgodnie z wprowadzonymi zmianami)
+
+0. Na dziś w pełni działa:  
+
+- wyciągnięcie z LMSa danych o punktach adresowych w których mamy jakieś urządzenie  
+- przetworzenie tych danych w punkty elastyczności i węzły  
+- wyciągnięcie z LMSa danych o połączeniach pomiędzy ww. punktami adresowymi  
+- przetworzenie tych danych w warstwę linie kablowe  
+
+Brakuje:  
+
+- punktów elastyczności/węzłow GPON-owych (np. do bloków w których są klienci GPON-owi), a co za tym idzie odpowiadających im linków  
+- sieci bezprzewodowych kompletnie nie ruszam - bo nie mam  
+
+W planach na najbliższe dni:  
+
+- rysowanie linii nie jako linie proste, ale przy użyciu warstwy z już istniejącą infrastrukturą "innych operatorów"  
+  
+
 
 1. Dodajemy swoją bazę lmsa (bądź inną) przez "Layer" -> "Data source manager" -> <b>postgresql</b>. Powinniśmy mieć połączenie i móc przeglądać bazę. Szczegóły znajdziecie w sieci, być może jutro (jak zdążę) wrzucę krótki tutorial konfiguracji QGISa pod pracę na dedykowanej bazie.
 
