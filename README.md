@@ -37,12 +37,6 @@ ORDER BY n.id;
   
 i teraz zapytanie ```SELECT * FROM vtable_for_qgis;``` w QGISie zwróci nam wynik w pół sekundy. 
 
-Po pomyślnym podłączeniu do LMSa w QGISie można albo z palca utworzyć "New virtual layer", albo wyedytować w załączonym pliku [lms_devices_1_raw_distinct.qlr](./virtual_layers/lms_devices_1_raw_distinct.qlr) dokładnie 4 elementy:
-* CHANGE_HERE_LMS_DB_NAME_CHANGE_HERE -> x2 -> zamieniamy na nazwę naszej bazy LMS  
-* CHANGE_HERE_LMS_HOST_IP_CHANGE_HERE -> x2 -> zamieniamy na hostname lub IP naszego hosta LMS   
-
-screeny w katalogu [img](./img) z przedrostkiem "lms_devices_1" mogą być tu pomocne. Po edycji pliku dodajemy warstwę przez "Layer" -> "add from layer definition file"
-
 ### Poprawione i dobrze działające zapytanie SQL o unikalne punkty adresowe, wraz z krótkim wyjaśnieniem:
 
 * Podstawowe zapytanie generujące listę urządzeń posiadających linki - z duplikatami:
@@ -256,25 +250,21 @@ FROM netlinks nl
   
   
   
-* Aktualnie użyłem do wyciągnięcia danych do QGISa poniższego zapytania (nie bierze pod uwagę wszystkich połączeń, ale daje większość):  
+* POPRAWIONE: użyłem do wyciągnięcia danych do QGISa poniższego zapytania (według mnie rysuje wszystkie linki):  
 ```
 CREATE VIEW netlinks_with_coords_distinct_for_qgis AS
-WITH netlinks_actual_sources AS
-	(SELECT lms_dev_id, terc, simc, ulic, nr_porzadkowy
-		FROM netdevices_vtable_for_qgis
-		INTERSECT
-	SELECT src AS lms_dev_id, srcterc AS terc, srcsimc AS simc, srculic AS ulic, srcnr_porzadkowy AS nr_porzadkowy
-		FROM netlinks_with_coords_vtable_for_qgis),
-netlinks_actual_destinations AS
-	(SELECT lms_dev_id, terc, simc, ulic, nr_porzadkowy
-	FROM netdevices_vtable_for_qgis
-		INTERSECT
-	SELECT dst AS lms_dev_id, dstterc AS terc, dstsimc AS simc, dstulic AS ulic, dstnr_porzadkowy AS nr_porzadkowy
-	FROM netlinks_with_coords_vtable_for_qgis)
-SELECT * FROM netlinks_actual_sources ns
-INNER JOIN netlinks_with_coords_vtable_for_qgis n ON ns.lms_dev_id = n.src
-WHERE n.dst IN (SELECT lms_dev_id FROM netlinks_actual_destinations)
-ORDER BY ns.lms_dev_id;
+SELECT dev.lms_dev_id AS src, dev.uke_report_namepart AS srcnamepart, dev.dlugosc AS srclongitude, dev.szerokosc AS srclatitude,
+       dev.terc AS srcterc, dev.simc AS srcsimc, dev.ulic AS srculic, dev.nr_porzadkowy AS srcnr_porzadkowy,
+       nl.dst, nl.dstnamepart, nl.dstlongitude, nl.dstlatitude, nl.dstterc, nl.dstsimc, nl.dstulic, nl.dstnr_porzadkowy
+FROM netdevices_vtable_for_qgis dev
+     JOIN netlinks_with_coords_vtable_for_qgis nl ON
+        (dev.terc = nl.srcterc AND
+        dev.simc = nl.srcsimc AND
+        dev.ulic = nl.srculic AND
+        dev.nr_porzadkowy = nl.srcnr_porzadkowy)
+WHERE (nl.dstterc, nl.dstsimc, nl.dstulic, nl.dstnr_porzadkowy)
+IN (SELECT terc, simc, ulic, nr_porzadkowy FROM netdevices_vtable_for_qgis)
+AND CONCAT(nl.dstterc, nl.dstsimc, nl.dstulic, nl.dstnr_porzadkowy) != CONCAT(dev.terc, dev.simc, dev.ulic, dev.nr_porzadkowy);
 ```
   
 ### Koniec SQL w LMSie. W tej chwili powinniśmy do QGISa pobrać dwie warstwy wirtualne z LMSa: 
@@ -286,16 +276,54 @@ oraz:
 SELECT * FROM netlinks_with_coords_distinct_for_qgis;
 ```
 
+Po pomyślnym podłączeniu do LMSa w QGISie można albo z palca utworzyć "New virtual layer", albo wyedytować w załączonych plikach: [lms_devices_1_raw_distinct_addresspoints.qlr](./virtual_layers/lms_devices_1_raw_distinct_addresspoints.qlr) oraz [lms_devices_4_netlinks_raw.qlr](./virtual_layers/lms_devices_4_netlinks_raw.qlr) dokładnie 4 elementy:
+* CHANGE_HERE_LMS_DB_NAME_CHANGE_HERE -> x2 -> zamieniamy na nazwę naszej bazy LMS
+* CHANGE_HERE_LMS_HOST_IP_CHANGE_HERE -> x2 -> zamieniamy na hostname lub IP naszego hosta LMS
+
+screeny w katalogu [img](./img) z przedrostkiem "lms_devices_1" mogą być tu pomocne. Po edycji pliku dodajemy warstwę przez "Layer" -> "add from layer definition file"
+
+Do przetworzenia ww. danych służą kolejne 3 warstwy wirtualne:  
+[lms_devices_2_distinct_wezly.qlr](./virtual_layers/lms_devices_2_distinct_wezly.qlr)  
+[lms_devices_3_distinct_punkty_elastycznosci.qlr](./virtual_layers/lms_devices_3_distinct_punkty_elastycznosci.qlr)  
+[lms_devices_5_linie_kablowe.qlr](./virtual_layers/lms_devices_5_linie_kablowe.qlr)  
+w których analogicznie jak w przykładzie wyżej należy zmienić:
+* CHANGE_HERE_QGIS_DB_NAME_CHANGE_HERE -> x2 -> zamieniamy na nazwę naszej bazy QGIS
+* CHANGE_HERE_QGIS_HOST_IP_CHANGE_HERE -> x2 -> zamieniamy na hostname lub IP naszego hosta QGIS
+
   
 3. Jeśli pracujemy na QGISie podłączonym do własnej bazy postgisowej [ZDECYDOWANIE ZALECANA METODA!] - w tym momencie robimy import ww. warstw wirtualnych na serwer postgisa, po czym <b>OTWIERAMY ZAIMPORTOWANĄ WARSTWĘ Z BAZY za pomocą dwukliku w DB managerze!</b>. Patrz [lms_devices_1_raw_distinct-import_to_qgis_db.png](./img/lms_devices_1_raw_distinct-import_to_qgis_db.png) i [lms_devices_1_raw_distinct-qgis_db_manager.png](./img/lms_devices_1_raw_distinct-qgis_db_manager.png).
 
-4. Warstwa z ```netdevices_vtable_for_qgis``` zawiera tak na prawdę unikalne punkty adresowe w których mamy jedno lub więcej urządzeń. Na jej podstawie tworzymy węzły i punkty elastyczności - "główne" - albo poprzez edycję [lms_devices_2_distinct_wezly.qlr](./virtual_layers/lms_devices_2_distinct_wezly.qlr) i [lms_devices_3_distinct_punkty_elastycznosci.qlr](./virtual_layers/lms_devices_3_distinct_punkty_elastycznosci.qlr) - albo ręczne dodanie nowej warstwy wirtualnej, kliknięcie "import" wskazanie warstwy "lms_devices_1_raw_distinct" jako źródła i wklejenie w odpowiednie miejsce poniższego zapytania:  
-* dla węzłów:  
+4. Warstwa z ```lms_devices_1_raw_distinct_addresspoints``` zawiera tak naprawdę unikalne punkty adresowe w których mamy jedno lub więcej urządzeń. Na jej podstawie tworzymy węzły i punkty elastyczności - "główne" - albo poprzez edycję [lms_devices_2_distinct_wezly.qlr](./virtual_layers/lms_devices_2_distinct_wezly.qlr) i [lms_devices_3_distinct_punkty_elastycznosci.qlr](./virtual_layers/lms_devices_3_distinct_punkty_elastycznosci.qlr) - albo ręczne dodanie nowej warstwy wirtualnej, kliknięcie "import" wskazanie warstwy "lms_devices_1_raw_distinct" jako źródła i wklejenie w odpowiednie miejsce poniższego zapytania:  
+
+* dla punktów elastyczności:
 ```
 SELECT
 fid,
-MakePoint(dlugosc, szerokosc, 4326) AS geom,
-CONCAT('WW_', '', uke_report_namepart) AS we01_id_wezla,
+makepoint(dlugosc, szerokosc, 4326) AS geom,
+CONCAT('PE_', uke_report_namepart) AS pe01_id_pe,
+'08' AS pe02_typ_pe,
+CONCAT('WW_', uke_report_namepart) AS pe03_id_wezla,
+'tak' AS pe04_pdu,
+terc AS pe05_terc,
+simc AS pe06_simc,
+ulic AS pe07_ulic,
+nr_porzadkowy AS pe08_nr_porzadkowy,
+szerokosc AS pe09_szerokosc,
+dlugosc AS pe10_dlugosc,
+'światłowodowe' AS pe11_medium_transmisyjne,
+'{"10 Gigabit Ethernet"}' AS pe12_technologia_dostepowa,
+'09' AS pe13_mozliwosc_swiadczenia_uslug,
+'nie' AS pe14_finansowanie_publ,
+'' AS pe15_numery_projektow_publ
+FROM lms_devices_1_raw_distinct_addresspoints;
+```
+
+* dla węzłów:  
+```
+SELECT
+lms_dev_id as id,
+makepoint(dlugosc, szerokosc, 4326) AS geom,
+CONCAT('WW_', uke_report_namepart) AS we01_id_wezla,
 'Węzeł własny' AS we02_tytul_do_wezla,
 '' AS we03_id_podmiotu_obcego,
 terc AS we04_terc,
@@ -305,70 +333,76 @@ nr_porzadkowy AS we07_nr_porzadkowy,
 szerokosc AS we08_szerokosc,
 dlugosc AS we09_dlugosc,
 'światłowodowe' AS we10_medium_transmisyjne,
-'Nie' AS we11_bsa,
-'10 Gigabit Ethernet' AS we12_technologia_dostepowa,
+'nie' AS we11_bsa,
+'{"1 Gigabit Ethernet"}' AS we12_technologia_dostepowa,
 'Ethernet VLAN' AS we13_uslugi_transmisji_danych,
-'Nie' AS we14_mozliwosc_zwiekszenia_liczby_interfejsow,
-'Nie' AS we15_finansowanie_publ,
+'nie' AS we14_mozliwosc_zwiekszenia_liczby_interfejsow,
+'nie' AS we15_finansowanie_publ,
 '' AS we16_numery_projektow_publ,
-'Nie' AS we17_infrastruktura_o_duzym_znaczeniu,
+'nie' AS we17_infrastruktura_o_duzym_znaczeniu,
 '03' AS we18_typ_interfejsu,
-'Nie' AS we19_udostepnianie_ethernet
+'nie' AS we19_udostepnianie_ethernet
 FROM lms_devices_1_raw_distinct_addresspoints;
 ```
 
-* dla punktów elastyczności:  
-```
-SELECT
-fid,
-MakePoint(dlugosc, szerokosc, 4326) AS geom,
-CONCAT('PE_', '', uke_report_namepart) AS pe01_id_pe,
-'08' AS pe02_typ_pe,
-CONCAT('WW_', '', uke_report_namepart) AS pe03_id_wezla,
-'Tak' AS pe04_pdu,
-terc AS pe05_terc,
-simc AS pe06_simc,
-ulic AS pe07_ulic,
-nr_porzadkowy AS pe08_nr_porzadkowy,
-szerokosc AS pe09_szerokosc,
-dlugosc AS pe10_dlugosc,
-'światłowodowe' AS pe11_medium_transmisyjne,
-'10 Gigabit Ethernet' AS pe12_technologia_dostepowa,
-'09' AS pe13_mozliwosc_swiadczenia_uslug,
-'Nie' AS pe14_finansowanie_publ,
-'' AS pe15_numery_projektow_publ
-FROM lms_devices_1_raw_distinct_addresspoints;
-```
 
 i znowu - obrazki z [img](./img) mogą być pomocne. Z warstw wirtualnych kopiujemy dane przez prawy klik na warstwie, "Open attributes table" -> "copy all", prawy klik na warstwie docelowej, attributes table, <b>enable edit mode (ołówek)</b> i zwykły CTRL+V. W tym momencie wszystkie pobrane węzły/PE powinny się pojawić na mapie.  
 
-UWAGA! Jeśli wywala nam błąd że "uid/fid must be not null" - to znaczy że nasza warstwa docelowa nie ma odpowiedniego defaulta (zakładam że jest zapisana w DB). Poniżej instrukcja dodania dla warstwy/tabeli "węzły":
+UWAGA! Jeśli wywala nam błąd że "uid/fid must be not null" - to znaczy że nasza warstwa docelowa nie ma odpowiedniego defaulta (zakładam że jest zapisana w DB). Poniżej instrukcja dodania sekwencji:
 ```
-CREATE SEQUENCE public.wezly_id_seq INCREMENT 1 START 1;
-ALTER SEQUENCE public.wezly_id_seq OWNER TO mójdbuser;
-ALTER SEQUENCE public.wezly_id_seq OWNED BY wezly.fid;
-GRANT ALL ON SEQUENCE public.wezly_id_seq TO mójdbuser WITH GRANT OPTION;
+ALTER TABLE punkty_elastycznosci 
+ALTER COLUMN pe09_szerokosc TYPE float8
+USING pe09_szerokosc::double precision;
+
+ALTER TABLE punkty_elastycznosci 
+ALTER COLUMN pe10_dlugosc TYPE float8
+USING pe10_dlugosc::double precision;
+
+
+CREATE SEQUENCE IF NOT EXISTS public.wezly_id_seq INCREMENT 1 START 1;
+ALTER SEQUENCE public.wezly_id_seq OWNER TO qgisdbuser;
+ALTER SEQUENCE IF EXISTS public.wezly_id_seq OWNED BY wezly.fid;
+GRANT ALL ON SEQUENCE public.wezly_id_seq TO michal WITH GRANT OPTION;
+GRANT ALL ON SEQUENCE public.wezly_id_seq TO postgres;
+GRANT ALL ON SEQUENCE public.wezly_id_seq TO qgisdbuser WITH GRANT OPTION;
 ALTER TABLE IF EXISTS public.wezly ALTER COLUMN fid SET DEFAULT nextval('wezly_id_seq'::regclass);
+
+CREATE SEQUENCE IF NOT EXISTS public.punkty_elastycznosci_id_seq INCREMENT 1 START 1;
+ALTER SEQUENCE public.punkty_elastycznosci_id_seq OWNER TO qgisdbuser;
+ALTER SEQUENCE IF EXISTS public.punkty_elastycznosci_id_seq OWNED BY punkty_elastycznosci.fid;
+GRANT ALL ON SEQUENCE public.punkty_elastycznosci_id_seq TO michal WITH GRANT OPTION;
+GRANT ALL ON SEQUENCE public.punkty_elastycznosci_id_seq TO postgres;
+GRANT ALL ON SEQUENCE public.punkty_elastycznosci_id_seq TO qgisdbuser WITH GRANT OPTION;
+ALTER TABLE IF EXISTS public.punkty_elastycznosci ALTER COLUMN fid SET DEFAULT nextval('punkty_elastycznosci_id_seq'::regclass);
+
+CREATE SEQUENCE IF NOT EXISTS public.linie_kablowe_id_seq INCREMENT 1 START 1;
+ALTER SEQUENCE public.linie_kablowe_id_seq OWNER TO qgisdbuser;
+ALTER SEQUENCE IF EXISTS public.linie_kablowe_id_seq OWNED BY linie_kablowe.fid;
+GRANT ALL ON SEQUENCE public.linie_kablowe_id_seq TO michal WITH GRANT OPTION;
+GRANT ALL ON SEQUENCE public.linie_kablowe_id_seq TO postgres;
+GRANT ALL ON SEQUENCE public.linie_kablowe_id_seq TO qgisdbuser WITH GRANT OPTION;
+ALTER TABLE IF EXISTS public.linie_kablowe ALTER COLUMN fid SET DEFAULT nextval('linie_kablowe_id_seq'::regclass);
+
 ```
 
 
-6. Linie są nieco bardziej skomplikowane - w związku z czym nie są jeszcze w 100% poprawne, ale większość już się rysuje. Otwieramy nową warstwę wirtualną, importujemy tym razem warstwę "netlinks_with_coords_distinct_for_qgis" a SQL do utworzenia geometrii to:  
+6. Linie są nieco bardziej skomplikowane - ale większość (wszystkie?) już się rysuje. Otwieramy nową warstwę wirtualną, importujemy tym razem warstwę "netlinks_with_coords_distinct_for_qgis" a SQL do utworzenia geometrii to:  
 
 ```
 SELECT
 fid,
 makeline(makepoint(srclongitude, srclatitude), makepoint (dstlongitude, dstlatitude)) as geom,
-CONCAT('LK_', srcnamepart, '_', dstnamepart) AS lk01_id_lk,
-CONCAT('PE_', '', srcnamepart) AS lk02_id_punktu_poczatkowego,
-CONCAT('PE_', '', dstnamepart) AS lk04_id_punktu_koncowego,
+CONCAT('LK_', 'PE_', srcnamepart, '___', 'PE_', dstnamepart) AS lk01_id_lk,
+CONCAT('PE_', srcnamepart) AS lk02_id_punktu_poczatkowego,
+CONCAT('PE_', dstnamepart) AS lk04_id_punktu_koncowego,
 'światłowodowe' AS lk05_medium_transmisyjne,
 'Linia kablowa umieszczona w kanale technologicznym' AS lk06_rodzaj_linii_kablowej,
-'24' AS lk07_liczba_wlokien, 
-'24' AS  lk08_liczba_wlokien_wykorzystywanych,
+'72' AS lk07_liczba_wlokien, 
+'72' AS  lk08_liczba_wlokien_wykorzystywanych,
 '0' AS lk09_liczba_wlokien_udostepnienia,
-'Nie' AS lk10_finansowanie_publ,
+'nie' AS lk10_finansowanie_publ,
 '' AS lk11_numery_projektow_publ,
-'Nie' AS lk12_infrastruktura_o_duzym_znaczeniu
+'nie' AS lk12_infrastruktura_o_duzym_znaczeniu
 FROM lms_devices_4_netlinks_raw;
 ```
 

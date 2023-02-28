@@ -1,31 +1,31 @@
 <!DOCTYPE qgis-layer-definition>
 <qlr>
-  <layer-tree-group checked="Qt::Checked" groupLayer="" name="" expanded="1">
+  <layer-tree-group groupLayer="" checked="Qt::Checked" name="" expanded="1">
     <customproperties>
       <Option/>
     </customproperties>
-    <layer-tree-layer checked="Qt::Checked" source="?layer=postgres:dbname%3D%27CHANGE_HERE_QGIS_DB_NAME_CHANGE_HERE%27%20host%3DCHANGE_HERE_QGIS_HOST_IP_CHANGE_HERE%20port%3D5432%20authcfg%3Dba0gol2%20key%3D%27fid%27%20estimatedmetadata%3Dtrue%20checkPrimaryKeyUnicity%3D%271%27%20table%3D%22public%22.%22lms_devices_1_raw_distinct%22:lms_devices_1_raw_distinct:UTF-8&amp;query=SELECT%0D%0Afid,%0D%0AMakePoint(dlugosc,%20szerokosc,%204326)%20AS%20geom,%0D%0ACONCAT('PE_',%20'',%20uke_report_namepart)%20AS%20pe01_id_pe,%0D%0A'08'%20AS%20pe02_typ_pe,%0D%0ACONCAT('WW_',%20'',%20uke_report_namepart)%20AS%20pe03_id_wezla,%0D%0A'Tak'%20AS%20pe04_pdu,%0D%0Aterc%20AS%20pe05_terc,%0D%0Asimc%20AS%20pe06_simc,%0D%0Aulic%20AS%20pe07_ulic,%0D%0Anr_porzadkowy%20AS%20pe08_nr_porzadkowy,%0D%0Aszerokosc%20AS%20pe09_szerokosc,%0D%0Adlugosc%20AS%20pe10_dlugosc,%0D%0A'%C5%9Bwiat%C5%82owodowe'%20AS%20pe11_medium_transmisyjne,%0D%0A'10%20Gigabit%20Ethernet'%20AS%20pe12_technologia_dostepowa,%0D%0A'09'%20AS%20pe13_mozliwosc_swiadczenia_uslug,%0D%0A'Nie'%20AS%20pe14_finansowanie_publ,%0D%0A''%20AS%20pe15_numery_projektow_publ%0D%0AFROM%20lms_devices_1_raw_distinct;&amp;uid=fid&amp;geometry=geom:1:4326" id="lms_devices_3_distinct_punkty_elastycznosci_7369a098_a2cc_49cd_85e5_029d08a33400" name="lms_devices_3_distinct_punkty_elastycznosci" legend_split_behavior="0" patch_size="-1,-1" legend_exp="" providerKey="virtual" expanded="1">
+    <layer-tree-layer patch_size="-1,-1" providerKey="virtual" checked="Qt::Checked" legend_exp="" id="lms_devices_3_distinct_punkty_elastycznosci_3250e4ca_9376_4a5b_bb09_4d271e2710ce" name="lms_devices_3_distinct_punkty_elastycznosci" expanded="1" legend_split_behavior="0" source="?layer=postgres:dbname%3D%27CHANGE_HERE_QGIS_DB_NAME_CHANGE_HERE%27%20host%3DCHANGE_HERE_QGIS_HOST_IP_CHANGE_HERE%20port%3D5432%20authcfg%3Dba0gol2%20key%3D%27fid%27%20estimatedmetadata%3Dtrue%20checkPrimaryKeyUnicity%3D%271%27%20table%3D%22public%22.%22lms_devices_1_raw_distinct_addresspoints%22:lms_devices_1_raw_distinct_addresspoints:UTF-8&amp;query=SELECT%0D%0Afid,%0D%0Amakepoint(dlugosc,%20szerokosc,%204326)%20AS%20geom,%0D%0ACONCAT('PE_',%20'',%20uke_report_namepart)%20AS%20pe01_id_pe,%0D%0A'08'%20AS%20pe02_typ_pe,%0D%0ACONCAT('WW_',%20'',%20uke_report_namepart)%20AS%20pe03_id_wezla,%0D%0A'tak'%20AS%20pe04_pdu,%0D%0Aterc%20AS%20pe05_terc,%0D%0Asimc%20AS%20pe06_simc,%0D%0Aulic%20AS%20pe07_ulic,%0D%0Anr_porzadkowy%20AS%20pe08_nr_porzadkowy,%0D%0Aszerokosc%20AS%20pe09_szerokosc%20/*:real*/,%0D%0Adlugosc%20AS%20pe10_dlugosc%20/*:real*/,%0D%0A'%C5%9Bwiat%C5%82owodowe'%20AS%20pe11_medium_transmisyjne,%0D%0A'%7B%2210%20Gigabit%20Ethernet%22%7D'%20AS%20pe12_technologia_dostepowa,%0D%0A'09'%20AS%20pe13_mozliwosc_swiadczenia_uslug,%0D%0A'nie'%20AS%20pe14_finansowanie_publ,%0D%0A''%20AS%20pe15_numery_projektow_publ%0D%0AFROM%20lms_devices_1_raw_distinct_addresspoints;&amp;uid=fid&amp;geometry=geom:1:4326">
       <customproperties>
         <Option/>
       </customproperties>
     </layer-tree-layer>
   </layer-tree-group>
   <maplayers>
-    <maplayer maxScale="0" geometry="Point" hasScaleBasedVisibilityFlag="0" minScale="100000000" autoRefreshEnabled="0" readOnly="0" labelsEnabled="0" simplifyDrawingTol="1" refreshOnNotifyEnabled="0" simplifyLocal="0" simplifyDrawingHints="1" autoRefreshTime="0" simplifyAlgorithm="0" type="vector" styleCategories="AllStyleCategories" legendPlaceholderImage="" simplifyMaxScale="1" wkbType="Point" symbologyReferenceScale="-1" refreshOnNotifyMessage="">
+    <maplayer simplifyDrawingTol="1" refreshOnNotifyEnabled="0" simplifyMaxScale="1" simplifyLocal="0" hasScaleBasedVisibilityFlag="0" geometry="Point" autoRefreshTime="0" maxScale="0" minScale="100000000" symbologyReferenceScale="-1" simplifyAlgorithm="0" simplifyDrawingHints="1" refreshOnNotifyMessage="" type="vector" readOnly="0" wkbType="Point" styleCategories="AllStyleCategories" legendPlaceholderImage="" labelsEnabled="0" autoRefreshEnabled="0">
       <extent>
         <xmin>22.86788800000000066</xmin>
-        <ymin>52.98841500000000337</ymin>
+        <ymin>52.98846499999999793</ymin>
         <xmax>23.22599500000000106</xmax>
         <ymax>53.19248900000000191</ymax>
       </extent>
       <wgs84extent>
         <xmin>22.86788800000000066</xmin>
-        <ymin>52.98841500000000337</ymin>
+        <ymin>52.98846499999999793</ymin>
         <xmax>23.22599500000000106</xmax>
         <ymax>53.19248900000000191</ymax>
       </wgs84extent>
-      <id>lms_devices_3_distinct_punkty_elastycznosci_7369a098_a2cc_49cd_85e5_029d08a33400</id>
-      <datasource>?layer=postgres:dbname%3D%27CHANGE_HERE_QGIS_DB_NAME_CHANGE_HERE%27%20host%3DCHANGE_HERE_QGIS_HOST_IP_CHANGE_HERE%20port%3D5432%20authcfg%3Dba0gol2%20key%3D%27fid%27%20estimatedmetadata%3Dtrue%20checkPrimaryKeyUnicity%3D%271%27%20table%3D%22public%22.%22lms_devices_1_raw_distinct%22:lms_devices_1_raw_distinct:UTF-8&amp;query=SELECT%0D%0Afid,%0D%0AMakePoint(dlugosc,%20szerokosc,%204326)%20AS%20geom,%0D%0ACONCAT('PE_',%20'',%20uke_report_namepart)%20AS%20pe01_id_pe,%0D%0A'08'%20AS%20pe02_typ_pe,%0D%0ACONCAT('WW_',%20'',%20uke_report_namepart)%20AS%20pe03_id_wezla,%0D%0A'Tak'%20AS%20pe04_pdu,%0D%0Aterc%20AS%20pe05_terc,%0D%0Asimc%20AS%20pe06_simc,%0D%0Aulic%20AS%20pe07_ulic,%0D%0Anr_porzadkowy%20AS%20pe08_nr_porzadkowy,%0D%0Aszerokosc%20AS%20pe09_szerokosc,%0D%0Adlugosc%20AS%20pe10_dlugosc,%0D%0A'%C5%9Bwiat%C5%82owodowe'%20AS%20pe11_medium_transmisyjne,%0D%0A'10%20Gigabit%20Ethernet'%20AS%20pe12_technologia_dostepowa,%0D%0A'09'%20AS%20pe13_mozliwosc_swiadczenia_uslug,%0D%0A'Nie'%20AS%20pe14_finansowanie_publ,%0D%0A''%20AS%20pe15_numery_projektow_publ%0D%0AFROM%20lms_devices_1_raw_distinct;&amp;uid=fid&amp;geometry=geom:1:4326</datasource>
+      <id>lms_devices_3_distinct_punkty_elastycznosci_3250e4ca_9376_4a5b_bb09_4d271e2710ce</id>
+      <datasource>?layer=postgres:dbname%3D%27CHANGE_HERE_QGIS_DB_NAME_CHANGE_HERE%27%20host%3DCHANGE_HERE_QGIS_HOST_IP_CHANGE_HERE%20port%3D5432%20authcfg%3Dba0gol2%20key%3D%27fid%27%20estimatedmetadata%3Dtrue%20checkPrimaryKeyUnicity%3D%271%27%20table%3D%22public%22.%22lms_devices_1_raw_distinct_addresspoints%22:lms_devices_1_raw_distinct_addresspoints:UTF-8&amp;query=SELECT%0D%0Afid,%0D%0Amakepoint(dlugosc,%20szerokosc,%204326)%20AS%20geom,%0D%0ACONCAT('PE_',%20'',%20uke_report_namepart)%20AS%20pe01_id_pe,%0D%0A'08'%20AS%20pe02_typ_pe,%0D%0ACONCAT('WW_',%20'',%20uke_report_namepart)%20AS%20pe03_id_wezla,%0D%0A'tak'%20AS%20pe04_pdu,%0D%0Aterc%20AS%20pe05_terc,%0D%0Asimc%20AS%20pe06_simc,%0D%0Aulic%20AS%20pe07_ulic,%0D%0Anr_porzadkowy%20AS%20pe08_nr_porzadkowy,%0D%0Aszerokosc%20AS%20pe09_szerokosc%20/*:real*/,%0D%0Adlugosc%20AS%20pe10_dlugosc%20/*:real*/,%0D%0A'%C5%9Bwiat%C5%82owodowe'%20AS%20pe11_medium_transmisyjne,%0D%0A'%7B%2210%20Gigabit%20Ethernet%22%7D'%20AS%20pe12_technologia_dostepowa,%0D%0A'09'%20AS%20pe13_mozliwosc_swiadczenia_uslug,%0D%0A'nie'%20AS%20pe14_finansowanie_publ,%0D%0A''%20AS%20pe15_numery_projektow_publ%0D%0AFROM%20lms_devices_1_raw_distinct_addresspoints;&amp;uid=fid&amp;geometry=geom:1:4326</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -68,7 +68,7 @@
         </crs>
         <extent/>
       </resourceMetadata>
-      <provider encoding="">virtual</provider>
+      <provider encoding="UTF-8">virtual</provider>
       <vectorjoins/>
       <layerDependencies/>
       <dataDependencies/>
@@ -84,181 +84,181 @@
         <Searchable>1</Searchable>
         <Private>0</Private>
       </flags>
-      <temporal mode="0" startField="" endExpression="" limitMode="0" endField="" durationUnit="min" fixedDuration="0" startExpression="" enabled="0" durationField="" accumulate="0">
+      <temporal accumulate="0" durationField="" limitMode="0" startExpression="" endExpression="" mode="0" fixedDuration="0" durationUnit="min" enabled="0" startField="" endField="">
         <fixedRange>
           <start></start>
           <end></end>
         </fixedRange>
       </temporal>
-      <elevation type="IndividualFeatures" extrusion="0" extrusionEnabled="0" zoffset="0" zscale="1" clamping="Terrain" respectLayerSymbol="1" symbology="Line" binding="Centroid" showMarkerSymbolInSurfacePlots="0">
+      <elevation extrusion="0" zoffset="0" clamping="Terrain" respectLayerSymbol="1" zscale="1" extrusionEnabled="0" binding="Centroid" showMarkerSymbolInSurfacePlots="0" symbology="Line" type="IndividualFeatures">
         <data-defined-properties>
           <Option type="Map">
-            <Option type="QString" name="name" value=""/>
+            <Option value="" name="name" type="QString"/>
             <Option name="properties"/>
-            <Option type="QString" name="type" value="collection"/>
+            <Option value="collection" name="type" type="QString"/>
           </Option>
         </data-defined-properties>
         <profileLineSymbol>
-          <symbol type="line" force_rhr="0" alpha="1" clip_to_extent="1" name="" is_animated="0" frame_rate="10">
+          <symbol alpha="1" frame_rate="10" force_rhr="0" is_animated="0" clip_to_extent="1" name="" type="line">
             <data_defined_properties>
               <Option type="Map">
-                <Option type="QString" name="name" value=""/>
+                <Option value="" name="name" type="QString"/>
                 <Option name="properties"/>
-                <Option type="QString" name="type" value="collection"/>
+                <Option value="collection" name="type" type="QString"/>
               </Option>
             </data_defined_properties>
-            <layer locked="0" class="SimpleLine" pass="0" enabled="1">
+            <layer pass="0" locked="0" class="SimpleLine" enabled="1">
               <Option type="Map">
-                <Option type="QString" name="align_dash_pattern" value="0"/>
-                <Option type="QString" name="capstyle" value="square"/>
-                <Option type="QString" name="customdash" value="5;2"/>
-                <Option type="QString" name="customdash_map_unit_scale" value="3x:0,0,0,0,0,0"/>
-                <Option type="QString" name="customdash_unit" value="MM"/>
-                <Option type="QString" name="dash_pattern_offset" value="0"/>
-                <Option type="QString" name="dash_pattern_offset_map_unit_scale" value="3x:0,0,0,0,0,0"/>
-                <Option type="QString" name="dash_pattern_offset_unit" value="MM"/>
-                <Option type="QString" name="draw_inside_polygon" value="0"/>
-                <Option type="QString" name="joinstyle" value="bevel"/>
-                <Option type="QString" name="line_color" value="196,60,57,255"/>
-                <Option type="QString" name="line_style" value="solid"/>
-                <Option type="QString" name="line_width" value="0.6"/>
-                <Option type="QString" name="line_width_unit" value="MM"/>
-                <Option type="QString" name="offset" value="0"/>
-                <Option type="QString" name="offset_map_unit_scale" value="3x:0,0,0,0,0,0"/>
-                <Option type="QString" name="offset_unit" value="MM"/>
-                <Option type="QString" name="ring_filter" value="0"/>
-                <Option type="QString" name="trim_distance_end" value="0"/>
-                <Option type="QString" name="trim_distance_end_map_unit_scale" value="3x:0,0,0,0,0,0"/>
-                <Option type="QString" name="trim_distance_end_unit" value="MM"/>
-                <Option type="QString" name="trim_distance_start" value="0"/>
-                <Option type="QString" name="trim_distance_start_map_unit_scale" value="3x:0,0,0,0,0,0"/>
-                <Option type="QString" name="trim_distance_start_unit" value="MM"/>
-                <Option type="QString" name="tweak_dash_pattern_on_corners" value="0"/>
-                <Option type="QString" name="use_custom_dash" value="0"/>
-                <Option type="QString" name="width_map_unit_scale" value="3x:0,0,0,0,0,0"/>
+                <Option value="0" name="align_dash_pattern" type="QString"/>
+                <Option value="square" name="capstyle" type="QString"/>
+                <Option value="5;2" name="customdash" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="customdash_map_unit_scale" type="QString"/>
+                <Option value="MM" name="customdash_unit" type="QString"/>
+                <Option value="0" name="dash_pattern_offset" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="dash_pattern_offset_map_unit_scale" type="QString"/>
+                <Option value="MM" name="dash_pattern_offset_unit" type="QString"/>
+                <Option value="0" name="draw_inside_polygon" type="QString"/>
+                <Option value="bevel" name="joinstyle" type="QString"/>
+                <Option value="196,60,57,255" name="line_color" type="QString"/>
+                <Option value="solid" name="line_style" type="QString"/>
+                <Option value="0.6" name="line_width" type="QString"/>
+                <Option value="MM" name="line_width_unit" type="QString"/>
+                <Option value="0" name="offset" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="offset_map_unit_scale" type="QString"/>
+                <Option value="MM" name="offset_unit" type="QString"/>
+                <Option value="0" name="ring_filter" type="QString"/>
+                <Option value="0" name="trim_distance_end" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="trim_distance_end_map_unit_scale" type="QString"/>
+                <Option value="MM" name="trim_distance_end_unit" type="QString"/>
+                <Option value="0" name="trim_distance_start" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="trim_distance_start_map_unit_scale" type="QString"/>
+                <Option value="MM" name="trim_distance_start_unit" type="QString"/>
+                <Option value="0" name="tweak_dash_pattern_on_corners" type="QString"/>
+                <Option value="0" name="use_custom_dash" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="width_map_unit_scale" type="QString"/>
               </Option>
               <data_defined_properties>
                 <Option type="Map">
-                  <Option type="QString" name="name" value=""/>
+                  <Option value="" name="name" type="QString"/>
                   <Option name="properties"/>
-                  <Option type="QString" name="type" value="collection"/>
+                  <Option value="collection" name="type" type="QString"/>
                 </Option>
               </data_defined_properties>
             </layer>
           </symbol>
         </profileLineSymbol>
         <profileFillSymbol>
-          <symbol type="fill" force_rhr="0" alpha="1" clip_to_extent="1" name="" is_animated="0" frame_rate="10">
+          <symbol alpha="1" frame_rate="10" force_rhr="0" is_animated="0" clip_to_extent="1" name="" type="fill">
             <data_defined_properties>
               <Option type="Map">
-                <Option type="QString" name="name" value=""/>
+                <Option value="" name="name" type="QString"/>
                 <Option name="properties"/>
-                <Option type="QString" name="type" value="collection"/>
+                <Option value="collection" name="type" type="QString"/>
               </Option>
             </data_defined_properties>
-            <layer locked="0" class="SimpleFill" pass="0" enabled="1">
+            <layer pass="0" locked="0" class="SimpleFill" enabled="1">
               <Option type="Map">
-                <Option type="QString" name="border_width_map_unit_scale" value="3x:0,0,0,0,0,0"/>
-                <Option type="QString" name="color" value="196,60,57,255"/>
-                <Option type="QString" name="joinstyle" value="bevel"/>
-                <Option type="QString" name="offset" value="0,0"/>
-                <Option type="QString" name="offset_map_unit_scale" value="3x:0,0,0,0,0,0"/>
-                <Option type="QString" name="offset_unit" value="MM"/>
-                <Option type="QString" name="outline_color" value="140,43,41,255"/>
-                <Option type="QString" name="outline_style" value="solid"/>
-                <Option type="QString" name="outline_width" value="0.2"/>
-                <Option type="QString" name="outline_width_unit" value="MM"/>
-                <Option type="QString" name="style" value="solid"/>
+                <Option value="3x:0,0,0,0,0,0" name="border_width_map_unit_scale" type="QString"/>
+                <Option value="196,60,57,255" name="color" type="QString"/>
+                <Option value="bevel" name="joinstyle" type="QString"/>
+                <Option value="0,0" name="offset" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="offset_map_unit_scale" type="QString"/>
+                <Option value="MM" name="offset_unit" type="QString"/>
+                <Option value="140,43,41,255" name="outline_color" type="QString"/>
+                <Option value="solid" name="outline_style" type="QString"/>
+                <Option value="0.2" name="outline_width" type="QString"/>
+                <Option value="MM" name="outline_width_unit" type="QString"/>
+                <Option value="solid" name="style" type="QString"/>
               </Option>
               <data_defined_properties>
                 <Option type="Map">
-                  <Option type="QString" name="name" value=""/>
+                  <Option value="" name="name" type="QString"/>
                   <Option name="properties"/>
-                  <Option type="QString" name="type" value="collection"/>
+                  <Option value="collection" name="type" type="QString"/>
                 </Option>
               </data_defined_properties>
             </layer>
           </symbol>
         </profileFillSymbol>
         <profileMarkerSymbol>
-          <symbol type="marker" force_rhr="0" alpha="1" clip_to_extent="1" name="" is_animated="0" frame_rate="10">
+          <symbol alpha="1" frame_rate="10" force_rhr="0" is_animated="0" clip_to_extent="1" name="" type="marker">
             <data_defined_properties>
               <Option type="Map">
-                <Option type="QString" name="name" value=""/>
+                <Option value="" name="name" type="QString"/>
                 <Option name="properties"/>
-                <Option type="QString" name="type" value="collection"/>
+                <Option value="collection" name="type" type="QString"/>
               </Option>
             </data_defined_properties>
-            <layer locked="0" class="SimpleMarker" pass="0" enabled="1">
+            <layer pass="0" locked="0" class="SimpleMarker" enabled="1">
               <Option type="Map">
-                <Option type="QString" name="angle" value="0"/>
-                <Option type="QString" name="cap_style" value="square"/>
-                <Option type="QString" name="color" value="196,60,57,255"/>
-                <Option type="QString" name="horizontal_anchor_point" value="1"/>
-                <Option type="QString" name="joinstyle" value="bevel"/>
-                <Option type="QString" name="name" value="diamond"/>
-                <Option type="QString" name="offset" value="0,0"/>
-                <Option type="QString" name="offset_map_unit_scale" value="3x:0,0,0,0,0,0"/>
-                <Option type="QString" name="offset_unit" value="MM"/>
-                <Option type="QString" name="outline_color" value="140,43,41,255"/>
-                <Option type="QString" name="outline_style" value="solid"/>
-                <Option type="QString" name="outline_width" value="0.2"/>
-                <Option type="QString" name="outline_width_map_unit_scale" value="3x:0,0,0,0,0,0"/>
-                <Option type="QString" name="outline_width_unit" value="MM"/>
-                <Option type="QString" name="scale_method" value="diameter"/>
-                <Option type="QString" name="size" value="3"/>
-                <Option type="QString" name="size_map_unit_scale" value="3x:0,0,0,0,0,0"/>
-                <Option type="QString" name="size_unit" value="MM"/>
-                <Option type="QString" name="vertical_anchor_point" value="1"/>
+                <Option value="0" name="angle" type="QString"/>
+                <Option value="square" name="cap_style" type="QString"/>
+                <Option value="196,60,57,255" name="color" type="QString"/>
+                <Option value="1" name="horizontal_anchor_point" type="QString"/>
+                <Option value="bevel" name="joinstyle" type="QString"/>
+                <Option value="diamond" name="name" type="QString"/>
+                <Option value="0,0" name="offset" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="offset_map_unit_scale" type="QString"/>
+                <Option value="MM" name="offset_unit" type="QString"/>
+                <Option value="140,43,41,255" name="outline_color" type="QString"/>
+                <Option value="solid" name="outline_style" type="QString"/>
+                <Option value="0.2" name="outline_width" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="outline_width_map_unit_scale" type="QString"/>
+                <Option value="MM" name="outline_width_unit" type="QString"/>
+                <Option value="diameter" name="scale_method" type="QString"/>
+                <Option value="3" name="size" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="size_map_unit_scale" type="QString"/>
+                <Option value="MM" name="size_unit" type="QString"/>
+                <Option value="1" name="vertical_anchor_point" type="QString"/>
               </Option>
               <data_defined_properties>
                 <Option type="Map">
-                  <Option type="QString" name="name" value=""/>
+                  <Option value="" name="name" type="QString"/>
                   <Option name="properties"/>
-                  <Option type="QString" name="type" value="collection"/>
+                  <Option value="collection" name="type" type="QString"/>
                 </Option>
               </data_defined_properties>
             </layer>
           </symbol>
         </profileMarkerSymbol>
       </elevation>
-      <renderer-v2 enableorderby="0" type="singleSymbol" forceraster="0" referencescale="-1" symbollevels="0">
+      <renderer-v2 forceraster="0" symbollevels="0" referencescale="-1" type="singleSymbol" enableorderby="0">
         <symbols>
-          <symbol type="marker" force_rhr="0" alpha="1" clip_to_extent="1" name="0" is_animated="0" frame_rate="10">
+          <symbol alpha="1" frame_rate="10" force_rhr="0" is_animated="0" clip_to_extent="1" name="0" type="marker">
             <data_defined_properties>
               <Option type="Map">
-                <Option type="QString" name="name" value=""/>
+                <Option value="" name="name" type="QString"/>
                 <Option name="properties"/>
-                <Option type="QString" name="type" value="collection"/>
+                <Option value="collection" name="type" type="QString"/>
               </Option>
             </data_defined_properties>
-            <layer locked="0" class="SimpleMarker" pass="0" enabled="1">
+            <layer pass="0" locked="0" class="SimpleMarker" enabled="1">
               <Option type="Map">
-                <Option type="QString" name="angle" value="0"/>
-                <Option type="QString" name="cap_style" value="square"/>
-                <Option type="QString" name="color" value="190,178,151,255"/>
-                <Option type="QString" name="horizontal_anchor_point" value="1"/>
-                <Option type="QString" name="joinstyle" value="bevel"/>
-                <Option type="QString" name="name" value="circle"/>
-                <Option type="QString" name="offset" value="0,0"/>
-                <Option type="QString" name="offset_map_unit_scale" value="3x:0,0,0,0,0,0"/>
-                <Option type="QString" name="offset_unit" value="MM"/>
-                <Option type="QString" name="outline_color" value="35,35,35,255"/>
-                <Option type="QString" name="outline_style" value="solid"/>
-                <Option type="QString" name="outline_width" value="0"/>
-                <Option type="QString" name="outline_width_map_unit_scale" value="3x:0,0,0,0,0,0"/>
-                <Option type="QString" name="outline_width_unit" value="MM"/>
-                <Option type="QString" name="scale_method" value="diameter"/>
-                <Option type="QString" name="size" value="2"/>
-                <Option type="QString" name="size_map_unit_scale" value="3x:0,0,0,0,0,0"/>
-                <Option type="QString" name="size_unit" value="MM"/>
-                <Option type="QString" name="vertical_anchor_point" value="1"/>
+                <Option value="0" name="angle" type="QString"/>
+                <Option value="square" name="cap_style" type="QString"/>
+                <Option value="190,178,151,255" name="color" type="QString"/>
+                <Option value="1" name="horizontal_anchor_point" type="QString"/>
+                <Option value="bevel" name="joinstyle" type="QString"/>
+                <Option value="circle" name="name" type="QString"/>
+                <Option value="0,0" name="offset" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="offset_map_unit_scale" type="QString"/>
+                <Option value="MM" name="offset_unit" type="QString"/>
+                <Option value="35,35,35,255" name="outline_color" type="QString"/>
+                <Option value="solid" name="outline_style" type="QString"/>
+                <Option value="0" name="outline_width" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="outline_width_map_unit_scale" type="QString"/>
+                <Option value="MM" name="outline_width_unit" type="QString"/>
+                <Option value="diameter" name="scale_method" type="QString"/>
+                <Option value="2" name="size" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="size_map_unit_scale" type="QString"/>
+                <Option value="MM" name="size_unit" type="QString"/>
+                <Option value="1" name="vertical_anchor_point" type="QString"/>
               </Option>
               <data_defined_properties>
                 <Option type="Map">
-                  <Option type="QString" name="name" value=""/>
+                  <Option value="" name="name" type="QString"/>
                   <Option name="properties"/>
-                  <Option type="QString" name="type" value="collection"/>
+                  <Option value="collection" name="type" type="QString"/>
                 </Option>
               </data_defined_properties>
             </layer>
@@ -268,126 +268,130 @@
         <sizescale/>
       </renderer-v2>
       <customproperties>
-        <Option/>
+        <Option type="Map">
+          <Option name="dualview/previewExpressions" type="List">
+            <Option value="&quot;pe01_id_pe&quot;" type="QString"/>
+          </Option>
+        </Option>
       </customproperties>
       <blendMode>0</blendMode>
       <featureBlendMode>0</featureBlendMode>
       <layerOpacity>1</layerOpacity>
       <geometryOptions removeDuplicateNodes="0" geometryPrecision="0">
         <activeChecks type="StringList">
-          <Option type="QString" value=""/>
+          <Option value="" type="QString"/>
         </activeChecks>
         <checkConfiguration/>
       </geometryOptions>
-      <legend type="default-vector" showLabelLegend="0"/>
+      <legend showLabelLegend="0" type="default-vector"/>
       <referencedLayers/>
       <fieldConfiguration>
-        <field configurationFlags="None" name="fid">
+        <field name="fid" configurationFlags="None">
           <editWidget type="">
             <config>
               <Option/>
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="None" name="pe01_id_pe">
+        <field name="pe01_id_pe" configurationFlags="None">
           <editWidget type="">
             <config>
               <Option/>
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="None" name="pe02_typ_pe">
+        <field name="pe02_typ_pe" configurationFlags="None">
           <editWidget type="">
             <config>
               <Option/>
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="None" name="pe03_id_wezla">
+        <field name="pe03_id_wezla" configurationFlags="None">
           <editWidget type="">
             <config>
               <Option/>
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="None" name="pe04_pdu">
+        <field name="pe04_pdu" configurationFlags="None">
           <editWidget type="">
             <config>
               <Option/>
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="None" name="pe05_terc">
+        <field name="pe05_terc" configurationFlags="None">
           <editWidget type="">
             <config>
               <Option/>
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="None" name="pe06_simc">
+        <field name="pe06_simc" configurationFlags="None">
           <editWidget type="">
             <config>
               <Option/>
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="None" name="pe07_ulic">
+        <field name="pe07_ulic" configurationFlags="None">
           <editWidget type="">
             <config>
               <Option/>
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="None" name="pe08_nr_porzadkowy">
+        <field name="pe08_nr_porzadkowy" configurationFlags="None">
           <editWidget type="">
             <config>
               <Option/>
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="None" name="pe09_szerokosc">
+        <field name="pe09_szerokosc" configurationFlags="None">
           <editWidget type="">
             <config>
               <Option/>
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="None" name="pe10_dlugosc">
+        <field name="pe10_dlugosc" configurationFlags="None">
           <editWidget type="">
             <config>
               <Option/>
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="None" name="pe11_medium_transmisyjne">
+        <field name="pe11_medium_transmisyjne" configurationFlags="None">
           <editWidget type="">
             <config>
               <Option/>
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="None" name="pe12_technologia_dostepowa">
+        <field name="pe12_technologia_dostepowa" configurationFlags="None">
           <editWidget type="">
             <config>
               <Option/>
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="None" name="pe13_mozliwosc_swiadczenia_uslug">
+        <field name="pe13_mozliwosc_swiadczenia_uslug" configurationFlags="None">
           <editWidget type="">
             <config>
               <Option/>
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="None" name="pe14_finansowanie_publ">
+        <field name="pe14_finansowanie_publ" configurationFlags="None">
           <editWidget type="">
             <config>
               <Option/>
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="None" name="pe15_numery_projektow_publ">
+        <field name="pe15_numery_projektow_publ" configurationFlags="None">
           <editWidget type="">
             <config>
               <Option/>
@@ -396,83 +400,101 @@
         </field>
       </fieldConfiguration>
       <aliases>
-        <alias name="" index="0" field="fid"/>
-        <alias name="" index="1" field="pe01_id_pe"/>
-        <alias name="" index="2" field="pe02_typ_pe"/>
-        <alias name="" index="3" field="pe03_id_wezla"/>
-        <alias name="" index="4" field="pe04_pdu"/>
-        <alias name="" index="5" field="pe05_terc"/>
-        <alias name="" index="6" field="pe06_simc"/>
-        <alias name="" index="7" field="pe07_ulic"/>
-        <alias name="" index="8" field="pe08_nr_porzadkowy"/>
-        <alias name="" index="9" field="pe09_szerokosc"/>
-        <alias name="" index="10" field="pe10_dlugosc"/>
-        <alias name="" index="11" field="pe11_medium_transmisyjne"/>
-        <alias name="" index="12" field="pe12_technologia_dostepowa"/>
-        <alias name="" index="13" field="pe13_mozliwosc_swiadczenia_uslug"/>
-        <alias name="" index="14" field="pe14_finansowanie_publ"/>
-        <alias name="" index="15" field="pe15_numery_projektow_publ"/>
+        <alias field="fid" name="" index="0"/>
+        <alias field="pe01_id_pe" name="" index="1"/>
+        <alias field="pe02_typ_pe" name="" index="2"/>
+        <alias field="pe03_id_wezla" name="" index="3"/>
+        <alias field="pe04_pdu" name="" index="4"/>
+        <alias field="pe05_terc" name="" index="5"/>
+        <alias field="pe06_simc" name="" index="6"/>
+        <alias field="pe07_ulic" name="" index="7"/>
+        <alias field="pe08_nr_porzadkowy" name="" index="8"/>
+        <alias field="pe09_szerokosc" name="" index="9"/>
+        <alias field="pe10_dlugosc" name="" index="10"/>
+        <alias field="pe11_medium_transmisyjne" name="" index="11"/>
+        <alias field="pe12_technologia_dostepowa" name="" index="12"/>
+        <alias field="pe13_mozliwosc_swiadczenia_uslug" name="" index="13"/>
+        <alias field="pe14_finansowanie_publ" name="" index="14"/>
+        <alias field="pe15_numery_projektow_publ" name="" index="15"/>
       </aliases>
       <defaults>
-        <default applyOnUpdate="0" expression="" field="fid"/>
-        <default applyOnUpdate="0" expression="" field="pe01_id_pe"/>
-        <default applyOnUpdate="0" expression="" field="pe02_typ_pe"/>
-        <default applyOnUpdate="0" expression="" field="pe03_id_wezla"/>
-        <default applyOnUpdate="0" expression="" field="pe04_pdu"/>
-        <default applyOnUpdate="0" expression="" field="pe05_terc"/>
-        <default applyOnUpdate="0" expression="" field="pe06_simc"/>
-        <default applyOnUpdate="0" expression="" field="pe07_ulic"/>
-        <default applyOnUpdate="0" expression="" field="pe08_nr_porzadkowy"/>
-        <default applyOnUpdate="0" expression="" field="pe09_szerokosc"/>
-        <default applyOnUpdate="0" expression="" field="pe10_dlugosc"/>
-        <default applyOnUpdate="0" expression="" field="pe11_medium_transmisyjne"/>
-        <default applyOnUpdate="0" expression="" field="pe12_technologia_dostepowa"/>
-        <default applyOnUpdate="0" expression="" field="pe13_mozliwosc_swiadczenia_uslug"/>
-        <default applyOnUpdate="0" expression="" field="pe14_finansowanie_publ"/>
-        <default applyOnUpdate="0" expression="" field="pe15_numery_projektow_publ"/>
+        <default expression="" field="fid" applyOnUpdate="0"/>
+        <default expression="" field="pe01_id_pe" applyOnUpdate="0"/>
+        <default expression="" field="pe02_typ_pe" applyOnUpdate="0"/>
+        <default expression="" field="pe03_id_wezla" applyOnUpdate="0"/>
+        <default expression="" field="pe04_pdu" applyOnUpdate="0"/>
+        <default expression="" field="pe05_terc" applyOnUpdate="0"/>
+        <default expression="" field="pe06_simc" applyOnUpdate="0"/>
+        <default expression="" field="pe07_ulic" applyOnUpdate="0"/>
+        <default expression="" field="pe08_nr_porzadkowy" applyOnUpdate="0"/>
+        <default expression="" field="pe09_szerokosc" applyOnUpdate="0"/>
+        <default expression="" field="pe10_dlugosc" applyOnUpdate="0"/>
+        <default expression="" field="pe11_medium_transmisyjne" applyOnUpdate="0"/>
+        <default expression="" field="pe12_technologia_dostepowa" applyOnUpdate="0"/>
+        <default expression="" field="pe13_mozliwosc_swiadczenia_uslug" applyOnUpdate="0"/>
+        <default expression="" field="pe14_finansowanie_publ" applyOnUpdate="0"/>
+        <default expression="" field="pe15_numery_projektow_publ" applyOnUpdate="0"/>
       </defaults>
       <constraints>
-        <constraint unique_strength="0" constraints="0" field="fid" notnull_strength="0" exp_strength="0"/>
-        <constraint unique_strength="0" constraints="0" field="pe01_id_pe" notnull_strength="0" exp_strength="0"/>
-        <constraint unique_strength="0" constraints="0" field="pe02_typ_pe" notnull_strength="0" exp_strength="0"/>
-        <constraint unique_strength="0" constraints="0" field="pe03_id_wezla" notnull_strength="0" exp_strength="0"/>
-        <constraint unique_strength="0" constraints="0" field="pe04_pdu" notnull_strength="0" exp_strength="0"/>
-        <constraint unique_strength="0" constraints="0" field="pe05_terc" notnull_strength="0" exp_strength="0"/>
-        <constraint unique_strength="0" constraints="0" field="pe06_simc" notnull_strength="0" exp_strength="0"/>
-        <constraint unique_strength="0" constraints="0" field="pe07_ulic" notnull_strength="0" exp_strength="0"/>
-        <constraint unique_strength="0" constraints="0" field="pe08_nr_porzadkowy" notnull_strength="0" exp_strength="0"/>
-        <constraint unique_strength="0" constraints="0" field="pe09_szerokosc" notnull_strength="0" exp_strength="0"/>
-        <constraint unique_strength="0" constraints="0" field="pe10_dlugosc" notnull_strength="0" exp_strength="0"/>
-        <constraint unique_strength="0" constraints="0" field="pe11_medium_transmisyjne" notnull_strength="0" exp_strength="0"/>
-        <constraint unique_strength="0" constraints="0" field="pe12_technologia_dostepowa" notnull_strength="0" exp_strength="0"/>
-        <constraint unique_strength="0" constraints="0" field="pe13_mozliwosc_swiadczenia_uslug" notnull_strength="0" exp_strength="0"/>
-        <constraint unique_strength="0" constraints="0" field="pe14_finansowanie_publ" notnull_strength="0" exp_strength="0"/>
-        <constraint unique_strength="0" constraints="0" field="pe15_numery_projektow_publ" notnull_strength="0" exp_strength="0"/>
+        <constraint notnull_strength="0" unique_strength="0" exp_strength="0" field="fid" constraints="0"/>
+        <constraint notnull_strength="0" unique_strength="0" exp_strength="0" field="pe01_id_pe" constraints="0"/>
+        <constraint notnull_strength="0" unique_strength="0" exp_strength="0" field="pe02_typ_pe" constraints="0"/>
+        <constraint notnull_strength="0" unique_strength="0" exp_strength="0" field="pe03_id_wezla" constraints="0"/>
+        <constraint notnull_strength="0" unique_strength="0" exp_strength="0" field="pe04_pdu" constraints="0"/>
+        <constraint notnull_strength="0" unique_strength="0" exp_strength="0" field="pe05_terc" constraints="0"/>
+        <constraint notnull_strength="0" unique_strength="0" exp_strength="0" field="pe06_simc" constraints="0"/>
+        <constraint notnull_strength="0" unique_strength="0" exp_strength="0" field="pe07_ulic" constraints="0"/>
+        <constraint notnull_strength="0" unique_strength="0" exp_strength="0" field="pe08_nr_porzadkowy" constraints="0"/>
+        <constraint notnull_strength="0" unique_strength="0" exp_strength="0" field="pe09_szerokosc" constraints="0"/>
+        <constraint notnull_strength="0" unique_strength="0" exp_strength="0" field="pe10_dlugosc" constraints="0"/>
+        <constraint notnull_strength="0" unique_strength="0" exp_strength="0" field="pe11_medium_transmisyjne" constraints="0"/>
+        <constraint notnull_strength="0" unique_strength="0" exp_strength="0" field="pe12_technologia_dostepowa" constraints="0"/>
+        <constraint notnull_strength="0" unique_strength="0" exp_strength="0" field="pe13_mozliwosc_swiadczenia_uslug" constraints="0"/>
+        <constraint notnull_strength="0" unique_strength="0" exp_strength="0" field="pe14_finansowanie_publ" constraints="0"/>
+        <constraint notnull_strength="0" unique_strength="0" exp_strength="0" field="pe15_numery_projektow_publ" constraints="0"/>
       </constraints>
       <constraintExpressions>
-        <constraint exp="" desc="" field="fid"/>
-        <constraint exp="" desc="" field="pe01_id_pe"/>
-        <constraint exp="" desc="" field="pe02_typ_pe"/>
-        <constraint exp="" desc="" field="pe03_id_wezla"/>
-        <constraint exp="" desc="" field="pe04_pdu"/>
-        <constraint exp="" desc="" field="pe05_terc"/>
-        <constraint exp="" desc="" field="pe06_simc"/>
-        <constraint exp="" desc="" field="pe07_ulic"/>
-        <constraint exp="" desc="" field="pe08_nr_porzadkowy"/>
-        <constraint exp="" desc="" field="pe09_szerokosc"/>
-        <constraint exp="" desc="" field="pe10_dlugosc"/>
-        <constraint exp="" desc="" field="pe11_medium_transmisyjne"/>
-        <constraint exp="" desc="" field="pe12_technologia_dostepowa"/>
-        <constraint exp="" desc="" field="pe13_mozliwosc_swiadczenia_uslug"/>
-        <constraint exp="" desc="" field="pe14_finansowanie_publ"/>
-        <constraint exp="" desc="" field="pe15_numery_projektow_publ"/>
+        <constraint desc="" exp="" field="fid"/>
+        <constraint desc="" exp="" field="pe01_id_pe"/>
+        <constraint desc="" exp="" field="pe02_typ_pe"/>
+        <constraint desc="" exp="" field="pe03_id_wezla"/>
+        <constraint desc="" exp="" field="pe04_pdu"/>
+        <constraint desc="" exp="" field="pe05_terc"/>
+        <constraint desc="" exp="" field="pe06_simc"/>
+        <constraint desc="" exp="" field="pe07_ulic"/>
+        <constraint desc="" exp="" field="pe08_nr_porzadkowy"/>
+        <constraint desc="" exp="" field="pe09_szerokosc"/>
+        <constraint desc="" exp="" field="pe10_dlugosc"/>
+        <constraint desc="" exp="" field="pe11_medium_transmisyjne"/>
+        <constraint desc="" exp="" field="pe12_technologia_dostepowa"/>
+        <constraint desc="" exp="" field="pe13_mozliwosc_swiadczenia_uslug"/>
+        <constraint desc="" exp="" field="pe14_finansowanie_publ"/>
+        <constraint desc="" exp="" field="pe15_numery_projektow_publ"/>
       </constraintExpressions>
       <expressionfields/>
       <attributeactions>
         <defaultAction value="{00000000-0000-0000-0000-000000000000}" key="Canvas"/>
       </attributeactions>
-      <attributetableconfig sortOrder="0" sortExpression="" actionWidgetStyle="dropDown">
-        <columns/>
+      <attributetableconfig actionWidgetStyle="dropDown" sortOrder="0" sortExpression="">
+        <columns>
+          <column hidden="0" name="fid" width="-1" type="field"/>
+          <column hidden="0" name="pe01_id_pe" width="-1" type="field"/>
+          <column hidden="0" name="pe02_typ_pe" width="-1" type="field"/>
+          <column hidden="0" name="pe03_id_wezla" width="-1" type="field"/>
+          <column hidden="0" name="pe04_pdu" width="-1" type="field"/>
+          <column hidden="0" name="pe05_terc" width="-1" type="field"/>
+          <column hidden="0" name="pe06_simc" width="-1" type="field"/>
+          <column hidden="0" name="pe07_ulic" width="-1" type="field"/>
+          <column hidden="0" name="pe08_nr_porzadkowy" width="-1" type="field"/>
+          <column hidden="0" name="pe09_szerokosc" width="-1" type="field"/>
+          <column hidden="0" name="pe10_dlugosc" width="-1" type="field"/>
+          <column hidden="0" name="pe11_medium_transmisyjne" width="-1" type="field"/>
+          <column hidden="0" name="pe12_technologia_dostepowa" width="-1" type="field"/>
+          <column hidden="0" name="pe13_mozliwosc_swiadczenia_uslug" width="-1" type="field"/>
+          <column hidden="0" name="pe14_finansowanie_publ" width="-1" type="field"/>
+          <column hidden="0" name="pe15_numery_projektow_publ" width="-1" type="field"/>
+          <column hidden="1" width="-1" type="actions"/>
+        </columns>
       </attributetableconfig>
       <conditionalstyles>
         <rowstyles/>
@@ -491,7 +513,7 @@
       <reuseLastValue/>
       <dataDefinedFieldProperties/>
       <widgets/>
-      <previewExpression></previewExpression>
+      <previewExpression>"pe01_id_pe"</previewExpression>
       <mapTip></mapTip>
     </maplayer>
   </maplayers>
