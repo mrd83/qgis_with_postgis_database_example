@@ -1,0 +1,481 @@
+<!DOCTYPE qgis-layer-definition>
+<qlr>
+  <layer-tree-group checked="Qt::Checked" groupLayer="" name="" expanded="1">
+    <customproperties>
+      <Option/>
+    </customproperties>
+    <layer-tree-layer checked="Qt::Checked" source="?layer=postgres:dbname%3D%27MY_SOURCE_DB_NAME%27%20host%3D127.0.0.88%20port%3D5432%20authcfg%3Da15na06%20key%3D%27src%27%20checkPrimaryKeyUnicity%3D%270%27%20table%3D%22%28SELECT%20%2A%20FROM%20netlinks_with_coords_distinct_for_qgis%29%22:lms_netlinks:UTF-8&amp;query=SELECT%20*%20FROM%20lms_netlinks%20ORDER%20BY%20src&amp;nogeometry" providerKey="virtual" patch_size="-1,-1" legend_split_behavior="0" id="lms_devices_4_netlinks_raw_v2_adfab078_7cea_43fa_b620_b8a33ed6a7d9" name="lms_devices_4_netlinks_raw_v2" expanded="1" legend_exp="">
+      <customproperties>
+        <Option type="Map">
+          <Option value="true" name="showFeatureCount" type="bool"/>
+        </Option>
+      </customproperties>
+    </layer-tree-layer>
+  </layer-tree-group>
+  <maplayers>
+    <maplayer minScale="1e+08" maxScale="0" styleCategories="AllStyleCategories" readOnly="0" geometry="No geometry" refreshOnNotifyMessage="" wkbType="NoGeometry" autoRefreshTime="0" legendPlaceholderImage="" autoRefreshEnabled="0" refreshOnNotifyEnabled="0" type="vector" hasScaleBasedVisibilityFlag="0">
+      <id>lms_devices_4_netlinks_raw_v2_adfab078_7cea_43fa_b620_b8a33ed6a7d9</id>
+      <datasource>?layer=postgres:dbname%3D%27MY_SOURCE_DB_NAME%27%20host%3D127.0.0.88%20port%3D5432%20authcfg%3Da15na06%20key%3D%27src%27%20checkPrimaryKeyUnicity%3D%270%27%20table%3D%22%28SELECT%20%2A%20FROM%20netlinks_with_coords_distinct_for_qgis%29%22:lms_netlinks:UTF-8&amp;query=SELECT%20*%20FROM%20lms_netlinks%20ORDER%20BY%20src&amp;nogeometry</datasource>
+      <keywordList>
+        <value></value>
+      </keywordList>
+      <layername>lms_devices_4_netlinks_raw_v2</layername>
+      <srs>
+        <spatialrefsys nativeFormat="Wkt">
+          <wkt></wkt>
+          <proj4></proj4>
+          <srsid>0</srsid>
+          <srid>0</srid>
+          <authid></authid>
+          <description></description>
+          <projectionacronym></projectionacronym>
+          <ellipsoidacronym></ellipsoidacronym>
+          <geographicflag>false</geographicflag>
+        </spatialrefsys>
+      </srs>
+      <resourceMetadata>
+        <identifier></identifier>
+        <parentidentifier></parentidentifier>
+        <language></language>
+        <type></type>
+        <title></title>
+        <abstract></abstract>
+        <links/>
+        <dates/>
+        <fees></fees>
+        <encoding></encoding>
+        <crs>
+          <spatialrefsys nativeFormat="Wkt">
+            <wkt></wkt>
+            <proj4></proj4>
+            <srsid>0</srsid>
+            <srid>0</srid>
+            <authid></authid>
+            <description></description>
+            <projectionacronym></projectionacronym>
+            <ellipsoidacronym></ellipsoidacronym>
+            <geographicflag>false</geographicflag>
+          </spatialrefsys>
+        </crs>
+        <extent/>
+      </resourceMetadata>
+      <provider encoding="">virtual</provider>
+      <vectorjoins/>
+      <layerDependencies/>
+      <dataDependencies/>
+      <expressionfields/>
+      <map-layer-style-manager current="default">
+        <map-layer-style name="default"/>
+      </map-layer-style-manager>
+      <auxiliaryLayer/>
+      <metadataUrls/>
+      <flags>
+        <Identifiable>1</Identifiable>
+        <Removable>1</Removable>
+        <Searchable>1</Searchable>
+        <Private>0</Private>
+      </flags>
+      <temporal startField="" limitMode="0" enabled="0" startExpression="" endExpression="" accumulate="0" durationField="" durationUnit="min" endField="" mode="0" fixedDuration="0">
+        <fixedRange>
+          <start></start>
+          <end></end>
+        </fixedRange>
+      </temporal>
+      <elevation binding="Centroid" symbology="Line" clamping="Terrain" zoffset="0" zscale="1" extrusionEnabled="0" showMarkerSymbolInSurfacePlots="0" respectLayerSymbol="1" extrusion="0" type="IndividualFeatures">
+        <data-defined-properties>
+          <Option type="Map">
+            <Option value="" name="name" type="QString"/>
+            <Option name="properties"/>
+            <Option value="collection" name="type" type="QString"/>
+          </Option>
+        </data-defined-properties>
+        <profileLineSymbol>
+          <symbol force_rhr="0" frame_rate="10" is_animated="0" alpha="1" name="" clip_to_extent="1" type="line">
+            <data_defined_properties>
+              <Option type="Map">
+                <Option value="" name="name" type="QString"/>
+                <Option name="properties"/>
+                <Option value="collection" name="type" type="QString"/>
+              </Option>
+            </data_defined_properties>
+            <layer enabled="1" pass="0" id="{f3e24844-9388-49a1-ba25-25a802df3bc8}" class="SimpleLine" locked="0">
+              <Option type="Map">
+                <Option value="0" name="align_dash_pattern" type="QString"/>
+                <Option value="square" name="capstyle" type="QString"/>
+                <Option value="5;2" name="customdash" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="customdash_map_unit_scale" type="QString"/>
+                <Option value="MM" name="customdash_unit" type="QString"/>
+                <Option value="0" name="dash_pattern_offset" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="dash_pattern_offset_map_unit_scale" type="QString"/>
+                <Option value="MM" name="dash_pattern_offset_unit" type="QString"/>
+                <Option value="0" name="draw_inside_polygon" type="QString"/>
+                <Option value="bevel" name="joinstyle" type="QString"/>
+                <Option value="114,155,111,255" name="line_color" type="QString"/>
+                <Option value="solid" name="line_style" type="QString"/>
+                <Option value="0.6" name="line_width" type="QString"/>
+                <Option value="MM" name="line_width_unit" type="QString"/>
+                <Option value="0" name="offset" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="offset_map_unit_scale" type="QString"/>
+                <Option value="MM" name="offset_unit" type="QString"/>
+                <Option value="0" name="ring_filter" type="QString"/>
+                <Option value="0" name="trim_distance_end" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="trim_distance_end_map_unit_scale" type="QString"/>
+                <Option value="MM" name="trim_distance_end_unit" type="QString"/>
+                <Option value="0" name="trim_distance_start" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="trim_distance_start_map_unit_scale" type="QString"/>
+                <Option value="MM" name="trim_distance_start_unit" type="QString"/>
+                <Option value="0" name="tweak_dash_pattern_on_corners" type="QString"/>
+                <Option value="0" name="use_custom_dash" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="width_map_unit_scale" type="QString"/>
+              </Option>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option value="" name="name" type="QString"/>
+                  <Option name="properties"/>
+                  <Option value="collection" name="type" type="QString"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </profileLineSymbol>
+        <profileFillSymbol>
+          <symbol force_rhr="0" frame_rate="10" is_animated="0" alpha="1" name="" clip_to_extent="1" type="fill">
+            <data_defined_properties>
+              <Option type="Map">
+                <Option value="" name="name" type="QString"/>
+                <Option name="properties"/>
+                <Option value="collection" name="type" type="QString"/>
+              </Option>
+            </data_defined_properties>
+            <layer enabled="1" pass="0" id="{05cb3319-2ec2-4380-9b24-b27923ecf923}" class="SimpleFill" locked="0">
+              <Option type="Map">
+                <Option value="3x:0,0,0,0,0,0" name="border_width_map_unit_scale" type="QString"/>
+                <Option value="114,155,111,255" name="color" type="QString"/>
+                <Option value="bevel" name="joinstyle" type="QString"/>
+                <Option value="0,0" name="offset" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="offset_map_unit_scale" type="QString"/>
+                <Option value="MM" name="offset_unit" type="QString"/>
+                <Option value="81,111,79,255" name="outline_color" type="QString"/>
+                <Option value="solid" name="outline_style" type="QString"/>
+                <Option value="0.2" name="outline_width" type="QString"/>
+                <Option value="MM" name="outline_width_unit" type="QString"/>
+                <Option value="solid" name="style" type="QString"/>
+              </Option>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option value="" name="name" type="QString"/>
+                  <Option name="properties"/>
+                  <Option value="collection" name="type" type="QString"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </profileFillSymbol>
+        <profileMarkerSymbol>
+          <symbol force_rhr="0" frame_rate="10" is_animated="0" alpha="1" name="" clip_to_extent="1" type="marker">
+            <data_defined_properties>
+              <Option type="Map">
+                <Option value="" name="name" type="QString"/>
+                <Option name="properties"/>
+                <Option value="collection" name="type" type="QString"/>
+              </Option>
+            </data_defined_properties>
+            <layer enabled="1" pass="0" id="{a78603ad-7cb9-4848-aa2a-c5564269c1ba}" class="SimpleMarker" locked="0">
+              <Option type="Map">
+                <Option value="0" name="angle" type="QString"/>
+                <Option value="square" name="cap_style" type="QString"/>
+                <Option value="114,155,111,255" name="color" type="QString"/>
+                <Option value="1" name="horizontal_anchor_point" type="QString"/>
+                <Option value="bevel" name="joinstyle" type="QString"/>
+                <Option value="diamond" name="name" type="QString"/>
+                <Option value="0,0" name="offset" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="offset_map_unit_scale" type="QString"/>
+                <Option value="MM" name="offset_unit" type="QString"/>
+                <Option value="81,111,79,255" name="outline_color" type="QString"/>
+                <Option value="solid" name="outline_style" type="QString"/>
+                <Option value="0.2" name="outline_width" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="outline_width_map_unit_scale" type="QString"/>
+                <Option value="MM" name="outline_width_unit" type="QString"/>
+                <Option value="diameter" name="scale_method" type="QString"/>
+                <Option value="3" name="size" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="size_map_unit_scale" type="QString"/>
+                <Option value="MM" name="size_unit" type="QString"/>
+                <Option value="1" name="vertical_anchor_point" type="QString"/>
+              </Option>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option value="" name="name" type="QString"/>
+                  <Option name="properties"/>
+                  <Option value="collection" name="type" type="QString"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </profileMarkerSymbol>
+      </elevation>
+      <customproperties>
+        <Option type="Map">
+          <Option name="dualview/previewExpressions" type="List">
+            <Option value="&quot;srcnamepart&quot;" type="QString"/>
+          </Option>
+        </Option>
+      </customproperties>
+      <geometryOptions geometryPrecision="0" removeDuplicateNodes="0">
+        <activeChecks type="StringList">
+          <Option value="" type="QString"/>
+        </activeChecks>
+        <checkConfiguration/>
+      </geometryOptions>
+      <legend showLabelLegend="0" type="default-vector"/>
+      <referencedLayers/>
+      <fieldConfiguration>
+        <field configurationFlags="None" name="src">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="srcnamepart">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="srclongitude">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="srclatitude">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="srcterc">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="srcsimc">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="srculic">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="srcnr_porzadkowy">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="dst">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="dstnamepart">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="dstlongitude">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="dstlatitude">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="dstterc">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="dstsimc">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="dstulic">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="dstnr_porzadkowy">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+      </fieldConfiguration>
+      <aliases>
+        <alias field="src" name="" index="0"/>
+        <alias field="srcnamepart" name="" index="1"/>
+        <alias field="srclongitude" name="" index="2"/>
+        <alias field="srclatitude" name="" index="3"/>
+        <alias field="srcterc" name="" index="4"/>
+        <alias field="srcsimc" name="" index="5"/>
+        <alias field="srculic" name="" index="6"/>
+        <alias field="srcnr_porzadkowy" name="" index="7"/>
+        <alias field="dst" name="" index="8"/>
+        <alias field="dstnamepart" name="" index="9"/>
+        <alias field="dstlongitude" name="" index="10"/>
+        <alias field="dstlatitude" name="" index="11"/>
+        <alias field="dstterc" name="" index="12"/>
+        <alias field="dstsimc" name="" index="13"/>
+        <alias field="dstulic" name="" index="14"/>
+        <alias field="dstnr_porzadkowy" name="" index="15"/>
+      </aliases>
+      <splitPolicies>
+        <policy policy="Duplicate" field="src"/>
+        <policy policy="Duplicate" field="srcnamepart"/>
+        <policy policy="Duplicate" field="srclongitude"/>
+        <policy policy="Duplicate" field="srclatitude"/>
+        <policy policy="Duplicate" field="srcterc"/>
+        <policy policy="Duplicate" field="srcsimc"/>
+        <policy policy="Duplicate" field="srculic"/>
+        <policy policy="Duplicate" field="srcnr_porzadkowy"/>
+        <policy policy="Duplicate" field="dst"/>
+        <policy policy="Duplicate" field="dstnamepart"/>
+        <policy policy="Duplicate" field="dstlongitude"/>
+        <policy policy="Duplicate" field="dstlatitude"/>
+        <policy policy="Duplicate" field="dstterc"/>
+        <policy policy="Duplicate" field="dstsimc"/>
+        <policy policy="Duplicate" field="dstulic"/>
+        <policy policy="Duplicate" field="dstnr_porzadkowy"/>
+      </splitPolicies>
+      <defaults>
+        <default field="src" applyOnUpdate="0" expression=""/>
+        <default field="srcnamepart" applyOnUpdate="0" expression=""/>
+        <default field="srclongitude" applyOnUpdate="0" expression=""/>
+        <default field="srclatitude" applyOnUpdate="0" expression=""/>
+        <default field="srcterc" applyOnUpdate="0" expression=""/>
+        <default field="srcsimc" applyOnUpdate="0" expression=""/>
+        <default field="srculic" applyOnUpdate="0" expression=""/>
+        <default field="srcnr_porzadkowy" applyOnUpdate="0" expression=""/>
+        <default field="dst" applyOnUpdate="0" expression=""/>
+        <default field="dstnamepart" applyOnUpdate="0" expression=""/>
+        <default field="dstlongitude" applyOnUpdate="0" expression=""/>
+        <default field="dstlatitude" applyOnUpdate="0" expression=""/>
+        <default field="dstterc" applyOnUpdate="0" expression=""/>
+        <default field="dstsimc" applyOnUpdate="0" expression=""/>
+        <default field="dstulic" applyOnUpdate="0" expression=""/>
+        <default field="dstnr_porzadkowy" applyOnUpdate="0" expression=""/>
+      </defaults>
+      <constraints>
+        <constraint field="src" unique_strength="0" notnull_strength="0" exp_strength="0" constraints="0"/>
+        <constraint field="srcnamepart" unique_strength="0" notnull_strength="0" exp_strength="0" constraints="0"/>
+        <constraint field="srclongitude" unique_strength="0" notnull_strength="0" exp_strength="0" constraints="0"/>
+        <constraint field="srclatitude" unique_strength="0" notnull_strength="0" exp_strength="0" constraints="0"/>
+        <constraint field="srcterc" unique_strength="0" notnull_strength="0" exp_strength="0" constraints="0"/>
+        <constraint field="srcsimc" unique_strength="0" notnull_strength="0" exp_strength="0" constraints="0"/>
+        <constraint field="srculic" unique_strength="0" notnull_strength="0" exp_strength="0" constraints="0"/>
+        <constraint field="srcnr_porzadkowy" unique_strength="0" notnull_strength="0" exp_strength="0" constraints="0"/>
+        <constraint field="dst" unique_strength="0" notnull_strength="0" exp_strength="0" constraints="0"/>
+        <constraint field="dstnamepart" unique_strength="0" notnull_strength="0" exp_strength="0" constraints="0"/>
+        <constraint field="dstlongitude" unique_strength="0" notnull_strength="0" exp_strength="0" constraints="0"/>
+        <constraint field="dstlatitude" unique_strength="0" notnull_strength="0" exp_strength="0" constraints="0"/>
+        <constraint field="dstterc" unique_strength="0" notnull_strength="0" exp_strength="0" constraints="0"/>
+        <constraint field="dstsimc" unique_strength="0" notnull_strength="0" exp_strength="0" constraints="0"/>
+        <constraint field="dstulic" unique_strength="0" notnull_strength="0" exp_strength="0" constraints="0"/>
+        <constraint field="dstnr_porzadkowy" unique_strength="0" notnull_strength="0" exp_strength="0" constraints="0"/>
+      </constraints>
+      <constraintExpressions>
+        <constraint field="src" desc="" exp=""/>
+        <constraint field="srcnamepart" desc="" exp=""/>
+        <constraint field="srclongitude" desc="" exp=""/>
+        <constraint field="srclatitude" desc="" exp=""/>
+        <constraint field="srcterc" desc="" exp=""/>
+        <constraint field="srcsimc" desc="" exp=""/>
+        <constraint field="srculic" desc="" exp=""/>
+        <constraint field="srcnr_porzadkowy" desc="" exp=""/>
+        <constraint field="dst" desc="" exp=""/>
+        <constraint field="dstnamepart" desc="" exp=""/>
+        <constraint field="dstlongitude" desc="" exp=""/>
+        <constraint field="dstlatitude" desc="" exp=""/>
+        <constraint field="dstterc" desc="" exp=""/>
+        <constraint field="dstsimc" desc="" exp=""/>
+        <constraint field="dstulic" desc="" exp=""/>
+        <constraint field="dstnr_porzadkowy" desc="" exp=""/>
+      </constraintExpressions>
+      <expressionfields/>
+      <attributeactions>
+        <defaultAction key="Canvas" value="{00000000-0000-0000-0000-000000000000}"/>
+      </attributeactions>
+      <attributetableconfig sortExpression="" sortOrder="0" actionWidgetStyle="dropDown">
+        <columns>
+          <column hidden="0" name="src" width="-1" type="field"/>
+          <column hidden="0" name="srcnamepart" width="-1" type="field"/>
+          <column hidden="0" name="srclongitude" width="-1" type="field"/>
+          <column hidden="0" name="srclatitude" width="-1" type="field"/>
+          <column hidden="0" name="srcterc" width="-1" type="field"/>
+          <column hidden="0" name="srcsimc" width="-1" type="field"/>
+          <column hidden="0" name="srculic" width="-1" type="field"/>
+          <column hidden="0" name="srcnr_porzadkowy" width="-1" type="field"/>
+          <column hidden="0" name="dst" width="-1" type="field"/>
+          <column hidden="0" name="dstnamepart" width="-1" type="field"/>
+          <column hidden="0" name="dstlongitude" width="-1" type="field"/>
+          <column hidden="0" name="dstlatitude" width="-1" type="field"/>
+          <column hidden="0" name="dstterc" width="-1" type="field"/>
+          <column hidden="0" name="dstsimc" width="-1" type="field"/>
+          <column hidden="0" name="dstulic" width="-1" type="field"/>
+          <column hidden="0" name="dstnr_porzadkowy" width="-1" type="field"/>
+          <column hidden="1" width="-1" type="actions"/>
+        </columns>
+      </attributetableconfig>
+      <conditionalstyles>
+        <rowstyles/>
+        <fieldstyles/>
+      </conditionalstyles>
+      <storedexpressions/>
+      <editform tolerant="1"></editform>
+      <editforminit/>
+      <editforminitcodesource>0</editforminitcodesource>
+      <editforminitfilepath></editforminitfilepath>
+      <editforminitcode><![CDATA[]]></editforminitcode>
+      <featformsuppress>0</featformsuppress>
+      <editorlayout>generatedlayout</editorlayout>
+      <editable/>
+      <labelOnTop/>
+      <reuseLastValue/>
+      <dataDefinedFieldProperties/>
+      <widgets/>
+      <previewExpression>"srcnamepart"</previewExpression>
+      <mapTip></mapTip>
+    </maplayer>
+  </maplayers>
+</qlr>

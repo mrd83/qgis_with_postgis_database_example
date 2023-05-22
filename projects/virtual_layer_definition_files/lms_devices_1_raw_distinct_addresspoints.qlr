@@ -1,0 +1,508 @@
+<!DOCTYPE qgis-layer-definition>
+<qlr>
+  <layer-tree-group name="" groupLayer="" checked="Qt::Checked" expanded="1">
+    <customproperties>
+      <Option/>
+    </customproperties>
+    <layer-tree-layer providerKey="virtual" legend_exp="" name="lms_devices_1_raw_distinct_addresspoints" source="?layer=postgres:dbname%3D%27MY_SOURCE_DB_NAME%27%20host%3D127.0.0.88%20port%3D5432%20authcfg%3Da15na06%20key%3D%27lms_dev_id%27%20checkPrimaryKeyUnicity%3D%270%27%20table%3D%22%28SELECT%20%2A%20FROM%20netdevices_vtable_for_qgis%29%22:lms_netdevices:UTF-8&amp;query=SELECT%20*%20FROM%20lms_netdevices%20ORDER%20BY%20lms_dev_id&amp;nogeometry" id="lms_devices_1_raw_distinct_addresspoints_81909452_870a_4666_9f8c_357a6934f23e" legend_split_behavior="0" checked="Qt::Checked" patch_size="-1,-1" expanded="1">
+      <customproperties>
+        <Option/>
+      </customproperties>
+    </layer-tree-layer>
+  </layer-tree-group>
+  <maplayers>
+    <maplayer readOnly="0" styleCategories="AllStyleCategories" minScale="1e+08" refreshOnNotifyEnabled="0" maxScale="0" autoRefreshTime="0" autoRefreshEnabled="0" legendPlaceholderImage="" type="vector" wkbType="NoGeometry" geometry="No geometry" refreshOnNotifyMessage="" hasScaleBasedVisibilityFlag="0">
+      <id>lms_devices_1_raw_distinct_addresspoints_81909452_870a_4666_9f8c_357a6934f23e</id>
+      <datasource>?layer=postgres:dbname%3D%27MY_SOURCE_DB_NAME%27%20host%3D127.0.0.88%20port%3D5432%20authcfg%3Da15na06%20key%3D%27lms_dev_id%27%20checkPrimaryKeyUnicity%3D%270%27%20table%3D%22%28SELECT%20%2A%20FROM%20netdevices_vtable_for_qgis%29%22:lms_netdevices:UTF-8&amp;query=SELECT%20*%20FROM%20lms_netdevices%20ORDER%20BY%20lms_dev_id&amp;nogeometry</datasource>
+      <keywordList>
+        <value></value>
+      </keywordList>
+      <layername>lms_devices_1_raw_distinct_addresspoints</layername>
+      <srs>
+        <spatialrefsys nativeFormat="Wkt">
+          <wkt></wkt>
+          <proj4></proj4>
+          <srsid>0</srsid>
+          <srid>0</srid>
+          <authid></authid>
+          <description></description>
+          <projectionacronym></projectionacronym>
+          <ellipsoidacronym></ellipsoidacronym>
+          <geographicflag>false</geographicflag>
+        </spatialrefsys>
+      </srs>
+      <resourceMetadata>
+        <identifier></identifier>
+        <parentidentifier></parentidentifier>
+        <language></language>
+        <type></type>
+        <title></title>
+        <abstract></abstract>
+        <links/>
+        <fees></fees>
+        <encoding></encoding>
+        <crs>
+          <spatialrefsys nativeFormat="Wkt">
+            <wkt></wkt>
+            <proj4></proj4>
+            <srsid>0</srsid>
+            <srid>0</srid>
+            <authid></authid>
+            <description></description>
+            <projectionacronym></projectionacronym>
+            <ellipsoidacronym></ellipsoidacronym>
+            <geographicflag>false</geographicflag>
+          </spatialrefsys>
+        </crs>
+        <extent/>
+      </resourceMetadata>
+      <provider encoding="">virtual</provider>
+      <vectorjoins/>
+      <layerDependencies/>
+      <dataDependencies/>
+      <expressionfields/>
+      <map-layer-style-manager current="default">
+        <map-layer-style name="default"/>
+      </map-layer-style-manager>
+      <auxiliaryLayer/>
+      <metadataUrls/>
+      <flags>
+        <Identifiable>1</Identifiable>
+        <Removable>1</Removable>
+        <Searchable>1</Searchable>
+        <Private>0</Private>
+      </flags>
+      <temporal durationUnit="min" accumulate="0" enabled="0" fixedDuration="0" startExpression="" limitMode="0" endExpression="" endField="" mode="0" startField="" durationField="">
+        <fixedRange>
+          <start></start>
+          <end></end>
+        </fixedRange>
+      </temporal>
+      <elevation clamping="Terrain" extrusionEnabled="0" zoffset="0" zscale="1" extrusion="0" binding="Centroid" type="IndividualFeatures" respectLayerSymbol="1" showMarkerSymbolInSurfacePlots="0" symbology="Line">
+        <data-defined-properties>
+          <Option type="Map">
+            <Option value="" name="name" type="QString"/>
+            <Option name="properties"/>
+            <Option value="collection" name="type" type="QString"/>
+          </Option>
+        </data-defined-properties>
+        <profileLineSymbol>
+          <symbol is_animated="0" name="" force_rhr="0" alpha="1" clip_to_extent="1" type="line" frame_rate="10">
+            <data_defined_properties>
+              <Option type="Map">
+                <Option value="" name="name" type="QString"/>
+                <Option name="properties"/>
+                <Option value="collection" name="type" type="QString"/>
+              </Option>
+            </data_defined_properties>
+            <layer enabled="1" class="SimpleLine" pass="0" locked="0">
+              <Option type="Map">
+                <Option value="0" name="align_dash_pattern" type="QString"/>
+                <Option value="square" name="capstyle" type="QString"/>
+                <Option value="5;2" name="customdash" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="customdash_map_unit_scale" type="QString"/>
+                <Option value="MM" name="customdash_unit" type="QString"/>
+                <Option value="0" name="dash_pattern_offset" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="dash_pattern_offset_map_unit_scale" type="QString"/>
+                <Option value="MM" name="dash_pattern_offset_unit" type="QString"/>
+                <Option value="0" name="draw_inside_polygon" type="QString"/>
+                <Option value="bevel" name="joinstyle" type="QString"/>
+                <Option value="232,113,141,255" name="line_color" type="QString"/>
+                <Option value="solid" name="line_style" type="QString"/>
+                <Option value="0.6" name="line_width" type="QString"/>
+                <Option value="MM" name="line_width_unit" type="QString"/>
+                <Option value="0" name="offset" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="offset_map_unit_scale" type="QString"/>
+                <Option value="MM" name="offset_unit" type="QString"/>
+                <Option value="0" name="ring_filter" type="QString"/>
+                <Option value="0" name="trim_distance_end" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="trim_distance_end_map_unit_scale" type="QString"/>
+                <Option value="MM" name="trim_distance_end_unit" type="QString"/>
+                <Option value="0" name="trim_distance_start" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="trim_distance_start_map_unit_scale" type="QString"/>
+                <Option value="MM" name="trim_distance_start_unit" type="QString"/>
+                <Option value="0" name="tweak_dash_pattern_on_corners" type="QString"/>
+                <Option value="0" name="use_custom_dash" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="width_map_unit_scale" type="QString"/>
+              </Option>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option value="" name="name" type="QString"/>
+                  <Option name="properties"/>
+                  <Option value="collection" name="type" type="QString"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </profileLineSymbol>
+        <profileFillSymbol>
+          <symbol is_animated="0" name="" force_rhr="0" alpha="1" clip_to_extent="1" type="fill" frame_rate="10">
+            <data_defined_properties>
+              <Option type="Map">
+                <Option value="" name="name" type="QString"/>
+                <Option name="properties"/>
+                <Option value="collection" name="type" type="QString"/>
+              </Option>
+            </data_defined_properties>
+            <layer enabled="1" class="SimpleFill" pass="0" locked="0">
+              <Option type="Map">
+                <Option value="3x:0,0,0,0,0,0" name="border_width_map_unit_scale" type="QString"/>
+                <Option value="232,113,141,255" name="color" type="QString"/>
+                <Option value="bevel" name="joinstyle" type="QString"/>
+                <Option value="0,0" name="offset" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="offset_map_unit_scale" type="QString"/>
+                <Option value="MM" name="offset_unit" type="QString"/>
+                <Option value="166,81,101,255" name="outline_color" type="QString"/>
+                <Option value="solid" name="outline_style" type="QString"/>
+                <Option value="0.2" name="outline_width" type="QString"/>
+                <Option value="MM" name="outline_width_unit" type="QString"/>
+                <Option value="solid" name="style" type="QString"/>
+              </Option>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option value="" name="name" type="QString"/>
+                  <Option name="properties"/>
+                  <Option value="collection" name="type" type="QString"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </profileFillSymbol>
+        <profileMarkerSymbol>
+          <symbol is_animated="0" name="" force_rhr="0" alpha="1" clip_to_extent="1" type="marker" frame_rate="10">
+            <data_defined_properties>
+              <Option type="Map">
+                <Option value="" name="name" type="QString"/>
+                <Option name="properties"/>
+                <Option value="collection" name="type" type="QString"/>
+              </Option>
+            </data_defined_properties>
+            <layer enabled="1" class="SimpleMarker" pass="0" locked="0">
+              <Option type="Map">
+                <Option value="0" name="angle" type="QString"/>
+                <Option value="square" name="cap_style" type="QString"/>
+                <Option value="232,113,141,255" name="color" type="QString"/>
+                <Option value="1" name="horizontal_anchor_point" type="QString"/>
+                <Option value="bevel" name="joinstyle" type="QString"/>
+                <Option value="diamond" name="name" type="QString"/>
+                <Option value="0,0" name="offset" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="offset_map_unit_scale" type="QString"/>
+                <Option value="MM" name="offset_unit" type="QString"/>
+                <Option value="166,81,101,255" name="outline_color" type="QString"/>
+                <Option value="solid" name="outline_style" type="QString"/>
+                <Option value="0.2" name="outline_width" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="outline_width_map_unit_scale" type="QString"/>
+                <Option value="MM" name="outline_width_unit" type="QString"/>
+                <Option value="diameter" name="scale_method" type="QString"/>
+                <Option value="3" name="size" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="size_map_unit_scale" type="QString"/>
+                <Option value="MM" name="size_unit" type="QString"/>
+                <Option value="1" name="vertical_anchor_point" type="QString"/>
+              </Option>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option value="" name="name" type="QString"/>
+                  <Option name="properties"/>
+                  <Option value="collection" name="type" type="QString"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </profileMarkerSymbol>
+      </elevation>
+      <customproperties>
+        <Option type="Map">
+          <Option name="dualview/previewExpressions" type="List">
+            <Option value="&quot;namepart&quot;" type="QString"/>
+          </Option>
+        </Option>
+      </customproperties>
+      <geometryOptions geometryPrecision="0" removeDuplicateNodes="0">
+        <activeChecks type="StringList">
+          <Option value="" type="QString"/>
+        </activeChecks>
+        <checkConfiguration/>
+      </geometryOptions>
+      <legend showLabelLegend="0" type="default-vector"/>
+      <referencedLayers/>
+      <fieldConfiguration>
+        <field name="linkscount" configurationFlags="None">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="lms_dev_id" configurationFlags="None">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="uke_report_namepart" configurationFlags="None">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="destinationdevid" configurationFlags="None">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="dlugosc" configurationFlags="None">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="szerokosc" configurationFlags="None">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="terc" configurationFlags="None">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="simc" configurationFlags="None">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="ulic" configurationFlags="None">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="nr_porzadkowy" configurationFlags="None">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="lms_addr_id" configurationFlags="None">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="ulica" configurationFlags="None">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="city_name" configurationFlags="None">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="borough_name" configurationFlags="None">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="borough_ident" configurationFlags="None">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="borough_type" configurationFlags="None">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="district_name" configurationFlags="None">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="district_ident" configurationFlags="None">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="state_name" configurationFlags="None">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="state_ident" configurationFlags="None">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+      </fieldConfiguration>
+      <aliases>
+        <alias field="linkscount" name="" index="0"/>
+        <alias field="lms_dev_id" name="" index="1"/>
+        <alias field="uke_report_namepart" name="" index="2"/>
+        <alias field="destinationdevid" name="" index="3"/>
+        <alias field="dlugosc" name="" index="4"/>
+        <alias field="szerokosc" name="" index="5"/>
+        <alias field="terc" name="" index="6"/>
+        <alias field="simc" name="" index="7"/>
+        <alias field="ulic" name="" index="8"/>
+        <alias field="nr_porzadkowy" name="" index="9"/>
+        <alias field="lms_addr_id" name="" index="10"/>
+        <alias field="ulica" name="" index="11"/>
+        <alias field="city_name" name="" index="12"/>
+        <alias field="borough_name" name="" index="13"/>
+        <alias field="borough_ident" name="" index="14"/>
+        <alias field="borough_type" name="" index="15"/>
+        <alias field="district_name" name="" index="16"/>
+        <alias field="district_ident" name="" index="17"/>
+        <alias field="state_name" name="" index="18"/>
+        <alias field="state_ident" name="" index="19"/>
+      </aliases>
+      <defaults>
+        <default field="linkscount" applyOnUpdate="0" expression=""/>
+        <default field="lms_dev_id" applyOnUpdate="0" expression=""/>
+        <default field="uke_report_namepart" applyOnUpdate="0" expression=""/>
+        <default field="destinationdevid" applyOnUpdate="0" expression=""/>
+        <default field="dlugosc" applyOnUpdate="0" expression=""/>
+        <default field="szerokosc" applyOnUpdate="0" expression=""/>
+        <default field="terc" applyOnUpdate="0" expression=""/>
+        <default field="simc" applyOnUpdate="0" expression=""/>
+        <default field="ulic" applyOnUpdate="0" expression=""/>
+        <default field="nr_porzadkowy" applyOnUpdate="0" expression=""/>
+        <default field="lms_addr_id" applyOnUpdate="0" expression=""/>
+        <default field="ulica" applyOnUpdate="0" expression=""/>
+        <default field="city_name" applyOnUpdate="0" expression=""/>
+        <default field="borough_name" applyOnUpdate="0" expression=""/>
+        <default field="borough_ident" applyOnUpdate="0" expression=""/>
+        <default field="borough_type" applyOnUpdate="0" expression=""/>
+        <default field="district_name" applyOnUpdate="0" expression=""/>
+        <default field="district_ident" applyOnUpdate="0" expression=""/>
+        <default field="state_name" applyOnUpdate="0" expression=""/>
+        <default field="state_ident" applyOnUpdate="0" expression=""/>
+      </defaults>
+      <constraints>
+        <constraint field="linkscount" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="lms_dev_id" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="uke_report_namepart" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="destinationdevid" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="dlugosc" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="szerokosc" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="terc" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="simc" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="ulic" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="nr_porzadkowy" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="lms_addr_id" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="ulica" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="city_name" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="borough_name" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="borough_ident" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="borough_type" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="district_name" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="district_ident" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="state_name" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="state_ident" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+      </constraints>
+      <constraintExpressions>
+        <constraint field="linkscount" exp="" desc=""/>
+        <constraint field="lms_dev_id" exp="" desc=""/>
+        <constraint field="uke_report_namepart" exp="" desc=""/>
+        <constraint field="destinationdevid" exp="" desc=""/>
+        <constraint field="dlugosc" exp="" desc=""/>
+        <constraint field="szerokosc" exp="" desc=""/>
+        <constraint field="terc" exp="" desc=""/>
+        <constraint field="simc" exp="" desc=""/>
+        <constraint field="ulic" exp="" desc=""/>
+        <constraint field="nr_porzadkowy" exp="" desc=""/>
+        <constraint field="lms_addr_id" exp="" desc=""/>
+        <constraint field="ulica" exp="" desc=""/>
+        <constraint field="city_name" exp="" desc=""/>
+        <constraint field="borough_name" exp="" desc=""/>
+        <constraint field="borough_ident" exp="" desc=""/>
+        <constraint field="borough_type" exp="" desc=""/>
+        <constraint field="district_name" exp="" desc=""/>
+        <constraint field="district_ident" exp="" desc=""/>
+        <constraint field="state_name" exp="" desc=""/>
+        <constraint field="state_ident" exp="" desc=""/>
+      </constraintExpressions>
+      <expressionfields/>
+      <attributeactions>
+        <defaultAction value="{00000000-0000-0000-0000-000000000000}" key="Canvas"/>
+      </attributeactions>
+      <attributetableconfig sortExpression="&quot;lms_dev_id&quot;" sortOrder="0" actionWidgetStyle="dropDown">
+        <columns>
+          <column name="linkscount" hidden="0" width="-1" type="field"/>
+          <column name="lms_dev_id" hidden="0" width="-1" type="field"/>
+          <column name="namepart" hidden="0" width="-1" type="field"/>
+          <column name="destinationdevid" hidden="0" width="-1" type="field"/>
+          <column name="longitude" hidden="0" width="-1" type="field"/>
+          <column name="latitude" hidden="0" width="-1" type="field"/>
+          <column name="terc" hidden="0" width="-1" type="field"/>
+          <column name="simc" hidden="0" width="-1" type="field"/>
+          <column name="ulic" hidden="0" width="-1" type="field"/>
+          <column name="nr_porzadkowy" hidden="0" width="-1" type="field"/>
+          <column name="address_id" hidden="0" width="-1" type="field"/>
+          <column name="ulica" hidden="0" width="-1" type="field"/>
+          <column name="city_name" hidden="0" width="-1" type="field"/>
+          <column name="borough_name" hidden="0" width="-1" type="field"/>
+          <column name="borough_ident" hidden="0" width="-1" type="field"/>
+          <column name="borough_type" hidden="0" width="-1" type="field"/>
+          <column name="district_name" hidden="0" width="-1" type="field"/>
+          <column name="district_ident" hidden="0" width="-1" type="field"/>
+          <column name="state_name" hidden="0" width="-1" type="field"/>
+          <column name="state_ident" hidden="0" width="-1" type="field"/>
+          <column hidden="1" width="-1" type="actions"/>
+        </columns>
+      </attributetableconfig>
+      <conditionalstyles>
+        <rowstyles/>
+        <fieldstyles/>
+      </conditionalstyles>
+      <storedexpressions/>
+      <editform tolerant="1"></editform>
+      <editforminit/>
+      <editforminitcodesource>0</editforminitcodesource>
+      <editforminitfilepath></editforminitfilepath>
+      <editforminitcode><![CDATA[]]></editforminitcode>
+      <featformsuppress>0</featformsuppress>
+      <editorlayout>generatedlayout</editorlayout>
+      <editable/>
+      <labelOnTop/>
+      <reuseLastValue/>
+      <dataDefinedFieldProperties/>
+      <widgets/>
+      <previewExpression>"namepart"</previewExpression>
+      <mapTip></mapTip>
+    </maplayer>
+  </maplayers>
+</qlr>

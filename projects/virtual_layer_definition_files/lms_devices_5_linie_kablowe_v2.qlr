@@ -1,0 +1,557 @@
+<!DOCTYPE qgis-layer-definition>
+<qlr>
+  <layer-tree-group checked="Qt::Checked" groupLayer="" name="" expanded="1">
+    <customproperties>
+      <Option/>
+    </customproperties>
+    <layer-tree-layer checked="Qt::Checked" source="?layer=postgres:dbname%3D%27MY_QGIS_DB_NAME%27%20host%3D127.0.0.99%20port%3D5432%20authcfg%3Da15na07%20key%3D%27fid%27%20estimatedmetadata%3Dtrue%20checkPrimaryKeyUnicity%3D%271%27%20table%3D%22public%22.%22lms_devices_4_netlinks_raw_v2%22:lms_devices_4_netlinks_raw_v2:UTF-8&amp;query=SELECT%0D%0Afid,%0D%0Amakeline(makepoint(srclongitude,%20srclatitude),%20makepoint%20(dstlongitude,%20dstlatitude))%20as%20geom,%0D%0ACONCAT('LK_',%20'PE_',%20srcnamepart,%20'___',%20'PE_',%20dstnamepart)%20AS%20lk01_id_lk,%0D%0ACONCAT('PE_',%20srcnamepart)%20AS%20lk02_id_punktu_poczatkowego,%0D%0Asrclatitude%20AS%20szerokosc_punktu_poczatkowego,%0D%0Asrclongitude%20AS%20dlugosc_punktu_poczatkowego,%0D%0A''%20AS%20lk03_punkty_zalamania,%0D%0ACONCAT('PE_',%20dstnamepart)%20AS%20lk04_id_punktu_koncowego,%0D%0Adstlatitude%20AS%20szerokosc_punktu_koncowego,%0D%0Adstlongitude%20AS%20dlugosc_punktu_koncowego,%0D%0A'%C5%9Bwiat%C5%82owodowe'%20AS%20lk05_medium_transmisyjne,%0D%0A'Linia%20kablowa%20umieszczona%20w%20kanale%20technologicznym'%20AS%20lk06_rodzaj_linii_kablowej,%0D%0A'72'%20AS%20lk07_liczba_wlokien,%20%0D%0A'72'%20AS%20%20lk08_liczba_wlokien_wykorzystywanych,%0D%0A'0'%20AS%20lk09_liczba_wlokien_udostepnienia,%0D%0A'nie'%20AS%20lk10_finansowanie_publ,%0D%0A''%20AS%20lk11_numery_projektow_publ,%0D%0A'nie'%20AS%20lk12_infrastruktura_o_duzym_znaczeniu%0D%0AFROM%20lms_devices_4_netlinks_raw_v2;&amp;uid=fid&amp;geometry=geom:LineString:4326" providerKey="virtual" patch_size="-1,-1" legend_split_behavior="0" id="lms_devices_5_linie_kablowe_v2_a7dc2bdf_d76f_4e5a_9d79_40dd6ac1cb54" name="lms_devices_5_linie_kablowe_v2" expanded="1" legend_exp="">
+      <customproperties>
+        <Option type="Map">
+          <Option value="true" name="showFeatureCount" type="bool"/>
+        </Option>
+      </customproperties>
+    </layer-tree-layer>
+  </layer-tree-group>
+  <maplayers>
+    <maplayer readOnly="0" geometry="Line" simplifyMaxScale="1" maxScale="0" simplifyLocal="0" type="vector" symbologyReferenceScale="-1" simplifyDrawingTol="1" refreshOnNotifyMessage="" autoRefreshTime="0" autoRefreshEnabled="0" refreshOnNotifyEnabled="0" legendPlaceholderImage="" wkbType="LineString" minScale="100000000" styleCategories="AllStyleCategories" simplifyDrawingHints="1" hasScaleBasedVisibilityFlag="0" simplifyAlgorithm="0" labelsEnabled="0">
+      <extent>
+        <xmin>22.87350999999999956</xmin>
+        <ymin>52.98836599999999919</ymin>
+        <xmax>23.23162100000000052</xmax>
+        <ymax>53.18213599999999985</ymax>
+      </extent>
+      <wgs84extent>
+        <xmin>22.87350999999999956</xmin>
+        <ymin>52.98836599999999919</ymin>
+        <xmax>23.23162100000000052</xmax>
+        <ymax>53.18213599999999985</ymax>
+      </wgs84extent>
+      <id>lms_devices_5_linie_kablowe_v2_a7dc2bdf_d76f_4e5a_9d79_40dd6ac1cb54</id>
+      <datasource>?layer=postgres:dbname%3D%27MY_QGIS_DB_NAME%27%20host%3D127.0.0.99%20port%3D5432%20authcfg%3Da15na07%20key%3D%27fid%27%20estimatedmetadata%3Dtrue%20checkPrimaryKeyUnicity%3D%271%27%20table%3D%22public%22.%22lms_devices_4_netlinks_raw_v2%22:lms_devices_4_netlinks_raw_v2:UTF-8&amp;query=SELECT%0D%0Afid,%0D%0Amakeline(makepoint(srclongitude,%20srclatitude),%20makepoint%20(dstlongitude,%20dstlatitude))%20as%20geom,%0D%0ACONCAT('LK_',%20'PE_',%20srcnamepart,%20'___',%20'PE_',%20dstnamepart)%20AS%20lk01_id_lk,%0D%0ACONCAT('PE_',%20srcnamepart)%20AS%20lk02_id_punktu_poczatkowego,%0D%0Asrclatitude%20AS%20szerokosc_punktu_poczatkowego,%0D%0Asrclongitude%20AS%20dlugosc_punktu_poczatkowego,%0D%0A''%20AS%20lk03_punkty_zalamania,%0D%0ACONCAT('PE_',%20dstnamepart)%20AS%20lk04_id_punktu_koncowego,%0D%0Adstlatitude%20AS%20szerokosc_punktu_koncowego,%0D%0Adstlongitude%20AS%20dlugosc_punktu_koncowego,%0D%0A'%C5%9Bwiat%C5%82owodowe'%20AS%20lk05_medium_transmisyjne,%0D%0A'Linia%20kablowa%20umieszczona%20w%20kanale%20technologicznym'%20AS%20lk06_rodzaj_linii_kablowej,%0D%0A'72'%20AS%20lk07_liczba_wlokien,%20%0D%0A'72'%20AS%20%20lk08_liczba_wlokien_wykorzystywanych,%0D%0A'0'%20AS%20lk09_liczba_wlokien_udostepnienia,%0D%0A'nie'%20AS%20lk10_finansowanie_publ,%0D%0A''%20AS%20lk11_numery_projektow_publ,%0D%0A'nie'%20AS%20lk12_infrastruktura_o_duzym_znaczeniu%0D%0AFROM%20lms_devices_4_netlinks_raw_v2;&amp;uid=fid&amp;geometry=geom:LineString:4326</datasource>
+      <keywordList>
+        <value></value>
+      </keywordList>
+      <layername>lms_devices_5_linie_kablowe_v2</layername>
+      <srs>
+        <spatialrefsys nativeFormat="Wkt">
+          <wkt>GEOGCRS["WGS 84",ENSEMBLE["World Geodetic System 1984 ensemble",MEMBER["World Geodetic System 1984 (Transit)"],MEMBER["World Geodetic System 1984 (G730)"],MEMBER["World Geodetic System 1984 (G873)"],MEMBER["World Geodetic System 1984 (G1150)"],MEMBER["World Geodetic System 1984 (G1674)"],MEMBER["World Geodetic System 1984 (G1762)"],MEMBER["World Geodetic System 1984 (G2139)"],ELLIPSOID["WGS 84",6378137,298.257223563,LENGTHUNIT["metre",1]],ENSEMBLEACCURACY[2.0]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],CS[ellipsoidal,2],AXIS["geodetic latitude (Lat)",north,ORDER[1],ANGLEUNIT["degree",0.0174532925199433]],AXIS["geodetic longitude (Lon)",east,ORDER[2],ANGLEUNIT["degree",0.0174532925199433]],USAGE[SCOPE["Horizontal component of 3D system."],AREA["World."],BBOX[-90,-180,90,180]],ID["EPSG",4326]]</wkt>
+          <proj4>+proj=longlat +datum=WGS84 +no_defs</proj4>
+          <srsid>3452</srsid>
+          <srid>4326</srid>
+          <authid>EPSG:4326</authid>
+          <description>WGS 84</description>
+          <projectionacronym>longlat</projectionacronym>
+          <ellipsoidacronym>EPSG:7030</ellipsoidacronym>
+          <geographicflag>true</geographicflag>
+        </spatialrefsys>
+      </srs>
+      <resourceMetadata>
+        <identifier></identifier>
+        <parentidentifier></parentidentifier>
+        <language></language>
+        <type></type>
+        <title></title>
+        <abstract></abstract>
+        <links/>
+        <dates/>
+        <fees></fees>
+        <encoding></encoding>
+        <crs>
+          <spatialrefsys nativeFormat="Wkt">
+            <wkt></wkt>
+            <proj4></proj4>
+            <srsid>0</srsid>
+            <srid>0</srid>
+            <authid></authid>
+            <description></description>
+            <projectionacronym></projectionacronym>
+            <ellipsoidacronym></ellipsoidacronym>
+            <geographicflag>false</geographicflag>
+          </spatialrefsys>
+        </crs>
+        <extent/>
+      </resourceMetadata>
+      <provider encoding="">virtual</provider>
+      <vectorjoins/>
+      <layerDependencies/>
+      <dataDependencies/>
+      <expressionfields/>
+      <map-layer-style-manager current="default">
+        <map-layer-style name="default"/>
+      </map-layer-style-manager>
+      <auxiliaryLayer/>
+      <metadataUrls/>
+      <flags>
+        <Identifiable>1</Identifiable>
+        <Removable>1</Removable>
+        <Searchable>1</Searchable>
+        <Private>0</Private>
+      </flags>
+      <temporal startField="" limitMode="0" enabled="0" startExpression="" endExpression="" accumulate="0" durationField="" durationUnit="min" endField="" mode="0" fixedDuration="0">
+        <fixedRange>
+          <start></start>
+          <end></end>
+        </fixedRange>
+      </temporal>
+      <elevation binding="Centroid" symbology="Line" clamping="Terrain" zoffset="0" zscale="1" extrusionEnabled="0" showMarkerSymbolInSurfacePlots="0" respectLayerSymbol="1" extrusion="0" type="IndividualFeatures">
+        <data-defined-properties>
+          <Option type="Map">
+            <Option value="" name="name" type="QString"/>
+            <Option name="properties"/>
+            <Option value="collection" name="type" type="QString"/>
+          </Option>
+        </data-defined-properties>
+        <profileLineSymbol>
+          <symbol force_rhr="0" frame_rate="10" is_animated="0" alpha="1" name="" clip_to_extent="1" type="line">
+            <data_defined_properties>
+              <Option type="Map">
+                <Option value="" name="name" type="QString"/>
+                <Option name="properties"/>
+                <Option value="collection" name="type" type="QString"/>
+              </Option>
+            </data_defined_properties>
+            <layer enabled="1" pass="0" id="{839a1c1b-43e6-42d0-b56b-0b9fb265c42a}" class="SimpleLine" locked="0">
+              <Option type="Map">
+                <Option value="0" name="align_dash_pattern" type="QString"/>
+                <Option value="square" name="capstyle" type="QString"/>
+                <Option value="5;2" name="customdash" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="customdash_map_unit_scale" type="QString"/>
+                <Option value="MM" name="customdash_unit" type="QString"/>
+                <Option value="0" name="dash_pattern_offset" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="dash_pattern_offset_map_unit_scale" type="QString"/>
+                <Option value="MM" name="dash_pattern_offset_unit" type="QString"/>
+                <Option value="0" name="draw_inside_polygon" type="QString"/>
+                <Option value="bevel" name="joinstyle" type="QString"/>
+                <Option value="145,82,45,255" name="line_color" type="QString"/>
+                <Option value="solid" name="line_style" type="QString"/>
+                <Option value="0.6" name="line_width" type="QString"/>
+                <Option value="MM" name="line_width_unit" type="QString"/>
+                <Option value="0" name="offset" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="offset_map_unit_scale" type="QString"/>
+                <Option value="MM" name="offset_unit" type="QString"/>
+                <Option value="0" name="ring_filter" type="QString"/>
+                <Option value="0" name="trim_distance_end" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="trim_distance_end_map_unit_scale" type="QString"/>
+                <Option value="MM" name="trim_distance_end_unit" type="QString"/>
+                <Option value="0" name="trim_distance_start" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="trim_distance_start_map_unit_scale" type="QString"/>
+                <Option value="MM" name="trim_distance_start_unit" type="QString"/>
+                <Option value="0" name="tweak_dash_pattern_on_corners" type="QString"/>
+                <Option value="0" name="use_custom_dash" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="width_map_unit_scale" type="QString"/>
+              </Option>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option value="" name="name" type="QString"/>
+                  <Option name="properties"/>
+                  <Option value="collection" name="type" type="QString"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </profileLineSymbol>
+        <profileFillSymbol>
+          <symbol force_rhr="0" frame_rate="10" is_animated="0" alpha="1" name="" clip_to_extent="1" type="fill">
+            <data_defined_properties>
+              <Option type="Map">
+                <Option value="" name="name" type="QString"/>
+                <Option name="properties"/>
+                <Option value="collection" name="type" type="QString"/>
+              </Option>
+            </data_defined_properties>
+            <layer enabled="1" pass="0" id="{399af138-f72d-4325-8260-3654935868b3}" class="SimpleFill" locked="0">
+              <Option type="Map">
+                <Option value="3x:0,0,0,0,0,0" name="border_width_map_unit_scale" type="QString"/>
+                <Option value="145,82,45,255" name="color" type="QString"/>
+                <Option value="bevel" name="joinstyle" type="QString"/>
+                <Option value="0,0" name="offset" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="offset_map_unit_scale" type="QString"/>
+                <Option value="MM" name="offset_unit" type="QString"/>
+                <Option value="104,59,32,255" name="outline_color" type="QString"/>
+                <Option value="solid" name="outline_style" type="QString"/>
+                <Option value="0.2" name="outline_width" type="QString"/>
+                <Option value="MM" name="outline_width_unit" type="QString"/>
+                <Option value="solid" name="style" type="QString"/>
+              </Option>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option value="" name="name" type="QString"/>
+                  <Option name="properties"/>
+                  <Option value="collection" name="type" type="QString"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </profileFillSymbol>
+        <profileMarkerSymbol>
+          <symbol force_rhr="0" frame_rate="10" is_animated="0" alpha="1" name="" clip_to_extent="1" type="marker">
+            <data_defined_properties>
+              <Option type="Map">
+                <Option value="" name="name" type="QString"/>
+                <Option name="properties"/>
+                <Option value="collection" name="type" type="QString"/>
+              </Option>
+            </data_defined_properties>
+            <layer enabled="1" pass="0" id="{b09fb893-5f3a-4d4b-ab82-08ca09700a85}" class="SimpleMarker" locked="0">
+              <Option type="Map">
+                <Option value="0" name="angle" type="QString"/>
+                <Option value="square" name="cap_style" type="QString"/>
+                <Option value="145,82,45,255" name="color" type="QString"/>
+                <Option value="1" name="horizontal_anchor_point" type="QString"/>
+                <Option value="bevel" name="joinstyle" type="QString"/>
+                <Option value="diamond" name="name" type="QString"/>
+                <Option value="0,0" name="offset" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="offset_map_unit_scale" type="QString"/>
+                <Option value="MM" name="offset_unit" type="QString"/>
+                <Option value="104,59,32,255" name="outline_color" type="QString"/>
+                <Option value="solid" name="outline_style" type="QString"/>
+                <Option value="0.2" name="outline_width" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="outline_width_map_unit_scale" type="QString"/>
+                <Option value="MM" name="outline_width_unit" type="QString"/>
+                <Option value="diameter" name="scale_method" type="QString"/>
+                <Option value="3" name="size" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="size_map_unit_scale" type="QString"/>
+                <Option value="MM" name="size_unit" type="QString"/>
+                <Option value="1" name="vertical_anchor_point" type="QString"/>
+              </Option>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option value="" name="name" type="QString"/>
+                  <Option name="properties"/>
+                  <Option value="collection" name="type" type="QString"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </profileMarkerSymbol>
+      </elevation>
+      <renderer-v2 forceraster="0" enableorderby="0" referencescale="-1" symbollevels="0" type="singleSymbol">
+        <symbols>
+          <symbol force_rhr="0" frame_rate="10" is_animated="0" alpha="1" name="0" clip_to_extent="1" type="line">
+            <data_defined_properties>
+              <Option type="Map">
+                <Option value="" name="name" type="QString"/>
+                <Option name="properties"/>
+                <Option value="collection" name="type" type="QString"/>
+              </Option>
+            </data_defined_properties>
+            <layer enabled="1" pass="0" id="{45a7f42b-4702-4b22-a007-05da61d03492}" class="SimpleLine" locked="0">
+              <Option type="Map">
+                <Option value="0" name="align_dash_pattern" type="QString"/>
+                <Option value="square" name="capstyle" type="QString"/>
+                <Option value="5;2" name="customdash" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="customdash_map_unit_scale" type="QString"/>
+                <Option value="MM" name="customdash_unit" type="QString"/>
+                <Option value="0" name="dash_pattern_offset" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="dash_pattern_offset_map_unit_scale" type="QString"/>
+                <Option value="MM" name="dash_pattern_offset_unit" type="QString"/>
+                <Option value="0" name="draw_inside_polygon" type="QString"/>
+                <Option value="bevel" name="joinstyle" type="QString"/>
+                <Option value="133,182,111,255" name="line_color" type="QString"/>
+                <Option value="solid" name="line_style" type="QString"/>
+                <Option value="0.26" name="line_width" type="QString"/>
+                <Option value="MM" name="line_width_unit" type="QString"/>
+                <Option value="0" name="offset" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="offset_map_unit_scale" type="QString"/>
+                <Option value="MM" name="offset_unit" type="QString"/>
+                <Option value="0" name="ring_filter" type="QString"/>
+                <Option value="0" name="trim_distance_end" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="trim_distance_end_map_unit_scale" type="QString"/>
+                <Option value="MM" name="trim_distance_end_unit" type="QString"/>
+                <Option value="0" name="trim_distance_start" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="trim_distance_start_map_unit_scale" type="QString"/>
+                <Option value="MM" name="trim_distance_start_unit" type="QString"/>
+                <Option value="0" name="tweak_dash_pattern_on_corners" type="QString"/>
+                <Option value="0" name="use_custom_dash" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="width_map_unit_scale" type="QString"/>
+              </Option>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option value="" name="name" type="QString"/>
+                  <Option name="properties"/>
+                  <Option value="collection" name="type" type="QString"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </symbols>
+        <rotation/>
+        <sizescale/>
+      </renderer-v2>
+      <customproperties>
+        <Option type="Map">
+          <Option name="dualview/previewExpressions" type="List">
+            <Option value="&quot;lk01_id_lk&quot;" type="QString"/>
+          </Option>
+        </Option>
+      </customproperties>
+      <blendMode>0</blendMode>
+      <featureBlendMode>0</featureBlendMode>
+      <layerOpacity>1</layerOpacity>
+      <geometryOptions geometryPrecision="0" removeDuplicateNodes="0">
+        <activeChecks type="StringList">
+          <Option value="" type="QString"/>
+        </activeChecks>
+        <checkConfiguration/>
+      </geometryOptions>
+      <legend showLabelLegend="0" type="default-vector"/>
+      <referencedLayers/>
+      <fieldConfiguration>
+        <field configurationFlags="None" name="fid">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="lk01_id_lk">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="lk02_id_punktu_poczatkowego">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="szerokosc_punktu_poczatkowego">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="dlugosc_punktu_poczatkowego">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="lk03_punkty_zalamania">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="lk04_id_punktu_koncowego">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="szerokosc_punktu_koncowego">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="dlugosc_punktu_koncowego">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="lk05_medium_transmisyjne">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="lk06_rodzaj_linii_kablowej">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="lk07_liczba_wlokien">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="lk08_liczba_wlokien_wykorzystywanych">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="lk09_liczba_wlokien_udostepnienia">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="lk10_finansowanie_publ">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="lk11_numery_projektow_publ">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="lk12_infrastruktura_o_duzym_znaczeniu">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+      </fieldConfiguration>
+      <aliases>
+        <alias field="fid" name="" index="0"/>
+        <alias field="lk01_id_lk" name="" index="1"/>
+        <alias field="lk02_id_punktu_poczatkowego" name="" index="2"/>
+        <alias field="szerokosc_punktu_poczatkowego" name="" index="3"/>
+        <alias field="dlugosc_punktu_poczatkowego" name="" index="4"/>
+        <alias field="lk03_punkty_zalamania" name="" index="5"/>
+        <alias field="lk04_id_punktu_koncowego" name="" index="6"/>
+        <alias field="szerokosc_punktu_koncowego" name="" index="7"/>
+        <alias field="dlugosc_punktu_koncowego" name="" index="8"/>
+        <alias field="lk05_medium_transmisyjne" name="" index="9"/>
+        <alias field="lk06_rodzaj_linii_kablowej" name="" index="10"/>
+        <alias field="lk07_liczba_wlokien" name="" index="11"/>
+        <alias field="lk08_liczba_wlokien_wykorzystywanych" name="" index="12"/>
+        <alias field="lk09_liczba_wlokien_udostepnienia" name="" index="13"/>
+        <alias field="lk10_finansowanie_publ" name="" index="14"/>
+        <alias field="lk11_numery_projektow_publ" name="" index="15"/>
+        <alias field="lk12_infrastruktura_o_duzym_znaczeniu" name="" index="16"/>
+      </aliases>
+      <splitPolicies>
+        <policy policy="Duplicate" field="fid"/>
+        <policy policy="Duplicate" field="lk01_id_lk"/>
+        <policy policy="Duplicate" field="lk02_id_punktu_poczatkowego"/>
+        <policy policy="Duplicate" field="szerokosc_punktu_poczatkowego"/>
+        <policy policy="Duplicate" field="dlugosc_punktu_poczatkowego"/>
+        <policy policy="Duplicate" field="lk03_punkty_zalamania"/>
+        <policy policy="Duplicate" field="lk04_id_punktu_koncowego"/>
+        <policy policy="Duplicate" field="szerokosc_punktu_koncowego"/>
+        <policy policy="Duplicate" field="dlugosc_punktu_koncowego"/>
+        <policy policy="Duplicate" field="lk05_medium_transmisyjne"/>
+        <policy policy="Duplicate" field="lk06_rodzaj_linii_kablowej"/>
+        <policy policy="Duplicate" field="lk07_liczba_wlokien"/>
+        <policy policy="Duplicate" field="lk08_liczba_wlokien_wykorzystywanych"/>
+        <policy policy="Duplicate" field="lk09_liczba_wlokien_udostepnienia"/>
+        <policy policy="Duplicate" field="lk10_finansowanie_publ"/>
+        <policy policy="Duplicate" field="lk11_numery_projektow_publ"/>
+        <policy policy="Duplicate" field="lk12_infrastruktura_o_duzym_znaczeniu"/>
+      </splitPolicies>
+      <defaults>
+        <default field="fid" applyOnUpdate="0" expression=""/>
+        <default field="lk01_id_lk" applyOnUpdate="0" expression=""/>
+        <default field="lk02_id_punktu_poczatkowego" applyOnUpdate="0" expression=""/>
+        <default field="szerokosc_punktu_poczatkowego" applyOnUpdate="0" expression=""/>
+        <default field="dlugosc_punktu_poczatkowego" applyOnUpdate="0" expression=""/>
+        <default field="lk03_punkty_zalamania" applyOnUpdate="0" expression=""/>
+        <default field="lk04_id_punktu_koncowego" applyOnUpdate="0" expression=""/>
+        <default field="szerokosc_punktu_koncowego" applyOnUpdate="0" expression=""/>
+        <default field="dlugosc_punktu_koncowego" applyOnUpdate="0" expression=""/>
+        <default field="lk05_medium_transmisyjne" applyOnUpdate="0" expression=""/>
+        <default field="lk06_rodzaj_linii_kablowej" applyOnUpdate="0" expression=""/>
+        <default field="lk07_liczba_wlokien" applyOnUpdate="0" expression=""/>
+        <default field="lk08_liczba_wlokien_wykorzystywanych" applyOnUpdate="0" expression=""/>
+        <default field="lk09_liczba_wlokien_udostepnienia" applyOnUpdate="0" expression=""/>
+        <default field="lk10_finansowanie_publ" applyOnUpdate="0" expression=""/>
+        <default field="lk11_numery_projektow_publ" applyOnUpdate="0" expression=""/>
+        <default field="lk12_infrastruktura_o_duzym_znaczeniu" applyOnUpdate="0" expression=""/>
+      </defaults>
+      <constraints>
+        <constraint field="fid" unique_strength="0" notnull_strength="0" exp_strength="0" constraints="0"/>
+        <constraint field="lk01_id_lk" unique_strength="0" notnull_strength="0" exp_strength="0" constraints="0"/>
+        <constraint field="lk02_id_punktu_poczatkowego" unique_strength="0" notnull_strength="0" exp_strength="0" constraints="0"/>
+        <constraint field="szerokosc_punktu_poczatkowego" unique_strength="0" notnull_strength="0" exp_strength="0" constraints="0"/>
+        <constraint field="dlugosc_punktu_poczatkowego" unique_strength="0" notnull_strength="0" exp_strength="0" constraints="0"/>
+        <constraint field="lk03_punkty_zalamania" unique_strength="0" notnull_strength="0" exp_strength="0" constraints="0"/>
+        <constraint field="lk04_id_punktu_koncowego" unique_strength="0" notnull_strength="0" exp_strength="0" constraints="0"/>
+        <constraint field="szerokosc_punktu_koncowego" unique_strength="0" notnull_strength="0" exp_strength="0" constraints="0"/>
+        <constraint field="dlugosc_punktu_koncowego" unique_strength="0" notnull_strength="0" exp_strength="0" constraints="0"/>
+        <constraint field="lk05_medium_transmisyjne" unique_strength="0" notnull_strength="0" exp_strength="0" constraints="0"/>
+        <constraint field="lk06_rodzaj_linii_kablowej" unique_strength="0" notnull_strength="0" exp_strength="0" constraints="0"/>
+        <constraint field="lk07_liczba_wlokien" unique_strength="0" notnull_strength="0" exp_strength="0" constraints="0"/>
+        <constraint field="lk08_liczba_wlokien_wykorzystywanych" unique_strength="0" notnull_strength="0" exp_strength="0" constraints="0"/>
+        <constraint field="lk09_liczba_wlokien_udostepnienia" unique_strength="0" notnull_strength="0" exp_strength="0" constraints="0"/>
+        <constraint field="lk10_finansowanie_publ" unique_strength="0" notnull_strength="0" exp_strength="0" constraints="0"/>
+        <constraint field="lk11_numery_projektow_publ" unique_strength="0" notnull_strength="0" exp_strength="0" constraints="0"/>
+        <constraint field="lk12_infrastruktura_o_duzym_znaczeniu" unique_strength="0" notnull_strength="0" exp_strength="0" constraints="0"/>
+      </constraints>
+      <constraintExpressions>
+        <constraint field="fid" desc="" exp=""/>
+        <constraint field="lk01_id_lk" desc="" exp=""/>
+        <constraint field="lk02_id_punktu_poczatkowego" desc="" exp=""/>
+        <constraint field="szerokosc_punktu_poczatkowego" desc="" exp=""/>
+        <constraint field="dlugosc_punktu_poczatkowego" desc="" exp=""/>
+        <constraint field="lk03_punkty_zalamania" desc="" exp=""/>
+        <constraint field="lk04_id_punktu_koncowego" desc="" exp=""/>
+        <constraint field="szerokosc_punktu_koncowego" desc="" exp=""/>
+        <constraint field="dlugosc_punktu_koncowego" desc="" exp=""/>
+        <constraint field="lk05_medium_transmisyjne" desc="" exp=""/>
+        <constraint field="lk06_rodzaj_linii_kablowej" desc="" exp=""/>
+        <constraint field="lk07_liczba_wlokien" desc="" exp=""/>
+        <constraint field="lk08_liczba_wlokien_wykorzystywanych" desc="" exp=""/>
+        <constraint field="lk09_liczba_wlokien_udostepnienia" desc="" exp=""/>
+        <constraint field="lk10_finansowanie_publ" desc="" exp=""/>
+        <constraint field="lk11_numery_projektow_publ" desc="" exp=""/>
+        <constraint field="lk12_infrastruktura_o_duzym_znaczeniu" desc="" exp=""/>
+      </constraintExpressions>
+      <expressionfields/>
+      <attributeactions>
+        <defaultAction key="Canvas" value="{00000000-0000-0000-0000-000000000000}"/>
+      </attributeactions>
+      <attributetableconfig sortExpression="" sortOrder="0" actionWidgetStyle="dropDown">
+        <columns>
+          <column hidden="0" name="fid" width="-1" type="field"/>
+          <column hidden="0" name="lk01_id_lk" width="264" type="field"/>
+          <column hidden="0" name="lk02_id_punktu_poczatkowego" width="-1" type="field"/>
+          <column hidden="0" name="lk04_id_punktu_koncowego" width="-1" type="field"/>
+          <column hidden="0" name="lk05_medium_transmisyjne" width="-1" type="field"/>
+          <column hidden="0" name="lk06_rodzaj_linii_kablowej" width="-1" type="field"/>
+          <column hidden="0" name="lk07_liczba_wlokien" width="-1" type="field"/>
+          <column hidden="0" name="lk08_liczba_wlokien_wykorzystywanych" width="-1" type="field"/>
+          <column hidden="0" name="lk09_liczba_wlokien_udostepnienia" width="-1" type="field"/>
+          <column hidden="0" name="lk10_finansowanie_publ" width="-1" type="field"/>
+          <column hidden="0" name="lk11_numery_projektow_publ" width="-1" type="field"/>
+          <column hidden="0" name="lk12_infrastruktura_o_duzym_znaczeniu" width="-1" type="field"/>
+          <column hidden="1" width="-1" type="actions"/>
+        </columns>
+      </attributetableconfig>
+      <conditionalstyles>
+        <rowstyles/>
+        <fieldstyles/>
+      </conditionalstyles>
+      <storedexpressions/>
+      <editform tolerant="1"></editform>
+      <editforminit/>
+      <editforminitcodesource>0</editforminitcodesource>
+      <editforminitfilepath></editforminitfilepath>
+      <editforminitcode><![CDATA[]]></editforminitcode>
+      <featformsuppress>0</featformsuppress>
+      <editorlayout>generatedlayout</editorlayout>
+      <editable/>
+      <labelOnTop/>
+      <reuseLastValue/>
+      <dataDefinedFieldProperties/>
+      <widgets/>
+      <previewExpression>"lk01_id_lk"</previewExpression>
+      <mapTip></mapTip>
+    </maplayer>
+  </maplayers>
+</qlr>
