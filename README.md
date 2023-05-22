@@ -84,3 +84,9 @@ Projekt do otwarcia w QGIS-ie i dalszej zabawy [znajduje się tutaj](https://git
 Mam nadzieję że komuś się te informacje przydadzą.  
 
 Pozdrawiam i powodzenia! :]  
+
+-----------------------------------------------------------------------------------------------------------------------
+  
+  
+  
+English version soon to come...
