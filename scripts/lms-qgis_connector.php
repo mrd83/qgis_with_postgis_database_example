@@ -51,7 +51,7 @@ $parameters = array(
     'help' => 'h',
 #    'initial_run' => 'i',
 #    'update' => 'u',
-#    'minimal_logging' => 'm',
+    'full_logging' => 'f',
 );
 
 $long_to_shorts = array();
@@ -92,6 +92,7 @@ lms-sidusis_update_netranges.php
 
 -C, --config-file=/etc/lms/lms.ini      alternate config file (default: /etc/lms/lms.ini).
 -h, --help                              print this help and exit.
+-f, --full_logging                      Creates logfile in script directory.
 
 EOF;
     exit(0);
@@ -140,19 +141,18 @@ if ($dbtype == 'postgres') {
 } else {
     die("Fatal error: unsupported DB type! Only postgresql DB is supported! Exiting...\n" . PHP_EOL);
 }
-
+$full_logging = false;
 # check user vars
-#if (!$i_updated_my_vars) {
-#    die("Fatal error: User variables not set! Check readme file! Exiting...\n" . PHP_EOL);
-#}
-
+if (array_key_exists('full_logging', $options)) {
+    $full_logging = array_key_exists('full_logging', $options);
+}
 
 // Init database
 $DB = null;
 
 try {
     $DB = LMSDB::getInstance();
-    echo "Connection to LMS DB successful.\n\n";
+    echo "Connection to LMS DB successful.\n";
 } catch (Exception $ex) {
     trigger_error($ex->getMessage(), E_USER_WARNING);
     // can't work without database
@@ -170,13 +170,20 @@ $LMS = new LMS($DB, $AUTH, $SYSLOG);
 $qgis_db_connection = pg_connect("host = '$qgisdbhost' dbname = '$qgisdatabase' user = '$qgisdbuser' password = '$qgisdbpassword'");
 $sql = pg_fetch_assoc(pg_query($qgis_db_connection,"SELECT version();"));
 if (!empty($sql)) {
-    echo "Connection to QGIS DB successful. Found version: {$sql['version']} \n\n";
+    echo "Connection to QGIS DB successful. Found version: {$sql['version']} \n";
 } else {
     die("Fatal error: cannot connect to QGIS database!" . PHP_EOL);
 }
 
+# create and open log file
+if ($full_logging === true) {
+    echo "Full log parameter found. Proceeding with full logging...\n\n";
+    $LOGFILE = fopen("lms-qgis_connector.log", "w"); # modes: w - overwrite existing, a - append to existing
+}
+
 $distinct_addresspoints_array = array();
 $main_services_in_addresses_array = array();
+$logdata = "";
 
 ##### MAIN
 # [did you also start learning programming with the C language? MAIN rules! xD]
@@ -184,10 +191,13 @@ get_distinct_addresspoints();
 parse_addresspoints();
 update_qgis();
 
-
+if ($full_logging === true) {
+    fwrite($LOGFILE, $logdata);
+    fclose($LOGFILE);
+}
 ##### end of MAIN
 function get_distinct_addresspoints() : array {
-    global $DB, $distinct_addresspoints_array;
+    global $DB, $distinct_addresspoints_array, $logdata;
 
     $distinct_addresspoints_query = "WITH mymainquery AS 
     (
@@ -231,14 +241,17 @@ function get_distinct_addresspoints() : array {
     $distinct_addresspoints_array = $DB->GetAll($distinct_addresspoints_query, array());
     #var_dump($distinct_addresspoints_array);
 
-    echo "Successfully fetched " . count($distinct_addresspoints_array) . " distinct address points. Proceeding...\n";
+    echo "Successfully fetched " . count($distinct_addresspoints_array) . " distinct address points. Proceeding...\n\n";
+    $logdata .= "Successfully fetched " . count($distinct_addresspoints_array) . " distinct address points. Proceeding...\n\n";
     return array();
 }
 
 function parse_addresspoints() : array {
-    global $DB, $distinct_addresspoints_array, $main_services_in_addresses_array;
+    global $DB, $distinct_addresspoints_array, $main_services_in_addresses_array, $LOGFILE, $logdata;
     $today = strtotime('today');
     $tmpcounter = 0;
+    $addresspoints_counter = 0;
+    $services_counter = 0;
 
     foreach ($distinct_addresspoints_array as $current_address) {
         # let's try to find other devices @ that address and/or at the sam coordinates:
@@ -315,7 +328,7 @@ function parse_addresspoints() : array {
                     #echo $temp['lms_dev_id'] . " <---ID\n";
                     $temporary_dev_id_string .= ", " . $temp['lms_dev_id'];
                 }
-                $tmpcounter += count($other_devices);
+                #$tmpcounter += count($other_devices);
             } else {
                 #echo "\n\nNO OTHER DEVICES at the same address point! Current dev: " .  $current_lms_dev_id . " name: " . $current_nodename['name'] . "\n";
                 $temporary_other_devices_array[] = $current_address;
@@ -360,8 +373,9 @@ function parse_addresspoints() : array {
         foreach ($distinct_customers_at_address as $customer) {
             $has_phones = false;
             $has_tv = false;
-            $netspeed = getClosest($customer['downceil']/1024);
-            if ($netspeed != 0) {
+            $netspeed = getClosest($customer['downceil']/1024, "value");
+            $netspeed_key = getClosest($customer['downceil']/1024, "key");
+            if ($netspeed !== 0) {
                 # check if customer has phones:
                 $customers_phones = $DB->GetAll($check_customers_phones_query, array(($today - 86400), ($today + 86400), $customer['ownerid']));
                 if (!empty($customers_phones)) {
@@ -381,40 +395,52 @@ function parse_addresspoints() : array {
                 $current_ua18_telewizja_cyfrowa = "";
                 $current_ua20_usluga_telefoniczna = "";
                 $current_ua21_predkosc_uslugi_td = "";
-                if ($has_tv == true AND $has_phones = true) {
-                    $current_ua15_identyfikacja_uslugi = "Internet_" . $netspeed . "_Telewizja_Telefon";
+                if ($has_tv AND $has_phones) {
+                    $current_ua15_identyfikacja_uslugi = "Internet_" . $netspeed . "Mbs_Telewizja_Telefon_" . $current_common_namepart;
                     $current_ua18_telewizja_cyfrowa = "tak";
                     $current_ua20_usluga_telefoniczna = "tak";
-                } elseif ($has_tv == true AND $has_phones = false) {
-                    $current_ua15_identyfikacja_uslugi = "Internet_" . $netspeed . "_Telewizja";
+                } elseif ($has_tv AND !$has_phones) {
+                    $current_ua15_identyfikacja_uslugi = "Internet_" . $netspeed . "Mbs_Telewizja_" . $current_common_namepart;
                     $current_ua18_telewizja_cyfrowa = "tak";
                     $current_ua20_usluga_telefoniczna = "nie";
-                } elseif ($has_tv == false AND $has_phones = true) {
-                    $current_ua15_identyfikacja_uslugi = "Internet_" . $netspeed . "_Telefon";
+                } elseif (!$has_tv AND $has_phones) {
+                    $current_ua15_identyfikacja_uslugi = "Internet_" . $netspeed . "Mbs_Telefon_" . $current_common_namepart;
                     $current_ua18_telewizja_cyfrowa = "nie";
                     $current_ua20_usluga_telefoniczna = "tak";
                 } else {
                     # net only
-                    $current_ua15_identyfikacja_uslugi = "Internet_" . $netspeed;
+                    $current_ua15_identyfikacja_uslugi = "Internet_" . $netspeed . "Mbs_" . $current_common_namepart;
                     $current_ua18_telewizja_cyfrowa = "nie";
                     $current_ua20_usluga_telefoniczna = "nie";
                 }
-                $current_ua21_predkosc_uslugi_td = $netspeed;
+                $current_ua21_predkosc_uslugi_td = $netspeed_key;
                 $current_ua22_liczba_uzytkownikow_uslugi_td = 1;
 
                 # Looking for $current_ua15_identyfikacja_uslugi value in my array:
-                $search_for_id = array_search($current_ua15_identyfikacja_uslugi, array_column($temporary_services_in_addresses_array, 'ua15_identyfikacja_uslugi'));
+                $search_for_id_in_tmp = array_search($current_ua15_identyfikacja_uslugi, array_column($temporary_services_in_addresses_array, 'ua15_identyfikacja_uslugi'));
+                $search_for_id_in_main = array_search($current_ua15_identyfikacja_uslugi, array_column($main_services_in_addresses_array, 'ua15_identyfikacja_uslugi'));
 
-                if (!empty($search_for_id)) {
-                    #echo "Found existing entry: " . $current_ua15_identyfikacja_uslugi . " in an array at key: " . $search_for_id . "\n";
-                    $temporary_services_in_addresses_array[$search_for_id]['ua22_liczba_uzytkownikow_uslugi_td'] += 1;
-                    #var_dump($temporary_services_in_addresses_array[$search_for_id]);
+                if ($search_for_id_in_tmp !== false) {
+                    echo "Found an existing entry in temporary array: " . $current_ua15_identyfikacja_uslugi . " at key: " . $search_for_id_in_tmp . "\n";
+                    $logdata .= "Found an existing entry in temporary array: " . $current_ua15_identyfikacja_uslugi . " at key: " . $search_for_id_in_tmp . "\n";
+                    $temporary_services_in_addresses_array[$search_for_id_in_tmp]['ua22_liczba_uzytkownikow_uslugi_td']++;
+                    $services_counter++;
+                    #var_dump($temporary_services_in_addresses_array);
+                } elseif ($search_for_id_in_main !== false) {
+                    echo "Found an existing entry in MAIN array: " . $current_ua15_identyfikacja_uslugi . " at key: " . $search_for_id_in_main . "\n";
+                    $logdata .= "Found an existing entry in MAIN array: " . $current_ua15_identyfikacja_uslugi . " at key: " . $search_for_id_in_main . "\n";
+                    $main_services_in_addresses_array[$search_for_id_in_main]['ua22_liczba_uzytkownikow_uslugi_td']++;
+                    $services_counter++;
                 } else {
+                    echo "No existing entry found: " . $current_ua15_identyfikacja_uslugi . ", adding...\n";
+                    $logdata .= "No existing entry found: " . $current_ua15_identyfikacja_uslugi . ", adding...\n";
+                    $addresspoints_counter++;
+                    $services_counter++;
                     $temporary_services_in_addresses_array[] = array(
                         "common_namepart" => $current_common_namepart,
                         "ua01_id_punktu_adresowego" => "UA_" . $current_common_namepart . "_" . $current_ua15_identyfikacja_uslugi,
                         "ua02_id_pe" => "PE_" . $current_common_namepart,
-                        "ua03_id_po" => "",
+                        "ua03_id_po" => NULL,
                         "ua04_terc" => $current_terc,
                         "ua05_simc" => $current_simc,
                         "ua06_ulic" => $current_ulic,
@@ -424,8 +450,8 @@ function parse_addresspoints() : array {
                         "ua10_medium_dochodzace_do_pa" => "kablowe parowe miedziane",
                         "ua11_technologia_dostepowa" => $current_ua11_technologia_dostepowa,
                         "ua12_instalacja_telekom" => "W budynku sprawozdawca nie posiada instalacji telekomunikacyjnej budynku",
-                        "ua13_medium_instalacji_budynku" => "",
-                        "ua14_technologia_dostepowa" => "",
+                        "ua13_medium_instalacji_budynku" => NULL,
+                        "ua14_technologia_dostepowa" => NULL,
                         "ua15_identyfikacja_uslugi" => $current_ua15_identyfikacja_uslugi,
                         "ua16_dostep_stacjonarny" => "tak",
                         "ua17_dostep_stacjonarny_bezprzewodowy" => "nie",
@@ -439,21 +465,26 @@ function parse_addresspoints() : array {
             }
         }
         echo "Address point " . $current_common_namepart . " done. Proceeding...\n";
+        $logdata .= "Address point " . $current_common_namepart . " done. Proceeding...\n";
         $main_services_in_addresses_array = array_merge($main_services_in_addresses_array, $temporary_services_in_addresses_array);
         #var_dump($temporary_services_in_addresses_array);
         #break;
     }
     #echo "\n\n\n Number of additional devices: " . $tmpcounter . "\n";
+    echo "\n\nData preparation done! Got " . $addresspoints_counter . " address points with " . $services_counter . " services in them. Lets update QGIS...\n\n";
+    $logdata .= "\n\nData preparation done! Got " . $addresspoints_counter . " address points with " . $services_counter . " services in them. Lets update QGIS...\n\n";
     #var_dump($main_services_in_addresses_array);
-    echo "Data preparation done! Lets update QGIS...\n";
     return array();
 }
 
 function update_qgis() : int {
-    global $qgis_db_connection, $main_services_in_addresses_array;
+    global $qgis_db_connection, $main_services_in_addresses_array, $logdata;
+    $updated_addresspoints_counter = 0;
+    $updated_services_counter = 0;
 
-    echo "Starting QGIS update...\n";
-    foreach ($main_services_in_addresses_array as $single_servicepoint) {
+    echo "Starting QGIS update...\n\n";
+    $logdata .= "Starting QGIS update...\n\n";
+    foreach ($main_services_in_addresses_array as $single_servicepoint_key => $single_servicepoint) {
         # 1. Let's check if required main PE exists. If technology in current $single_servicepoint is GPON - we have to check for PE's only (for now)
         $pe_candidate = $single_servicepoint['ua02_id_pe'];
         $current_technology = $single_servicepoint['ua11_technologia_dostepowa'];
@@ -462,32 +493,36 @@ function update_qgis() : int {
         #var_dump($pe_check);
         if (!empty($pe_check)) {
             echo "Main PE found: " . $pe_check['pe01_id_pe'] . "\n";
+            $logdata .= "Main PE found: " . $pe_check['pe01_id_pe'] . "\n";
             if (!empty($pe_check['pe03_id_wezla'])) {
                 # Looks like main node is present. Lets see if the name is right:
                 if ($pe_check['pe03_id_wezla'] == "WW_" . $single_servicepoint['common_namepart']) {
                     echo "Main WW name found in PE table: " . $pe_check['pe03_id_wezla'] . "\n";
+                    $logdata .= "Main WW name found in PE table: " . $pe_check['pe03_id_wezla'] . "\n";
                     # Now let's look for main and virtual nodes in the WW table:
                     $main_ww_name = "WW_" . $single_servicepoint['common_namepart'];
                     $main_ww_check_query = pg_query($qgis_db_connection,"SELECT * FROM wezly_base WHERE we01_id_wezla = '$main_ww_name';");
                     $main_ww_check = pg_fetch_assoc($main_ww_check_query);
                     if (!empty($main_ww_check)) {
                         echo "Main WW found in WW table: " . $main_ww_name . "\n";
-
+                        $logdata .= "Main WW found in WW table: " . $main_ww_name . "\n";
                     } else {
                         echo "No main WW. We're probably gonna have to create it here:\n";
-                    /*
-                     *
-                     *
-                     *
-                     *
-                     */
+                        $logdata .= "No main WW. We're probably gonna have to create it here:\n";
+                        /*
+                         *
+                         *
+                         *
+                         *
+                         */
 
                     }
                     # Here we'll check what technology do we have. For GPON we'll have to change the technology in PE and see that there's WW at THE MAIN DEVICE's LOCATION
                     # For ethernet we have to create 2nd (virtual) WW:
                     if ($current_technology == "GPON") {
                         # check and update PE's technology, and then look for the main device location to create WW there
-                        echo "";
+                        echo "\n\n\nFound GPON technology! At this moment it's an error!\n\n\n";
+                        $logdata .= "\n\n\nFound GPON technology! At this moment it's an error!\n\n\n";
                     } elseif ($current_technology == "1 Gigabit Ethernet") {
                         # Let's look for a virtual WW (since we already checked for MAIN one):
                         $virtual_ww_name_candidate = "WW_" . $single_servicepoint['common_namepart'] . "_virtual_1_Gigabit_Ethernet";
@@ -495,6 +530,7 @@ function update_qgis() : int {
                         $virtual_ww_check = pg_fetch_assoc($virtual_ww_check_query);
                         if (empty($virtual_ww_check)) {
                             echo "No virtual WW found, proceeding with insert: " . $virtual_ww_name_candidate . "\n";
+                            $logdata .= "No virtual WW found, proceeding with insert: " . $virtual_ww_name_candidate . "\n";
                             # Prepare data for insert to WW table:
                             $common_namepart = $single_servicepoint['common_namepart'];
                             $medium = $single_servicepoint['ua10_medium_dochodzace_do_pa'];
@@ -511,78 +547,104 @@ function update_qgis() : int {
                                     {$single_servicepoint['ua09_dlugosc']}, '$medium', 'nie', '$technologia', 'Ethernet VLAN', 'nie', 'nie', '', 'nie', '02', 'tak')
                                     RETURNING fid");
                             if (!empty($virtual_ww_insert_query)) {
-                                echo "Looks like a successful insert, proceeding.\n";
+                                echo "Looks like a successful insert, proceeding.\n\n";
+                                $logdata .= "Looks like a successful insert, proceeding.\n\n";
                             } else {
-                                echo "Error on db insert to WW table! Exiting!\n";
-                                exit("Error on db insert to WW table!");
+                                exit("Error on db insert to WW table! Exiting...\n");
                             }
+                        } else {
+                            echo "Virtual WW found: " . $virtual_ww_name_candidate . ", array key: " . $single_servicepoint_key . " Proceeding.\n";
+                            $logdata .= "Virtual WW found: " . $virtual_ww_name_candidate . ", array key: " . $single_servicepoint_key . " Proceeding.\n";
                         }
-                        if (!empty($virtual_ww_check)) {
-                            # Since virtual WW is present we can proceed to insert our data:
-                            $ua01_id_punktu_adresowego_candidate = $single_servicepoint['ua01_id_punktu_adresowego'];
-                            $existing_ua_check_query = pg_query($qgis_db_connection,"SELECT * FROM uslugi_w_adresach_base WHERE ua01_id_punktu_adresowego = '$ua01_id_punktu_adresowego_candidate';");
-                            $existing_ua_check = pg_fetch_assoc($existing_ua_check_query);
-                            echo "Virtual ww found, cheking for ua candidate: " . $ua01_id_punktu_adresowego_candidate . "\n";
-                            $common_namepart = $single_servicepoint['common_namepart'];
-                            $id_pe = $single_servicepoint['ua02_id_pe'];
-                            $medium = $single_servicepoint['ua10_medium_dochodzace_do_pa'];
-                            $technologia = $single_servicepoint['ua11_technologia_dostepowa'];
-                            $id_uslugi = $single_servicepoint['ua15_identyfikacja_uslugi'];
-                            $tv = $single_servicepoint['ua18_telewizja_cyfrowa'];
-                            $telefon = $single_servicepoint['ua20_usluga_telefoniczna'];
-                            $ua_12_instalacja = $single_servicepoint['ua12_instalacja_telekom'];
-                            $terc = $single_servicepoint['ua04_terc'];
-                            $simc = $single_servicepoint['ua05_simc'];
-                            $ulic = $single_servicepoint['ua06_ulic'];
-                            $nr_domu = $single_servicepoint['ua07_nr_porzadkowy'];
 
-                            if (empty($existing_ua_check)) {
-                                # No candidate ua name in db
-                                echo "No UA found in the table: " . $ua01_id_punktu_adresowego_candidate . "Proceeding with db update...\n";
-                                $ua_insert_query = pg_query($qgis_db_connection,"INSERT INTO uslugi_w_adresach_base (geom, common_namepart, ua01_id_punktu_adresowego, ua02_id_pe, 
-                                    ua03_id_po, ua04_terc, ua05_simc, ua06_ulic, ua07_nr_porzadkowy, ua08_szerokosc, ua09_dlugosc, ua10_medium_dochodzace_do_pa, ua11_technologia_dostepowa, 
-                                    ua12_instalacja_telekom, ua13_medium_instalacji_budynku, ua14_technologia_dostepowa, ua15_identyfikacja_uslugi, ua16_dostep_stacjonarny, 
-                                    ua17_dostep_stacjonarny_bezprzewodowy, ua18_telewizja_cyfrowa, ua19_radio, ua20_usluga_telefoniczna, ua21_predkosc_uslugi_td, ua22_liczba_uzytkownikow_uslugi_td)
-                                    VALUES (st_point({$single_servicepoint['ua09_dlugosc']}, {$single_servicepoint['ua08_szerokosc']}, 4326), '$common_namepart', '$ua01_id_punktu_adresowego_candidate', '$id_pe', '', 
-                                    '$terc', '$simc', '$ulic', '$nr_domu', 
-                                    {$single_servicepoint['ua08_szerokosc']}, {$single_servicepoint['ua09_dlugosc']}, '$medium', '$technologia', '$ua_12_instalacja', '', '', '$id_uslugi', 'tak', 'nie', '$tv', 
-                                    'nie', '$telefon', {$single_servicepoint['ua21_predkosc_uslugi_td']}, {$single_servicepoint['ua22_liczba_uzytkownikow_uslugi_td']})
-                                    RETURNING fid");
-                                if (!empty($ua_insert_query)) {
-                                    echo "Looks like a successful insert, proceeding\n";
-                                } else {
-                                    echo "Error on db insert to UA table! Exiting!";
-                                    exit("Error on db insert to UA table!");
-                                }
+                        # Since virtual WW is present we can proceed to insert our data:
+                        $ua01_id_punktu_adresowego_candidate = $single_servicepoint['ua01_id_punktu_adresowego'];
+                        $existing_ua_check_query = pg_query($qgis_db_connection,"SELECT * FROM uslugi_w_adresach_base WHERE ua01_id_punktu_adresowego = '$ua01_id_punktu_adresowego_candidate';");
+                        $existing_ua_check = pg_fetch_assoc($existing_ua_check_query);
+                        echo "Checking for existing UA candidate in db: " . $ua01_id_punktu_adresowego_candidate . ", array key: " . $single_servicepoint_key . " \n";
+                        $logdata .= "Checking for existing UA candidate in db: " . $ua01_id_punktu_adresowego_candidate . ", array key: " . $single_servicepoint_key . " \n";
+
+                        $common_namepart = $single_servicepoint['common_namepart'];
+                        $id_pe = $single_servicepoint['ua02_id_pe'];
+                        $ua03_id_po = $single_servicepoint['ua03_id_po'];
+                        $terc = $single_servicepoint['ua04_terc'];
+                        $simc = $single_servicepoint['ua05_simc'];
+                        $ulic = $single_servicepoint['ua06_ulic'];
+                        $nr_domu = $single_servicepoint['ua07_nr_porzadkowy'];
+                        $medium = $single_servicepoint['ua10_medium_dochodzace_do_pa'];
+                        $technologia = $single_servicepoint['ua11_technologia_dostepowa'];
+                        $ua_12_instalacja = $single_servicepoint['ua12_instalacja_telekom'];
+                        $ua13_medium = $single_servicepoint['ua13_medium_instalacji_budynku'];
+                        $ua14_technologia = $single_servicepoint['ua14_technologia_dostepowa'];
+                        $id_uslugi = $single_servicepoint['ua15_identyfikacja_uslugi'];
+                        $tv = $single_servicepoint['ua18_telewizja_cyfrowa'];
+                        $telefon = $single_servicepoint['ua20_usluga_telefoniczna'];
+                        $ua21_predkosc_uslugi = $single_servicepoint['ua21_predkosc_uslugi_td'];
+                        $ua22_liczba_uzytkownikow_uslugi = $single_servicepoint['ua22_liczba_uzytkownikow_uslugi_td'];
+
+                        if (empty($existing_ua_check)) {
+                            # No candidate UA name found in db
+                            $updated_addresspoints_counter++;
+                            $updated_services_counter += $ua22_liczba_uzytkownikow_uslugi;
+
+                            echo "No UA found in the table: " . $ua01_id_punktu_adresowego_candidate . ", array key: " . $single_servicepoint_key . " Proceeding with db update...\n";
+                            $logdata .= "No UA found in the table: " . $ua01_id_punktu_adresowego_candidate . ", array key: " . $single_servicepoint_key . " Proceeding with db update...\n";
+                            $ua_insert_query = pg_query($qgis_db_connection,"INSERT INTO uslugi_w_adresach_base (geom, common_namepart, ua01_id_punktu_adresowego, ua02_id_pe, 
+                                ua03_id_po, ua04_terc, ua05_simc, ua06_ulic, ua07_nr_porzadkowy, ua08_szerokosc, ua09_dlugosc, ua10_medium_dochodzace_do_pa, ua11_technologia_dostepowa, 
+                                ua12_instalacja_telekom, ua13_medium_instalacji_budynku, ua14_technologia_dostepowa, ua15_identyfikacja_uslugi, ua16_dostep_stacjonarny, 
+                                ua17_dostep_stacjonarny_bezprzewodowy, ua18_telewizja_cyfrowa, ua19_radio, ua20_usluga_telefoniczna, ua21_predkosc_uslugi_td, ua22_liczba_uzytkownikow_uslugi_td)
+                                VALUES (st_point({$single_servicepoint['ua09_dlugosc']}, {$single_servicepoint['ua08_szerokosc']}, 4326), '$common_namepart', '$ua01_id_punktu_adresowego_candidate', 
+                                        '$id_pe', '$ua03_id_po', '$terc', '$simc', '$ulic', '$nr_domu', {$single_servicepoint['ua08_szerokosc']}, {$single_servicepoint['ua09_dlugosc']}, '$medium', 
+                                        '$technologia', '$ua_12_instalacja', '$ua13_medium', '$ua14_technologia', '$id_uslugi', 'tak', 'nie', '$tv', 'nie', '$telefon', '$ua21_predkosc_uslugi', 
+                                        '$ua22_liczba_uzytkownikow_uslugi')
+                                RETURNING fid");
+                            if (!empty($ua_insert_query)) {
+                                echo "Looks like a successful insert, proceeding\n\n";
+                                $logdata .= "Looks like a successful insert, proceeding\n\n";
                             } else {
-                                echo "UA found in the db: " . $ua01_id_punktu_adresowego_candidate . "Proceeding...\n\n";
+                                exit("Error on db insert to UA table! Exiting...\n");
                             }
+                        } else {
+                            echo "UA found in the db: " . $ua01_id_punktu_adresowego_candidate . ", array key: " . $single_servicepoint_key . " Proceeding...\n\n";
+                            $logdata .= "UA found in the db: " . $ua01_id_punktu_adresowego_candidate . ", array key: " . $single_servicepoint_key . " Proceeding...\n\n";
                         }
                     }
                 } else {
                     # There's something present in PE table, but the name is wrong. For now let's just log it:
-                    echo "Wrong WW name in PE table. PE: " . $pe_check['pe01_id_pe'] . ", fid: " . $pe_check['fid'] . ", got WW: " . $pe_check['pe03_id_wezla'];
-
+                    echo "Wrong WW name in PE table. PE: " . $pe_check['pe01_id_pe'] . ", fid: " . $pe_check['fid'] . ", got WW: " . $pe_check['pe03_id_wezla'] . "\n";
+                    $logdata .= "\n\n\nWrong WW name in PE table. PE: " . $pe_check['pe01_id_pe'] . ", fid: " . $pe_check['fid'] . ", got WW: " . $pe_check['pe03_id_wezla'] . "\n\n\n";
                 }
-
             }
-
         } else {
-            echo "cry...^^";
-
+            echo "\n\n\nMatching PE NOT FOUND!!!! " . $pe_candidate . " should exist!!! Looks lik a major problem!\n\n\n";
+            $logdata .= "\n\n\nMatching PE NOT FOUND!!!! " . $pe_candidate . " should exist!!! Looks lik a major problem!\n\n\n";
         }
-
     }
-
+    echo "Done with QGIS db update! Got " . $updated_addresspoints_counter . " new address points and " . $updated_services_counter . " new services in them. Closing...\n\n";
+    $logdata .= "Done with QGIS db update! Got " . $updated_addresspoints_counter . " new address points and " . $updated_services_counter . " new services in them. Closing...\n\n";
     return 0;
 }
-function getClosest($search) {
-    $arr = array(2, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 2000, 3000, 4000, 5000);
+
+#$netspeed = getClosest(1024, "value");
+#$netspeed_key = getClosest(1024, "key");
+#echo $netspeed . "   " . $netspeed_key . "\n";
+function getClosest($search, $key_or_value) {
+    $arr = array("01" => 2, "02" => 10, "03" => 20, "04" => 30, "05" => 40, "06" => 50, "07" => 60, "08" => 70, "09" => "80", "10" => 90, "11" => 100,
+        "12" => 200, "13" => 300, "14" => 400, "15" => 500, "16" => 600, "17" => 700, "18" => 800, "19" => 900, "20" => 1000, "21" => 2000, "22" => 3000,
+        "23" => 4000, "24" => 5000, "25" => 6000, "26" => 7000, "27" => 8000, "28" => 9000, "29" => 10000);
     $closest = null;
-    foreach ($arr as $item) {
+    $closestkey = null;
+    foreach ($arr as $key => $item) {
         if ($closest === null || abs($search - $closest) > abs($item - $search)) {
             $closest = $item;
+            $closestkey = $key;
         }
     }
-    return $closest;
+    if ($key_or_value == "key") {
+        return $closestkey;
+    } elseif ($key_or_value == "value") {
+        return $closest;
+    } else {
+        exit("Fatal error: wrong variable passed to getClosest function! Exiting...\n");
+    }
 }
